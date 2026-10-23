@@ -4,7 +4,9 @@ Six datasets, one evidence-grounded gait benchmark: ASD-Kinect, ATAXIA, CARE-PD,
 
 This release accompanies the WACV 2027 camera-ready preparation. The research question, same-feature baseline design, adaptation ladder, and scoped ATAXIA–PATHOGAIT transfer conclusion are retained from the accepted version.
 
-Project website source: `website/dist/`, mirrored under `docs/` for GitHub Pages. Hosting activation is tracked separately from the paper preparation.
+Project website: https://ykyhaha.github.io/GaitEval-v2/
+
+Website source: `website/dist/`, mirrored under `docs/` and published from `main:/docs`. Deployment and verification status: `audit/deployment.json`.
 
 ## Reproduce committed results
 

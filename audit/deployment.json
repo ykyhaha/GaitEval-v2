@@ -1,0 +1,20 @@
+{
+  "github_repo": "https://github.com/ykyhaha/GaitEval-v2",
+  "github_pages_status": "live; opened and visually verified on 2026-10-23",
+  "github_upload_status": "committed and every file hash verified against the local manifest",
+  "github_private_repo": "https://github.com/ykyhaha/WACV_Gait_eval_camera_ready/tree/main/v2",
+  "github_private_content_commit": "9aac370e87459a458174407bebdc381a1ee913da",
+  "github_public_content_commit": "9cf1b203f0c7a60133132d4c1b7d06f672137277",
+  "github_payload_verification": {
+    "private_v2_files": 559,
+    "public_release_files": 257,
+    "mismatches": 0,
+    "archives_or_installers": 0
+  },
+  "github_pages_url": "https://ykyhaha.github.io/GaitEval-v2/",
+  "github_pages_source": {
+    "branch": "main",
+    "path": "/docs"
+  },
+  "scientific_status": "preparation snapshot; unresolved experimental evidence and author metadata remain listed in CHANGES_AND_OPEN_ISSUES_CN.md"
+}
