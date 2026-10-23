@@ -1,0 +1,20 @@
+{
+ "dataset": "care_pd",
+ "condition": "zs",
+ "model": "llama",
+ "n": 665,
+ "n_unparsed": 0,
+ "accuracy": 0.4406,
+ "macro_f1": 0.2625,
+ "labels": [
+  "0",
+  "1",
+  "2",
+  "3"
+ ],
+ "pred_counts": {
+  "0": 173,
+  "1": 473,
+  "2": 19
+ }
+}

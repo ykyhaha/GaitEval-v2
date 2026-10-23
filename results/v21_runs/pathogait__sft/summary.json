@@ -1,0 +1,25 @@
+{
+ "dataset": "pathogait",
+ "condition": "zs",
+ "model": "sftm",
+ "n": 1440,
+ "n_unparsed": 0,
+ "accuracy": 0.4549,
+ "macro_f1": 0.451,
+ "labels": [
+  "antalgic",
+  "lurch",
+  "normal",
+  "steppage",
+  "stiff_legged",
+  "trendelenburg"
+ ],
+ "pred_counts": {
+  "antalgic": 182,
+  "normal": 186,
+  "lurch": 235,
+  "steppage": 329,
+  "trendelenburg": 205,
+  "stiff_legged": 303
+ }
+}

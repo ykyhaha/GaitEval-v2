@@ -1,0 +1,18 @@
+{
+ "dataset": "gmfcs",
+ "condition": "noev",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 255,
+ "n_unparsed": 255,
+ "accuracy": 0.0,
+ "macro_f1": 0.0,
+ "labels": [
+  "1",
+  "2",
+  "3",
+  "4"
+ ],
+ "pred_counts": {
+  "UNPARSED": 255
+ }
+}

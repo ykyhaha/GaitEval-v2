@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\caption{\textbf{Ordinal S error structure.} MAE and quadratic-weighted $\kappa$ use the ordered numeric labels.}
+\label{tab:ordinal_metrics}
+\small
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{llrrr}
+\toprule
+Dataset & Condition & Macro-F1 & MAE & Quadratic $\kappa$ \\
+\midrule
+CARE-PD & Zero-shot summary & 0.321 & 0.717 & 0.217 \\
+CARE-PD & Zero-shot z-features & 0.133 & 1.211 & 0.004 \\
+CARE-PD & LoRA-SFT summary & 0.445 & 0.651 & 0.331 \\
+GMFCS & Zero-shot summary & 0.265 & 0.906 & 0.129 \\
+GMFCS & Zero-shot z-features & 0.150 & 1.141 & 0.057 \\
+GMFCS & LoRA-SFT summary & 0.467 & 0.420 & 0.618 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

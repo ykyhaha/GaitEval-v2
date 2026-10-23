@@ -1,0 +1,17 @@
+{
+ "dataset": "asd_kinect",
+ "condition": "zs",
+ "model": "llama",
+ "n": 20,
+ "n_unparsed": 0,
+ "accuracy": 0.5,
+ "macro_f1": 0.4505,
+ "labels": [
+  "ASD",
+  "typically_developing"
+ ],
+ "pred_counts": {
+  "ASD": 4,
+  "typically_developing": 16
+ }
+}

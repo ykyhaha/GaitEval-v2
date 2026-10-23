@@ -1,0 +1,22 @@
+{
+ "dataset": "pathogait",
+ "condition": "lorder-rev",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 1440,
+ "n_unparsed": 0,
+ "accuracy": 0.2389,
+ "macro_f1": 0.1207,
+ "labels": [
+  "antalgic",
+  "lurch",
+  "normal",
+  "steppage",
+  "stiff_legged",
+  "trendelenburg"
+ ],
+ "pred_counts": {
+  "trendelenburg": 717,
+  "normal": 719,
+  "steppage": 4
+ }
+}

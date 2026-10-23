@@ -1,0 +1,16 @@
+\begin{table}[H]\centering\small
+\caption{Prediction-backed qualitative decisions across all six datasets. Outputs are verbatim from committed logs. No matching pose or prompt is inferred.}
+\begin{tabular}{llll}\toprule Dataset / view & True label & Raw output & Correct\\\midrule
+asd\_kinect / zs & typically\_developing & typically\_developing & yes\\
+asd\_kinect / zs & ASD & typically\_developing & no\\
+ataxia / zs & normal & normal & yes\\
+ataxia / zs & mimicked\_ataxia & normal & no\\
+care\_pd / zs & 0 & UPDRS gait score 0 & yes\\
+care\_pd / zs & 1 & UPDRS gait score 0 & no\\
+gmfcs / zs & 3 & GMFCS level 3 & yes\\
+gmfcs / zs & 2 & GMFCS level 1 & no\\
+parkinsonism / zs & severe & severe & yes\\
+parkinsonism / zs & severe & mild & no\\
+pathogait / zs & normal & normal & yes\\
+pathogait / zs & antalgic & normal & no\\
+\bottomrule\end{tabular}\end{table}

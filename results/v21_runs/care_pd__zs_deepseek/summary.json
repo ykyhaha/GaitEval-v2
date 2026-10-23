@@ -1,0 +1,21 @@
+{
+ "dataset": "care_pd",
+ "condition": "zs",
+ "model": "deepseek",
+ "n": 665,
+ "n_unparsed": 0,
+ "accuracy": 0.3985,
+ "macro_f1": 0.2952,
+ "labels": [
+  "0",
+  "1",
+  "2",
+  "3"
+ ],
+ "pred_counts": {
+  "0": 186,
+  "2": 177,
+  "1": 299,
+  "3": 3
+ }
+}

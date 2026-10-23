@@ -1,0 +1,21 @@
+{
+ "dataset": "care_pd",
+ "condition": "zs",
+ "model": "glm",
+ "n": 665,
+ "n_unparsed": 0,
+ "accuracy": 0.4406,
+ "macro_f1": 0.3503,
+ "labels": [
+  "0",
+  "1",
+  "2",
+  "3"
+ ],
+ "pred_counts": {
+  "0": 272,
+  "1": 373,
+  "2": 15,
+  "3": 5
+ }
+}

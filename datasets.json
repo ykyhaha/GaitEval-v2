@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "datasets": [
+    {
+      "id": "asd_kinect",
+      "label_set": [
+        "ASD",
+        "typically_developing"
+      ],
+      "n_train": 70,
+      "n_test": 20,
+      "n_test_subjects": 20,
+      "split_contract": "S",
+      "common_conditions": [
+        "zs",
+        "feat",
+        "sft",
+        "noev",
+        "shufev",
+        "lorder-rev",
+        "lorder-shuf1"
+      ],
+      "required_external_inputs": [
+        "records_slim.jsonl",
+        "03_features_raw_and_z.csv",
+        "04_motion_summary.jsonl"
+      ],
+      "source_inputs_bundled": false
+    },
+    {
+      "id": "ataxia",
+      "label_set": [
+        "mimicked_ataxia",
+        "normal"
+      ],
+      "n_train": 28,
+      "n_test": 8,
+      "n_test_subjects": 4,
+      "split_contract": "S",
+      "common_conditions": [
+        "zs",
+        "feat",
+        "sft",
+        "noev",
+        "shufev",
+        "lorder-rev",
+        "lorder-shuf1"
+      ],
+      "required_external_inputs": [
+        "records_slim.jsonl",
+        "03_features_raw_and_z.csv",
+        "04_motion_summary.jsonl"
+      ],
+      "source_inputs_bundled": false
+    },
+    {
+      "id": "care_pd",
+      "label_set": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "n_train": 1901,
+      "n_test": 665,
+      "n_test_subjects": 24,
+      "split_contract": "S",
+      "common_conditions": [
+        "zs",
+        "feat",
+        "sft",
+        "noev",
+        "shufev",
+        "lorder-rev",
+        "lorder-shuf1"
+      ],
+      "required_external_inputs": [
+        "records_slim.jsonl",
+        "03_features_raw_and_z.csv",
+        "04_motion_summary.jsonl"
+      ],
+      "source_inputs_bundled": false
+    },
+    {
+      "id": "gmfcs",
+      "label_set": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "n_train": 914,
+      "n_test": 255,
+      "n_test_subjects": 149,
+      "split_contract": "S",
+      "common_conditions": [
+        "zs",
+        "feat",
+        "sft",
+        "noev",
+        "shufev",
+        "lorder-rev",
+        "lorder-shuf1"
+      ],
+      "required_external_inputs": [
+        "records_slim.jsonl",
+        "03_features_raw_and_z.csv",
+        "04_motion_summary.jsonl"
+      ],
+      "source_inputs_bundled": false
+    },
+    {
+      "id": "parkinsonism",
+      "label_set": [
+        "mild",
+        "severe"
+      ],
+      "n_train": 83,
+      "n_test": 29,
+      "n_test_subjects": 5,
+      "split_contract": "S",
+      "common_conditions": [
+        "zs",
+        "feat",
+        "sft",
+        "noev",
+        "shufev",
+        "lorder-rev",
+        "lorder-shuf1"
+      ],
+      "required_external_inputs": [
+        "records_slim.jsonl",
+        "03_features_raw_and_z.csv",
+        "04_motion_summary.jsonl"
+      ],
+      "source_inputs_bundled": false
+    },
+    {
+      "id": "pathogait",
+      "label_set": [
+        "antalgic",
+        "lurch",
+        "normal",
+        "steppage",
+        "stiff_legged",
+        "trendelenburg"
+      ],
+      "n_train": 5040,
+      "n_test": 1440,
+      "n_test_subjects": 2,
+      "split_contract": "S",
+      "common_conditions": [
+        "zs",
+        "feat",
+        "sft",
+        "noev",
+        "shufev",
+        "lorder-rev",
+        "lorder-shuf1"
+      ],
+      "required_external_inputs": [
+        "records_slim.jsonl",
+        "03_features_raw_and_z.csv",
+        "04_motion_summary.jsonl"
+      ],
+      "source_inputs_bundled": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+ "dataset": "asd_kinect",
+ "condition": "featraw",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 20,
+ "n_unparsed": 0,
+ "accuracy": 0.5,
+ "macro_f1": 0.3333,
+ "labels": [
+  "ASD",
+  "typically_developing"
+ ],
+ "pred_counts": {
+  "typically_developing": 20
+ }
+}

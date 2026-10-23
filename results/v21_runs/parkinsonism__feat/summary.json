@@ -1,0 +1,17 @@
+{
+ "dataset": "parkinsonism",
+ "condition": "feat",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 29,
+ "n_unparsed": 0,
+ "accuracy": 0.7586,
+ "macro_f1": 0.7575,
+ "labels": [
+  "mild",
+  "severe"
+ ],
+ "pred_counts": {
+  "severe": 12,
+  "mild": 17
+ }
+}

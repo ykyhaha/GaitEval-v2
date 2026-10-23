@@ -1,0 +1,20 @@
+{
+ "dataset": "care_pd",
+ "condition": "zs",
+ "model": "qwen72",
+ "n": 665,
+ "n_unparsed": 0,
+ "accuracy": 0.4451,
+ "macro_f1": 0.2682,
+ "labels": [
+  "0",
+  "1",
+  "2",
+  "3"
+ ],
+ "pred_counts": {
+  "0": 210,
+  "1": 427,
+  "2": 28
+ }
+}

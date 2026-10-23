@@ -1,0 +1,20 @@
+{
+ "dataset": "gmfcs",
+ "condition": "feat",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 255,
+ "n_unparsed": 0,
+ "accuracy": 0.2235,
+ "macro_f1": 0.1501,
+ "labels": [
+  "1",
+  "2",
+  "3",
+  "4"
+ ],
+ "pred_counts": {
+  "3": 186,
+  "4": 28,
+  "2": 41
+ }
+}

@@ -1,0 +1,18 @@
+{
+ "dataset": "care_pd",
+ "condition": "noev",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 665,
+ "n_unparsed": 0,
+ "accuracy": 0.3609,
+ "macro_f1": 0.1326,
+ "labels": [
+  "0",
+  "1",
+  "2",
+  "3"
+ ],
+ "pred_counts": {
+  "0": 665
+ }
+}

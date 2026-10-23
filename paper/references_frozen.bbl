@@ -1,0 +1,518 @@
+\begin{thebibliography}{67}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Perry(1992)]{perry1992gait}
+Jacquelin Perry.
+\newblock \emph{Gait Analysis: Normal and Pathological Function}.
+\newblock SLACK Incorporated, 1992.
+
+\bibitem[Baker(2006)]{baker2006gait}
+Richard Baker.
+\newblock Gait analysis methods in rehabilitation.
+\newblock \emph{Journal of NeuroEngineering and Rehabilitation}, 3:\penalty0 4,
+  2006.
+
+\bibitem[Muro-de-la Herran et~al.(2014)Muro-de-la Herran, Garcia-Zapirain, and
+  Mendez-Zorrilla]{muro2014gait}
+Alberto Muro-de-la Herran, Begonya Garcia-Zapirain, and Amaia Mendez-Zorrilla.
+\newblock Gait analysis methods: An overview of wearable and non-wearable
+  systems, highlighting clinical applications.
+\newblock \emph{Sensors}, 14\penalty0 (2):\penalty0 3362--3394, 2014.
+
+\bibitem[Cao et~al.(2017)Cao, Simon, Wei, and Sheikh]{cao2017openpose}
+Zhe Cao, Tomas Simon, Shih-En Wei, and Yaser Sheikh.
+\newblock Realtime multi-person {2D} pose estimation using part affinity
+  fields.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 7291--7299, 2017.
+
+\bibitem[Lugaresi et~al.(2019)Lugaresi, Tang, Nash, McClanahan, Uboweja, Hays,
+  Zhang, Chang, Yong, Lee, Chang, Hua, Georg, and
+  Grundmann]{lugaresi2019mediapipe}
+Camillo Lugaresi, Jiuqiang Tang, Hadon Nash, Chris McClanahan, Esha Uboweja,
+  Michael Hays, Fan Zhang, Chuo-Ling Chang, Ming~Guang Yong, Juhyun Lee,
+  Wan-Teh Chang, Wei Hua, Manfred Georg, and Matthias Grundmann.
+\newblock {MediaPipe}: A framework for building perception pipelines.
+\newblock \emph{arXiv preprint arXiv:1906.08172}, 2019.
+
+\bibitem[Bazarevsky et~al.(2020)Bazarevsky, Grishchenko, Raveendran, Zhu,
+  Zhang, and Grundmann]{bazarevsky2020blazepose}
+Valentin Bazarevsky, Ivan Grishchenko, Karthik Raveendran, Tyler Zhu, Fan
+  Zhang, and Matthias Grundmann.
+\newblock {BlazePose}: On-device real-time body pose tracking.
+\newblock \emph{arXiv preprint arXiv:2006.10204}, 2020.
+
+\bibitem[Stenum et~al.(2021)Stenum, Cherry-Allen, Pyles, Reetzke, Vignos, and
+  Roemmich]{stenum2021applications}
+Jan Stenum, Kendra~M. Cherry-Allen, Connor~O. Pyles, Rachel~D. Reetzke,
+  Michael~F. Vignos, and Ryan~T. Roemmich.
+\newblock Applications of pose estimation in human health and performance
+  across the lifespan.
+\newblock \emph{Sensors}, 21\penalty0 (21):\penalty0 7315, 2021.
+
+\bibitem[Stenum et~al.(2024)Stenum, Hsu, Pantelyat, and
+  Roemmich]{stenum2024clinical}
+Jan Stenum, Melody~M. Hsu, Alexander~Y. Pantelyat, and Ryan~T. Roemmich.
+\newblock Clinical gait analysis using video-based pose estimation: Multiple
+  perspectives, clinical populations, and measuring change.
+\newblock \emph{PLOS Digital Health}, 3\penalty0 (3):\penalty0 e0000467, 2024.
+
+\bibitem[Winter(2009)]{winter2009biomechanics}
+David~A. Winter.
+\newblock \emph{Biomechanics and Motor Control of Human Movement}.
+\newblock John Wiley \& Sons, 4th edition, 2009.
+
+\bibitem[Schwartz and Rozumalski(2008)]{schwartz2008gdi}
+Michael~H. Schwartz and Adam Rozumalski.
+\newblock The gait deviation index: A new comprehensive index of gait
+  pathology.
+\newblock \emph{Gait \& Posture}, 28\penalty0 (3):\penalty0 351--357, 2008.
+
+\bibitem[Khalil et~al.(2022)Khalil, Saad, and Khairuddin]{khalil2022ataxia}
+Hisham Khalil, Ahmed Mohamed Saad~Emam Saad, and Uswah Khairuddin.
+\newblock Diagnosis of cerebellar ataxia based on gait analysis using human
+  pose estimation: A deep learning approach.
+\newblock In \emph{2022 IEEE-EMBS Conference on Biomedical Engineering and
+  Sciences (IECBES)}, pages 201--206, 2022.
+
+\bibitem[Deng et~al.(2024)Deng, Ostrem, Nguyen, Cummins, Sun, Pathak, Little,
+  and Abbasi-Asl]{deng2024parkinsonism}
+Daniel Deng, Jill~L. Ostrem, Vy Nguyen, Daniel~D. Cummins, Julia Sun, Anupam
+  Pathak, Simon Little, and Reza Abbasi-Asl.
+\newblock Interpretable video-based tracking and quantification of parkinsonism
+  clinical motor states.
+\newblock \emph{npj Parkinson's Disease}, 10:\penalty0 122, 2024.
+
+\bibitem[Kidzi{\'n}ski et~al.(2020)Kidzi{\'n}ski, Yang, Hicks, Rajagopal, Delp,
+  and Schwartz]{kidzinski2020video}
+{\L}ukasz Kidzi{\'n}ski, Bryan Yang, Jennifer~L. Hicks, Apoorva Rajagopal,
+  Scott~L. Delp, and Michael~H. Schwartz.
+\newblock Deep neural networks enable quantitative movement analysis using
+  single-camera videos.
+\newblock \emph{Nature Communications}, 11:\penalty0 4054, 2020.
+
+\bibitem[Lu et~al.(2020)Lu, Poston, Pfefferbaum, Sullivan, Fei-Fei, Pohl,
+  Niebles, and Adeli]{lu2020updrs}
+Mandy Lu, Kathleen~L. Poston, Adolf Pfefferbaum, Edith~V. Sullivan, Li Fei-Fei,
+  Kilian~M. Pohl, Juan~Carlos Niebles, and Ehsan Adeli.
+\newblock Vision-based estimation of {MDS-UPDRS} gait scores for assessing
+  parkinson's disease motor severity.
+\newblock In \emph{Medical Image Computing and Computer Assisted Intervention
+  (MICCAI)}, pages 637--647, 2020.
+
+\bibitem[Jun et~al.(2020)Jun, Lee, Lee, Lee, and Kim]{jun2020pathological}
+Kooksung Jun, Yongwoo Lee, Sanghyub Lee, Deok-Won Lee, and Mun~Sang Kim.
+\newblock Pathological gait classification using {Kinect} v2 and gated
+  recurrent neural networks.
+\newblock \emph{IEEE Access}, 8:\penalty0 139881--139891, 2020.
+
+\bibitem[Opitz and Burst(2019)]{opitz2019macro}
+Juri Opitz and Sebastian Burst.
+\newblock {Macro F1} and {Macro F1}.
+\newblock \emph{arXiv preprint arXiv:1911.03347}, 2019.
+
+\bibitem[Sokolova and Lapalme(2009)]{sokolova2009performance}
+Marina Sokolova and Guy Lapalme.
+\newblock A systematic analysis of performance measures for classification
+  tasks.
+\newblock \emph{Information Processing \& Management}, 45\penalty0
+  (4):\penalty0 427--437, 2009.
+
+\bibitem[Brown et~al.(2020)Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal,
+  Neelakantan, Shyam, Sastry, Askell, et~al.]{brown2020fewshot}
+Tom~B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared~D. Kaplan,
+  Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda
+  Askell, et~al.
+\newblock Language models are few-shot learners.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, pages 1877--1901, 2020.
+
+\bibitem[Hu et~al.(2022)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and
+  Chen]{hu2022lora}
+Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+  Wang, Lu Wang, and Weizhu Chen.
+\newblock {LoRA}: Low-rank adaptation of large language models.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2022.
+
+\bibitem[Simon(2004)]{simon2004gait}
+Sheldon~R. Simon.
+\newblock Quantification of human motion: Gait analysis---benefits and
+  limitations to its application to clinical problems.
+\newblock \emph{Journal of Biomechanics}, 37\penalty0 (12):\penalty0
+  1869--1880, 2004.
+
+\bibitem[Mathis et~al.(2018)Mathis, Mamidanna, Cury, Abe, Murthy, Mathis, and
+  Bethge]{mathis2018deeplabcut}
+Alexander Mathis, Pranav Mamidanna, Kevin~M. Cury, Taiga Abe, Venkatesh~N.
+  Murthy, Mackenzie~Weygandt Mathis, and Matthias Bethge.
+\newblock {DeepLabCut}: Markerless pose estimation of user-defined body parts
+  with deep learning.
+\newblock \emph{Nature Neuroscience}, 21\penalty0 (9):\penalty0 1281--1289,
+  2018.
+
+\bibitem[Uhlrich et~al.(2023)Uhlrich, Falisse, Kidzi{\'n}ski, Muccini, Ko,
+  Chaudhari, Hicks, and Delp]{uhlrich2023opencap}
+Scott~D. Uhlrich, Antoine Falisse, {\L}ukasz Kidzi{\'n}ski, Julie Muccini,
+  Michael Ko, Akshay~S. Chaudhari, Jennifer~L. Hicks, and Scott~L. Delp.
+\newblock {OpenCap}: Human movement dynamics from smartphone videos.
+\newblock \emph{PLOS Computational Biology}, 19\penalty0 (10):\penalty0
+  e1011462, 2023.
+
+\bibitem[Verlekar et~al.(2019)Verlekar, De~Vroey, Claeys, Hallez, Soares, and
+  Correia]{verlekar2019validation}
+Tanmay~T. Verlekar, Henri De~Vroey, Kurt Claeys, Hans Hallez, Lu{\'i}s~D.
+  Soares, and Paulo~L. Correia.
+\newblock Estimation and validation of temporal gait features using a
+  markerless {2D} video system.
+\newblock \emph{Computer Methods and Programs in Biomedicine}, 175:\penalty0
+  45--51, 2019.
+
+\bibitem[Yamamoto et~al.(2021)Yamamoto, Shimatani, Hasegawa, Kurita, Ishige,
+  and Takemura]{yamamoto2021openpose}
+Masataka Yamamoto, Koji Shimatani, Masaki Hasegawa, Yuichi Kurita, Yuto Ishige,
+  and Hiroshi Takemura.
+\newblock Accuracy of temporo-spatial and lower limb joint kinematics
+  parameters using {OpenPose} for various gait patterns with orthosis.
+\newblock \emph{IEEE Transactions on Neural Systems and Rehabilitation
+  Engineering}, 29:\penalty0 2666--2675, 2021.
+
+\bibitem[Sabo et~al.(2022)Sabo, Gorodetsky, Fasano, Iaboni, and
+  Taati]{sabo2022validity}
+Andrea Sabo, Carolina Gorodetsky, Alfonso Fasano, Andrea Iaboni, and Babak
+  Taati.
+\newblock Concurrent validity of {Zeno} instrumented walkway and video-based
+  gait features in adults with parkinson's disease.
+\newblock \emph{IEEE Journal of Translational Engineering in Health and
+  Medicine}, 10:\penalty0 2100511, 2022.
+
+\bibitem[Yan et~al.(2018)Yan, Xiong, and Lin]{yan2018stgcn}
+Sijie Yan, Yuanjun Xiong, and Dahua Lin.
+\newblock Spatial temporal graph convolutional networks for skeleton-based
+  action recognition.
+\newblock In \emph{Proceedings of the Thirty-Second AAAI Conference on
+  Artificial Intelligence (AAAI)}, pages 7444--7452, 2018.
+
+\bibitem[Shi et~al.(2019)Shi, Zhang, Cheng, and Lu]{shi2019twostream}
+Lei Shi, Yifan Zhang, Jian Cheng, and Hanqing Lu.
+\newblock Two-stream adaptive graph convolutional networks for skeleton-based
+  action recognition.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 12026--12035, 2019.
+
+\bibitem[Liu et~al.(2020)Liu, Zhang, Chen, Wang, and
+  Ouyang]{liu2020disentangling}
+Ziyu Liu, Hongwen Zhang, Zhenghao Chen, Zhiyong Wang, and Wanli Ouyang.
+\newblock Disentangling and unifying graph convolutions for skeleton-based
+  action recognition.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 143--152, 2020.
+
+\bibitem[Dolatabadi et~al.(2017)Dolatabadi, Taati, and
+  Mihailidis]{dolatabadi2017pathological}
+Elham Dolatabadi, Babak Taati, and Alex Mihailidis.
+\newblock An automated classification of pathological gait using unobtrusive
+  sensing technology.
+\newblock \emph{IEEE Transactions on Neural Systems and Rehabilitation
+  Engineering}, 25\penalty0 (12):\penalty0 2336--2346, 2017.
+
+\bibitem[Verlekar et~al.(2018)Verlekar, Soares, and
+  Correia]{verlekar2018automatic}
+Tanmay~T. Verlekar, Lu{\'i}s~D. Soares, and Paulo~L. Correia.
+\newblock Automatic classification of gait impairments using a markerless {2D}
+  video-based system.
+\newblock \emph{Sensors}, 18\penalty0 (9):\penalty0 2743, 2018.
+
+\bibitem[Ortells et~al.(2018)Ortells, Herrero-Ezquerro, and
+  Mollineda]{ortells2018vision}
+Javier Ortells, Mar{\'i}a~Trinidad Herrero-Ezquerro, and Ram{\'o}n~A.
+  Mollineda.
+\newblock Vision-based gait impairment analysis for aided diagnosis.
+\newblock \emph{Medical \& Biological Engineering \& Computing}, 56\penalty0
+  (9):\penalty0 1553--1564, 2018.
+
+\bibitem[Shin et~al.(2021)Shin, Yu, Ong, Lee, Jeon, Park, Kim, Lee, and
+  Jeon]{shin2021quantitative}
+Jung~Hwan Shin, Ri Yu, Jed~Noel Ong, Chan~Young Lee, Seung~Ho Jeon, Hwanpil
+  Park, Han~Joon Kim, Jehee Lee, and Beomseok Jeon.
+\newblock Quantitative gait analysis using a pose-estimation algorithm with a
+  single {2D-Video} of {Parkinson's Disease} patients.
+\newblock \emph{Journal of Parkinson's Disease}, 11\penalty0 (3):\penalty0
+  1271--1283, 2021.
+
+\bibitem[Sabo et~al.(2020)Sabo, Mehdizadeh, Ng, Iaboni, and
+  Taati]{sabo2020parkinsonian}
+Andrea Sabo, Sina Mehdizadeh, Kimberley-Dale Ng, Andrea Iaboni, and Babak
+  Taati.
+\newblock Assessment of {Parkinsonian Gait} in older adults with dementia via
+  human pose tracking in video data.
+\newblock \emph{Journal of NeuroEngineering and Rehabilitation}, 17:\penalty0
+  97, 2020.
+
+\bibitem[Zeng et~al.(2023)Zeng, Liu, Yu, Wu, Huo, and Han]{zeng2023video}
+Qingyi Zeng, Peipei Liu, Ningbo Yu, Jialing Wu, Weiguang Huo, and Jianda Han.
+\newblock Video-based quantification of gait impairments in {Parkinson's
+  Disease} using skeleton--silhouette fusion convolution network.
+\newblock \emph{IEEE Transactions on Neural Systems and Rehabilitation
+  Engineering}, 31:\penalty0 2912--2922, 2023.
+
+\bibitem[Pantzar-Castilla et~al.(2018)Pantzar-Castilla, Cereatti, Figari,
+  Valeri, Paolini, Della~Croce, Magnuson, and Riad]{pantzar2018cerebral}
+Evelina Pantzar-Castilla, Andrea Cereatti, Giulio Figari, Nicol{\`o} Valeri,
+  Gabriele Paolini, Ugo Della~Croce, Anders Magnuson, and Jacques Riad.
+\newblock Knee joint sagittal plane movement in cerebral palsy: A comparative
+  study of 2-dimensional markerless video and 3-dimensional gait analysis.
+\newblock \emph{Acta Orthopaedica}, 89\penalty0 (6):\penalty0 656--661, 2018.
+
+\bibitem[Lonini et~al.(2022)Lonini, Moon, Embry, Cotton, McKenzie, Jenz, and
+  Jayaraman]{lonini2022stroke}
+Luca Lonini, Yaejin Moon, Kyle Embry, R.~James Cotton, Kelly McKenzie, Sophia
+  Jenz, and Arun Jayaraman.
+\newblock Video-based pose estimation for gait analysis in stroke survivors
+  during clinical assessments: A proof-of-concept study.
+\newblock \emph{Digital Biomarkers}, 6\penalty0 (1):\penalty0 9--18, 2022.
+
+\bibitem[Rahman et~al.(2023)Rahman, Hasan, Islam, Olubajo, Thaker, Abdelkader,
+  Yang, Paulson, Oz, Durr, Klockgether, Ashizawa, {{READISCA Investigators}},
+  and Hoque]{rahman2023autogait}
+Wasifur Rahman, Masum Hasan, Md~Saiful Islam, Titilayo Olubajo, Jeet Thaker,
+  Abdelrahman~R. Abdelkader, Phillip Yang, Henry Paulson, Gulin Oz, Alexandra
+  Durr, Thomas Klockgether, Tetsuo Ashizawa, {{READISCA Investigators}}, and
+  Ehsan Hoque.
+\newblock {Auto-Gait}: Automatic ataxia risk assessment with computer vision
+  from gait task videos.
+\newblock \emph{Proceedings of the ACM on Interactive, Mobile, Wearable and
+  Ubiquitous Technologies}, 7\penalty0 (1):\penalty0 26:1--26:19, 2023.
+
+\bibitem[Eguchi et~al.(2024)Eguchi, Yaguchi, Uwatoko, Iida, Hamada, Honma,
+  Takei, Moriwaka, and Yabe]{eguchi2024differentiating}
+Katsuki Eguchi, Hiroaki Yaguchi, Hisashi Uwatoko, Yuki Iida, Shinsuke Hamada,
+  Sanae Honma, Asako Takei, Fumio Moriwaka, and Ichiro Yabe.
+\newblock Feasibility of differentiating gait in {Parkinson's Disease} and
+  spinocerebellar degeneration using a pose estimation algorithm in
+  two-dimensional video.
+\newblock \emph{Journal of the Neurological Sciences}, 464:\penalty0 123158,
+  2024.
+
+\bibitem[Ranjan et~al.(2024)Ranjan, Ahmedt-Aristizabal, Armin, and
+  Kim]{ranjan2024gavd}
+Rahm Ranjan, David Ahmedt-Aristizabal, Mohammad~Ali Armin, and Juno Kim.
+\newblock Computer vision for clinical gait analysis: A gait abnormality video
+  dataset.
+\newblock \emph{arXiv preprint arXiv:2407.04190}, 2024.
+
+\bibitem[Verlekar et~al.(2018)Verlekar, Correia, and
+  Soares]{verlekar2018transfer}
+Tanmay~T. Verlekar, Paulo~L. Correia, and Lu{\'i}s~D. Soares.
+\newblock Using transfer learning for classification of gait pathologies.
+\newblock In \emph{2018 IEEE International Conference on Bioinformatics and
+  Biomedicine (BIBM)}, pages 2376--2381, 2018.
+
+\bibitem[Albuquerque et~al.(2021)Albuquerque, Verlekar, Correia, and
+  Soares]{albuquerque2021spatiotemporal}
+Pedro Albuquerque, Tanmay~Tulsidas Verlekar, Paulo~Lobato Correia, and
+  Lu{\'i}s~Ducla Soares.
+\newblock A spatiotemporal deep learning approach for automatic pathological
+  gait classification.
+\newblock \emph{Sensors}, 21\penalty0 (18):\penalty0 6202, 2021.
+
+\bibitem[Adeli et~al.(2025)Adeli, Klabu{\v{c}}ar, Rajabi, Filtjens, Mehraban,
+  Wang, Seo, Hoang, Do, Muller, de~Oliveira, Coelho, Ginis, Gilat, Nieuwboer,
+  et~al.]{adeli2025carepd}
+Vida Adeli, Ivan Klabu{\v{c}}ar, Javad Rajabi, Benjamin Filtjens, Soroush
+  Mehraban, Diwei Wang, Hyewon Seo, Trung-Hieu Hoang, Minh~N. Do, Candice
+  Muller, Claudia~Neves de Oliveira, Daniel~Boari Coelho, Pieter Ginis, Moran
+  Gilat, Alice Nieuwboer, et~al.
+\newblock {CARE-PD}: A multi-site anonymized clinical dataset for {Parkinson's
+  Disease} gait assessment.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2025.
+\newblock Datasets and Benchmarks Track.
+
+\bibitem[Jiang et~al.(2023)Jiang, Chen, Liu, Yu, Yu, and
+  Chen]{jiang2023motiongpt}
+Biao Jiang, Xin Chen, Wen Liu, Jingyi Yu, Gang Yu, and Tao Chen.
+\newblock {MotionGPT}: Human motion as a foreign language.
+\newblock In \emph{Advances in Neural Information Processing Systems}, pages
+  20067--20079, 2023.
+
+\bibitem[Chen et~al.(2024)Chen, Lu, Zeng, Zhang, Wang, Zhang, and
+  Zhang]{chen2024motionllm}
+Ling-Hao Chen, Shunlin Lu, Ailing Zeng, Hao Zhang, Benyou Wang, Ruimao Zhang,
+  and Lei Zhang.
+\newblock {MotionLLM}: Understanding human behaviors from human motions and
+  videos.
+\newblock \emph{arXiv preprint arXiv:2405.20340}, 2024.
+
+\bibitem[Mo et~al.(2024)Mo, Chen, Lin, Ni, Zeng, Hu, and Li]{mo2024mochat}
+Jiawei Mo, Yixuan Chen, Rifen Lin, Yongkang Ni, Min Zeng, Xiping Hu, and Min
+  Li.
+\newblock {MoChat}: Joints-grouped spatio-temporal grounding {LLM} for
+  multi-turn motion comprehension and description.
+\newblock \emph{arXiv preprint arXiv:2410.11404}, 2024.
+
+\bibitem[Yang et~al.(2025)Yang, Wang, Hou, Liu, Cao, Wang, and
+  Huang]{yang2025gaitllm}
+Shaopeng Yang, Jilong Wang, Saihui Hou, Xu Liu, Chunshui Cao, Liang Wang, and
+  Yongzhen Huang.
+\newblock Bridging gait recognition and large language models sequence
+  modeling.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 3460--3469, 2025.
+
+\bibitem[Wang et~al.(2025)Wang, Bobenrieth, and Seo]{wang2025agir}
+Diwei Wang, C{\'e}dric Bobenrieth, and Hyewon Seo.
+\newblock {AGIR}: Assessing {3D} gait impairment with reasoning based on
+  {LLMs}.
+\newblock \emph{{arXiv} preprint arXiv:2503.18141}, 2025.
+
+\bibitem[Yang et~al.(2025)Yang, Kennedy, and Cotton]{yang2025biomechgpt}
+Ruize Yang, Ann Kennedy, and R.~James Cotton.
+\newblock {BiomechGPT}: Towards a biomechanically fluent multimodal foundation
+  model for clinically relevant motion tasks.
+\newblock \emph{arXiv preprint arXiv:2505.18465v1}, 2025.
+
+\bibitem[Chen et~al.(2026)Chen, Ji, Greenberg, Steel, Arkam, Lewis, Singh, and
+  Liu]{chen2026biogait}
+Erdong Chen, Yuyang Ji, Jacob~K. Greenberg, Benjamin Steel, Faraz Arkam,
+  Abigail Lewis, Pranay Singh, and Feng Liu.
+\newblock {BioGait-VLM}: A tri-modal vision-language-biomechanics framework for
+  interpretable clinical gait assessment.
+\newblock \emph{arXiv preprint arXiv:2603.08564}, 2026.
+
+\bibitem[Dindorf et~al.(2026)Dindorf, Dully, Keilhauer, Lorenz, and
+  Fr{\"o}hlich]{dindorf2026gaitllm}
+Carlo Dindorf, Jonas Dully, Rebecca Keilhauer, Michael Lorenz, and Michael
+  Fr{\"o}hlich.
+\newblock Evaluating large language models for gait classification using
+  text-encoded kinematic waveforms.
+\newblock \emph{arXiv preprint arXiv:2603.13317}, 2026.
+
+\bibitem[Fang et~al.(2024)Fang, Xu, Tan, Zhang, Hu, Qi, Nickleach, Socolinsky,
+  Sengamedu, and Faloutsos]{fang2024llms}
+Xi Fang, Weijie Xu, Fiona~Anting Tan, Jiani Zhang, Ziqing Hu, Yanjun Qi, Scott
+  Nickleach, Diego Socolinsky, Srinivasan Sengamedu, and Christos Faloutsos.
+\newblock Large language models ({LLM}s) on tabular data: Prediction,
+  generation, and understanding---a survey.
+\newblock \emph{Transactions on Machine Learning Research}, 2024.
+
+\bibitem[Liu et~al.(2023)Liu, Li, Wu, and Lee]{liu2023llava}
+Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong~Jae Lee.
+\newblock Visual instruction tuning.
+\newblock In \emph{Advances in Neural Information Processing Systems}, pages
+  34892--34916, 2023.
+
+\bibitem[Yin et~al.(2024)Yin, Fu, Zhao, Li, Sun, Xu, and Chen]{yin2024survey}
+Shukang Yin, Chaoyou Fu, Sirui Zhao, Ke Li, Xing Sun, Tong Xu, and Enhong Chen.
+\newblock A survey on multimodal large language models.
+\newblock \emph{National Science Review}, 11\penalty0 (12):\penalty0 nwae403,
+  2024.
+
+\bibitem[Ionescu et~al.(2014)Ionescu, Papava, Olaru, and
+  Sminchisescu]{ionescu2014human36m}
+Catalin Ionescu, Dragos Papava, Vlad Olaru, and Cristian Sminchisescu.
+\newblock {Human3.6M}: Large scale datasets and predictive methods for {3D}
+  human sensing in natural environments.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 36\penalty0 (7):\penalty0 1325--1339, 2014.
+
+\bibitem[Palisano et~al.(1997)Palisano, Rosenbaum, Walter, Russell, Wood, and
+  Galuppi]{palisano1997gmfcs}
+Robert Palisano, Peter Rosenbaum, Stephen Walter, Dianne Russell, Ellen Wood,
+  and Barbara Galuppi.
+\newblock Development and reliability of a system to classify gross motor
+  function in children with cerebral palsy.
+\newblock \emph{Developmental Medicine \& Child Neurology}, 39\penalty0
+  (4):\penalty0 214--223, 1997.
+
+\bibitem[Khalil et~al.(2023)Khalil, Saad, and Khairuddin]{khalil2023dataset}
+Hisham Khalil, Ahmed Saad, and Uswah Khairuddin.
+\newblock Dataset for gait analysis of cerebellar ataxic patients and healthy
+  adults using {MediaPipe} pose.
+\newblock Mendeley Data, 2023.
+\newblock Version 1.
+
+\bibitem[Grattafiori et~al.(2024)Grattafiori, Dubey, Jauhri, Pandey, Kadian,
+  Al-Dahle, Letman, Mathur, Schelten, Vaughan, et~al.]{grattafiori2024llama3}
+Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek
+  Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Alex
+  Vaughan, et~al.
+\newblock The {Llama} 3 herd of models.
+\newblock \emph{arXiv preprint arXiv:2407.21783}, 2024.
+
+\bibitem[{Qwen Team}(2024)]{qwen2024qwen25}
+{Qwen Team}.
+\newblock {Qwen2.5} technical report.
+\newblock \emph{arXiv preprint arXiv:2412.15115}, 2024.
+
+\bibitem[{Gemma Team} et~al.(2025){Gemma Team}, Kamath, Ferret, Pathak,
+  Vieillard, Merhej, Perrin, Matejovicova, Ram{\'e}, Rivi{\`e}re,
+  et~al.]{gemma2025gemma3}
+{Gemma Team}, Aishwarya Kamath, Johan Ferret, Shreya Pathak, Nino Vieillard,
+  Ramona Merhej, Sarah Perrin, Tatiana Matejovicova, Alexandre Ram{\'e},
+  Morgane Rivi{\`e}re, et~al.
+\newblock {Gemma 3} technical report.
+\newblock \emph{arXiv preprint arXiv:2503.19786}, 2025.
+
+\bibitem[{Team GLM} et~al.(2024){Team GLM}, Zeng, Xu, Wang, Zhang, Yin, Zhang,
+  Rojas, Feng, Zhao, et~al.]{glm2024chatglm}
+{Team GLM}, Aohan Zeng, Bin Xu, Bowen Wang, Chenhui Zhang, Da Yin, Dan Zhang,
+  Diego Rojas, Guanyu Feng, Hanlin Zhao, et~al.
+\newblock {ChatGLM}: A family of large language models from {GLM-130B} to
+  {GLM-4} all tools.
+\newblock \emph{arXiv preprint arXiv:2406.12793}, 2024.
+
+\bibitem[Guo et~al.(2025)Guo, Yang, Zhang, Song, Wang, Zhu, Xu, Zhang, Ma, Bi,
+  et~al.]{guo2025deepseekr1}
+Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Peiyi Wang, Qihao Zhu,
+  Runxin Xu, Ruoyu Zhang, Shirong Ma, Xiao Bi, et~al.
+\newblock {DeepSeek-R1} incentivizes reasoning in {LLM}s through reinforcement
+  learning.
+\newblock \emph{Nature}, 645:\penalty0 633--638, 2025.
+
+\bibitem[Wei et~al.(2022)Wei, Wang, Schuurmans, Bosma, Ichter, Xia, Chi, Le,
+  and Zhou]{wei2022cot}
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia,
+  Ed Chi, Quoc~V. Le, and Denny Zhou.
+\newblock Chain-of-thought prompting elicits reasoning in large language
+  models.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, pages 24824--24837, 2022.
+
+\bibitem[Cortes and Vapnik(1995)]{cortes1995svm}
+Corinna Cortes and Vladimir Vapnik.
+\newblock Support-vector networks.
+\newblock \emph{Machine Learning}, 20\penalty0 (3):\penalty0 273--297, 1995.
+
+\bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel, Thirion,
+  Grisel, Blondel, Prettenhofer, Weiss, Dubourg, et~al.]{pedregosa2011scikit}
+Fabian Pedregosa, Ga{\"e}l Varoquaux, Alexandre Gramfort, Vincent Michel,
+  Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron
+  Weiss, Vincent Dubourg, et~al.
+\newblock Scikit-learn: Machine learning in {Python}.
+\newblock \emph{Journal of Machine Learning Research}, 12:\penalty0 2825--2830,
+  2011.
+
+\bibitem[Cohen(1968)]{cohen1968weighted}
+Jacob Cohen.
+\newblock Weighted kappa: Nominal scale agreement with provision for scaled
+  disagreement or partial credit.
+\newblock \emph{Psychological Bulletin}, 70\penalty0 (4):\penalty0 213--220,
+  1968.
+
+\bibitem[Efron and Tibshirani(1993)]{efron1993bootstrap}
+Bradley Efron and Robert~J. Tibshirani.
+\newblock \emph{An Introduction to the Bootstrap}.
+\newblock Chapman \& Hall, 1993.
+
+\bibitem[Al-Jubouri et~al.(2021)Al-Jubouri, Ali, and Rajihy]{aljubouri2021asd}
+Ahmed~A. Al-Jubouri, Israa~Hadi Ali, and Yasen Rajihy.
+\newblock Gait and full body movement dataset of autistic children classified
+  by rough set classifier.
+\newblock \emph{Journal of Physics: Conference Series}, 1818\penalty0
+  (1):\penalty0 012201, 2021.
+
+\end{thebibliography}

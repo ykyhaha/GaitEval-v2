@@ -1,0 +1,21 @@
+\begin{table}[H]
+\centering
+\caption{\textbf{Standardized same-model evaluation.} Macro-F1 is recomputed from the released predictions using the complete class set. LR and linear SVM use the matched deterministic feature view. Bold denotes the highest Qwen2.5-7B result within a dataset, not superiority over the supervised references.}
+\label{tab:standardized_summary}
+\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Dataset & $n$ & Subjects & ZS summary & ZS z-feat. & LoRA-SFT & LR & Linear SVM \\
+\midrule
+ATAXIA & 8 & 4 & 0.273 & \textbf{0.333} & 0.333 & 0.873 & 0.873 \\
+GMFCS & 255 & 149 & 0.265 & 0.150 & \textbf{0.467} & 0.579 & 0.571 \\
+PARKINSONISM & 29 & 5 & 0.396 & \textbf{0.757} & 0.542 & 0.561 & 0.574 \\
+PATHOGAIT & 1440 & 2 & 0.069 & 0.139 & \textbf{0.451} & 0.881 & 0.897 \\
+ASD-Kinect & 20 & 20 & 0.310 & \textbf{0.436} & 0.310 & 0.697 & 0.744 \\
+CARE-PD (UPDRS gait) & 665 & 24 & 0.321 & 0.133 & \textbf{0.445} & 0.659 & 0.650 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

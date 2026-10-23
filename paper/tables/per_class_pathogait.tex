@@ -1,0 +1,32 @@
+\begin{table}[H]
+\centering
+\caption{\textbf{PATHOGAIT per-class S results.} Precision, recall, and F1 are recomputed from committed predictions; all task classes are retained.}
+\label{tab:per_class_pathogait}
+\small
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{llrrrr}
+\toprule
+Condition & Class & Support & Precision & Recall & F1 \\
+\midrule
+Zero-shot summary & antalgic & 240 & 0.000 & 0.000 & 0.000 \\
+Zero-shot summary & lurch & 240 & 0.027 & 0.004 & 0.007 \\
+Zero-shot summary & normal & 240 & 0.184 & 1.000 & 0.310 \\
+Zero-shot summary & steppage & 240 & 0.000 & 0.000 & 0.000 \\
+Zero-shot summary & stiff\_legged & 240 & 0.000 & 0.000 & 0.000 \\
+Zero-shot summary & trendelenburg & 240 & 0.174 & 0.067 & 0.096 \\
+Zero-shot z-features & antalgic & 240 & 0.038 & 0.004 & 0.008 \\
+Zero-shot z-features & lurch & 240 & 0.114 & 0.017 & 0.029 \\
+Zero-shot z-features & normal & 240 & 0.173 & 0.700 & 0.278 \\
+Zero-shot z-features & steppage & 240 & 0.117 & 0.087 & 0.100 \\
+Zero-shot z-features & stiff\_legged & 240 & 0.000 & 0.000 & 0.000 \\
+Zero-shot z-features & trendelenburg & 240 & 0.428 & 0.408 & 0.418 \\
+LoRA-SFT summary & antalgic & 240 & 0.462 & 0.350 & 0.398 \\
+LoRA-SFT summary & lurch & 240 & 0.379 & 0.371 & 0.375 \\
+LoRA-SFT summary & normal & 240 & 0.720 & 0.558 & 0.629 \\
+LoRA-SFT summary & steppage & 240 & 0.319 & 0.438 & 0.369 \\
+LoRA-SFT summary & stiff\_legged & 240 & 0.640 & 0.808 & 0.715 \\
+LoRA-SFT summary & trendelenburg & 240 & 0.239 & 0.204 & 0.220 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

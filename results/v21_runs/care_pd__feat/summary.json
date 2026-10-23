@@ -1,0 +1,20 @@
+{
+ "dataset": "care_pd",
+ "condition": "feat",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 665,
+ "n_unparsed": 0,
+ "accuracy": 0.2331,
+ "macro_f1": 0.1335,
+ "labels": [
+  "0",
+  "1",
+  "2",
+  "3"
+ ],
+ "pred_counts": {
+  "2": 499,
+  "3": 108,
+  "1": 58
+ }
+}

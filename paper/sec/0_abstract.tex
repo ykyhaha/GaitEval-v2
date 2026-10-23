@@ -1,0 +1,9 @@
+\begin{abstract}
+Pose-based gait data are widely used for clinical screening, yet whether Large Language Models (LLMs) can interpret such motion evidence remains underexplored.
+We introduce GaitEval, a six-dataset benchmark for evidence-grounded label prediction across ASD-Kinect, ATAXIA, CARE-PD, GMFCS, PARKINSONISM, and PATHOGAIT, with heterogeneous populations, pose formats, and label spaces.
+A baseline-anchored protocol compares controlled pose-derived inputs with label-prior and same-feature linear references, and evaluates zero-shot, few-shot, and low-rank adaptation (LoRA) within their tested coverage.
+The retained five-family motion-summary evaluation shows near-chance agreement on its original tasks; a shared six-dataset, subject-disjoint Qwen2.5-7B evaluation identifies important dataset--representation exceptions.
+Linear references recover task-relevant signal where available, while adaptation recovers some in-distribution mappings: standardized GMFCS summary macro-F1 rises from 0.265 to 0.467, but remains below its matched linear reference of 0.579.
+The accepted-protocol ATAXIA result likewise retains its agreement increase from $\kappa=0.046$ to $0.507$; transfer remains unreliable in the tested bidirectional ATAXIA--PATHOGAIT probe.
+Overall, evidence use is heterogeneous and representation-dependent: adaptation can learn dataset-specific mappings, while reliability beyond the tested settings remains unresolved.
+\end{abstract}

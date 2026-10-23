@@ -1,0 +1,17 @@
+{
+ "dataset": "asd_kinect",
+ "condition": "lorder-rev",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 20,
+ "n_unparsed": 0,
+ "accuracy": 0.4,
+ "macro_f1": 0.3407,
+ "labels": [
+  "ASD",
+  "typically_developing"
+ ],
+ "pred_counts": {
+  "typically_developing": 16,
+  "ASD": 4
+ }
+}

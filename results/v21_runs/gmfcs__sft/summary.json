@@ -1,0 +1,20 @@
+{
+ "dataset": "gmfcs",
+ "condition": "zs",
+ "model": "sftm",
+ "n": 255,
+ "n_unparsed": 0,
+ "accuracy": 0.6,
+ "macro_f1": 0.467,
+ "labels": [
+  "1",
+  "2",
+  "3",
+  "4"
+ ],
+ "pred_counts": {
+  "2": 105,
+  "1": 95,
+  "3": 55
+ }
+}

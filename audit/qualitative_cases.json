@@ -1,0 +1,122 @@
+[
+  {
+    "dataset": "asd_kinect",
+    "condition": "zs",
+    "sample_id": "asd-kinect-typical-02-original",
+    "subject_id": "typical:02",
+    "true": "typically_developing",
+    "pred": "typically_developing",
+    "raw_output": "typically_developing",
+    "input_record_available": false
+  },
+  {
+    "dataset": "asd_kinect",
+    "condition": "zs",
+    "sample_id": "asd-kinect-asd-03-original",
+    "subject_id": "asd:03",
+    "true": "ASD",
+    "pred": "typically_developing",
+    "raw_output": "typically_developing",
+    "input_record_available": false
+  },
+  {
+    "dataset": "ataxia",
+    "condition": "zs",
+    "sample_id": "ataxia-subject_12-normal",
+    "subject_id": "subject_12",
+    "true": "normal",
+    "pred": "normal",
+    "raw_output": "normal",
+    "input_record_available": false
+  },
+  {
+    "dataset": "ataxia",
+    "condition": "zs",
+    "sample_id": "ataxia-subject_10-mimicked_ataxia",
+    "subject_id": "subject_10",
+    "true": "mimicked_ataxia",
+    "pred": "normal",
+    "raw_output": "normal",
+    "input_record_available": false
+  },
+  {
+    "dataset": "care_pd",
+    "condition": "zs",
+    "sample_id": "care-pd-3DGait-18-vid0107_0113",
+    "subject_id": "3DGait:18",
+    "true": "0",
+    "pred": "0",
+    "raw_output": "UPDRS gait score 0",
+    "input_record_available": false
+  },
+  {
+    "dataset": "care_pd",
+    "condition": "zs",
+    "sample_id": "care-pd-3DGait-1-vid0077_0061",
+    "subject_id": "3DGait:1",
+    "true": "1",
+    "pred": "0",
+    "raw_output": "UPDRS gait score 0",
+    "input_record_available": false
+  },
+  {
+    "dataset": "gmfcs",
+    "condition": "zs",
+    "sample_id": "gmfcs-13418005",
+    "subject_id": "4331",
+    "true": "3",
+    "pred": "3",
+    "raw_output": "GMFCS level 3",
+    "input_record_available": false
+  },
+  {
+    "dataset": "gmfcs",
+    "condition": "zs",
+    "sample_id": "gmfcs-12203902",
+    "subject_id": "6547",
+    "true": "2",
+    "pred": "1",
+    "raw_output": "GMFCS level 1",
+    "input_record_available": false
+  },
+  {
+    "dataset": "parkinsonism",
+    "condition": "zs",
+    "sample_id": "parkinsonism-21987-on-r813f35ac-s00",
+    "subject_id": "21987",
+    "true": "severe",
+    "pred": "severe",
+    "raw_output": "severe",
+    "input_record_available": false
+  },
+  {
+    "dataset": "parkinsonism",
+    "condition": "zs",
+    "sample_id": "parkinsonism-21987-off-rd888b985-s00",
+    "subject_id": "21987",
+    "true": "severe",
+    "pred": "mild",
+    "raw_output": "mild",
+    "input_record_available": false
+  },
+  {
+    "dataset": "pathogait",
+    "condition": "zs",
+    "sample_id": "pathogait-human10-normal-r01-v1",
+    "subject_id": "human10",
+    "true": "normal",
+    "pred": "normal",
+    "raw_output": "normal",
+    "input_record_available": false
+  },
+  {
+    "dataset": "pathogait",
+    "condition": "zs",
+    "sample_id": "pathogait-human10-antalgic-r01-v1",
+    "subject_id": "human10",
+    "true": "antalgic",
+    "pred": "normal",
+    "raw_output": "normal",
+    "input_record_available": false
+  }
+]

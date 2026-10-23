@@ -1,0 +1,25 @@
+{
+ "dataset": "pathogait",
+ "condition": "feat",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 1440,
+ "n_unparsed": 1,
+ "accuracy": 0.2028,
+ "macro_f1": 0.1387,
+ "labels": [
+  "antalgic",
+  "lurch",
+  "normal",
+  "steppage",
+  "stiff_legged",
+  "trendelenburg"
+ ],
+ "pred_counts": {
+  "normal": 970,
+  "steppage": 179,
+  "trendelenburg": 229,
+  "antalgic": 26,
+  "lurch": 35,
+  "UNPARSED": 1
+ }
+}

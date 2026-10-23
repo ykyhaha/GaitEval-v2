@@ -1,0 +1,26 @@
+\begin{table}[H]
+\centering
+\caption{\textbf{CARE-PD per-class S results.} Precision, recall, and F1 are recomputed from committed predictions; all task classes are retained.}
+\label{tab:per_class_care_pd}
+\small
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{llrrrr}
+\toprule
+Condition & Class & Support & Precision & Recall & F1 \\
+\midrule
+Zero-shot summary & 0 & 240 & 0.528 & 0.471 & 0.498 \\
+Zero-shot summary & 1 & 247 & 0.455 & 0.490 & 0.472 \\
+Zero-shot summary & 2 & 160 & 0.292 & 0.338 & 0.313 \\
+Zero-shot summary & 3 & 18 & 0.000 & 0.000 & 0.000 \\
+Zero-shot z-features & 0 & 240 & 0.000 & 0.000 & 0.000 \\
+Zero-shot z-features & 1 & 247 & 0.310 & 0.073 & 0.118 \\
+Zero-shot z-features & 2 & 160 & 0.275 & 0.856 & 0.416 \\
+Zero-shot z-features & 3 & 18 & 0.000 & 0.000 & 0.000 \\
+LoRA-SFT summary & 0 & 240 & 0.519 & 0.683 & 0.590 \\
+LoRA-SFT summary & 1 & 247 & 0.414 & 0.441 & 0.427 \\
+LoRA-SFT summary & 2 & 160 & 0.304 & 0.150 & 0.201 \\
+LoRA-SFT summary & 3 & 18 & 1.000 & 0.389 & 0.560 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

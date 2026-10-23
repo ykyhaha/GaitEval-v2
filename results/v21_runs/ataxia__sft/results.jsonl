@@ -1,0 +1,8 @@
+{"sample_id": "ataxia-subject_10-mimicked_ataxia", "subject_id": "subject_10", "true": "mimicked_ataxia", "pred": "mimicked_ataxia", "raw_output": "mimicked_ataxia"}
+{"sample_id": "ataxia-subject_12-mimicked_ataxia", "subject_id": "subject_12", "true": "mimicked_ataxia", "pred": "mimicked_ataxia", "raw_output": "mimicked_ataxia"}
+{"sample_id": "ataxia-subject_15-mimicked_ataxia", "subject_id": "subject_15", "true": "mimicked_ataxia", "pred": "mimicked_ataxia", "raw_output": "mimicked_ataxia"}
+{"sample_id": "ataxia-subject_16-mimicked_ataxia", "subject_id": "subject_16", "true": "mimicked_ataxia", "pred": "mimicked_ataxia", "raw_output": "mimicked_ataxia"}
+{"sample_id": "ataxia-subject_10-normal", "subject_id": "subject_10", "true": "normal", "pred": "mimicked_ataxia", "raw_output": "mimicked_ataxia"}
+{"sample_id": "ataxia-subject_12-normal", "subject_id": "subject_12", "true": "normal", "pred": "mimicked_ataxia", "raw_output": "mimicked_ataxia"}
+{"sample_id": "ataxia-subject_15-normal", "subject_id": "subject_15", "true": "normal", "pred": "mimicked_ataxia", "raw_output": "mimicked_ataxia"}
+{"sample_id": "ataxia-subject_16-normal", "subject_id": "subject_16", "true": "normal", "pred": "mimicked_ataxia", "raw_output": "mimicked_ataxia"}

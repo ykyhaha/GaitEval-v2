@@ -1,0 +1,21 @@
+{
+ "dataset": "gmfcs",
+ "condition": "shufev",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 255,
+ "n_unparsed": 0,
+ "accuracy": 0.2863,
+ "macro_f1": 0.2124,
+ "labels": [
+  "1",
+  "2",
+  "3",
+  "4"
+ ],
+ "pred_counts": {
+  "3": 124,
+  "1": 81,
+  "2": 37,
+  "4": 13
+ }
+}

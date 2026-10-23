@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "model": "Qwen2.5-7B-Instruct",
+    "conditions": {
+      "zs": "Zero-shot motion summary",
+      "feat": "Zero-shot z-scored feature view",
+      "sft": "LoRA-SFT motion summary"
+    },
+    "scoring": "Rows are true labels and columns are predicted labels. UNPARSED is scored as an error.",
+    "source": "new_data/v21_runs/*/results.jsonl on the repository main branch"
+  },
+  "datasets": {
+    "ataxia": {
+      "display_name": "ATAXIA",
+      "n": 8,
+      "n_subjects": 4,
+      "labels": ["mimicked_ataxia", "normal"],
+      "short_labels": ["Mimicked\nataxia", "Normal"],
+      "positive_class": "mimicked_ataxia",
+      "reference": {"lr_macro_f1": 0.8730, "svm_macro_f1": 0.8730, "lr_ci": [0.5636, 1.0]},
+      "conditions": {
+        "zs": {"matrix": [[0, 4], [1, 3]], "unparsed_by_true": [0, 0]},
+        "feat": {"matrix": [[0, 4], [0, 4]], "unparsed_by_true": [0, 0]},
+        "sft": {"matrix": [[4, 0], [4, 0]], "unparsed_by_true": [0, 0]}
+      }
+    },
+    "gmfcs": {
+      "display_name": "GMFCS",
+      "n": 255,
+      "n_subjects": 149,
+      "labels": ["1", "2", "3", "4"],
+      "short_labels": ["Level 1", "Level 2", "Level 3", "Level 4"],
+      "ordinal": true,
+      "reference": {"lr_macro_f1": 0.5788, "svm_macro_f1": 0.5710, "lr_ci": [0.4736, 0.6623]},
+      "conditions": {
+        "zs": {"matrix": [[34, 20, 33, 11], [37, 13, 45, 2], [10, 3, 44, 0], [0, 0, 3, 0]], "unparsed_by_true": [0, 0, 0, 0]},
+        "feat": {"matrix": [[0, 24, 62, 12], [0, 12, 79, 6], [0, 4, 44, 9], [0, 1, 1, 1]], "unparsed_by_true": [0, 0, 0, 0]},
+        "sft": {"matrix": [[58, 37, 3, 0], [35, 54, 8, 0], [2, 14, 41, 0], [0, 0, 3, 0]], "unparsed_by_true": [0, 0, 0, 0]}
+      }
+    },
+    "parkinsonism": {
+      "display_name": "PARKINSONISM",
+      "n": 29,
+      "n_subjects": 5,
+      "labels": ["mild", "severe"],
+      "short_labels": ["Mild", "Severe"],
+      "positive_class": "severe",
+      "reference": {"lr_macro_f1": 0.5606, "svm_macro_f1": 0.5735, "lr_ci": [0.4156, 0.6538]},
+      "conditions": {
+        "zs": {"matrix": [[14, 0], [14, 1]], "unparsed_by_true": [0, 0]},
+        "feat": {"matrix": [[12, 2], [5, 10]], "unparsed_by_true": [0, 0]},
+        "sft": {"matrix": [[4, 10], [2, 13]], "unparsed_by_true": [0, 0]}
+      }
+    },
+    "pathogait": {
+      "display_name": "PATHOGAIT",
+      "n": 1440,
+      "n_subjects": 2,
+      "labels": ["antalgic", "lurch", "normal", "steppage", "stiff_legged", "trendelenburg"],
+      "short_labels": ["Antalgic", "Lurch", "Normal", "Steppage", "Stiff-legged", "Trendelenburg"],
+      "reference": {"lr_macro_f1": 0.8809, "svm_macro_f1": 0.8975, "lr_ci": null},
+      "conditions": {
+        "zs": {"matrix": [[0, 1, 238, 0, 0, 1], [0, 1, 232, 0, 0, 7], [0, 0, 240, 0, 0, 0], [0, 1, 237, 0, 0, 2], [0, 34, 136, 4, 0, 66], [0, 0, 224, 0, 0, 16]], "unparsed_by_true": [0, 0, 0, 0, 0, 0]},
+        "feat": {"matrix": [[1, 10, 189, 13, 0, 27], [0, 4, 141, 57, 0, 37], [18, 7, 168, 40, 0, 7], [0, 3, 206, 21, 0, 10], [0, 6, 140, 44, 0, 50], [7, 5, 126, 4, 0, 98]], "unparsed_by_true": [0, 1, 0, 0, 0, 0]},
+        "sft": {"matrix": [[84, 39, 20, 70, 1, 26], [43, 89, 10, 35, 13, 50], [17, 4, 134, 84, 0, 1], [24, 16, 12, 105, 20, 63], [0, 29, 1, 0, 194, 16], [14, 58, 9, 35, 75, 49]], "unparsed_by_true": [0, 0, 0, 0, 0, 0]}
+      }
+    },
+    "asd_kinect": {
+      "display_name": "ASD-Kinect",
+      "n": 20,
+      "n_subjects": 20,
+      "labels": ["asd", "typical"],
+      "short_labels": ["ASD", "Typical"],
+      "positive_class": "asd",
+      "reference": {"lr_macro_f1": 0.6970, "svm_macro_f1": 0.7442, "lr_ci": [0.4792, 0.8903]},
+      "conditions": {
+        "zs": {"matrix": [[0, 10], [1, 9]], "unparsed_by_true": [0, 0]},
+        "feat": {"matrix": [[1, 9], [0, 10]], "unparsed_by_true": [0, 0]},
+        "sft": {"matrix": [[9, 1], [10, 0]], "unparsed_by_true": [0, 0]}
+      }
+    },
+    "care_pd": {
+      "display_name": "CARE-PD (UPDRS gait)",
+      "n": 665,
+      "n_subjects": 24,
+      "labels": ["0", "1", "2", "3"],
+      "short_labels": ["Score 0", "Score 1", "Score 2", "Score 3"],
+      "ordinal": true,
+      "reference": {"lr_macro_f1": 0.6591, "svm_macro_f1": 0.6498, "lr_ci": [0.4072, 0.7423]},
+      "conditions": {
+        "zs": {"matrix": [[113, 76, 51, 0], [58, 121, 68, 0], [42, 64, 54, 0], [1, 5, 12, 0]], "unparsed_by_true": [0, 0, 0, 0]},
+        "feat": {"matrix": [[0, 35, 157, 48], [0, 18, 187, 42], [0, 5, 137, 18], [0, 0, 18, 0]], "unparsed_by_true": [0, 0, 0, 0]},
+        "sft": {"matrix": [[164, 71, 5, 0], [92, 109, 46, 0], [59, 77, 24, 0], [1, 6, 4, 7]], "unparsed_by_true": [0, 0, 0, 0]}
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+ "dataset": "care_pd",
+ "condition": "zs",
+ "model": "gemma",
+ "n": 665,
+ "n_unparsed": 0,
+ "accuracy": 0.4391,
+ "macro_f1": 0.2492,
+ "labels": [
+  "0",
+  "1",
+  "2",
+  "3"
+ ],
+ "pred_counts": {
+  "0": 180,
+  "1": 482,
+  "2": 3
+ }
+}

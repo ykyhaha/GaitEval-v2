@@ -1,0 +1,23 @@
+{
+ "dataset": "pathogait",
+ "condition": "shufev",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 1440,
+ "n_unparsed": 0,
+ "accuracy": 0.1653,
+ "macro_f1": 0.0706,
+ "labels": [
+  "antalgic",
+  "lurch",
+  "normal",
+  "steppage",
+  "stiff_legged",
+  "trendelenburg"
+ ],
+ "pred_counts": {
+  "normal": 1308,
+  "lurch": 37,
+  "steppage": 4,
+  "trendelenburg": 91
+ }
+}

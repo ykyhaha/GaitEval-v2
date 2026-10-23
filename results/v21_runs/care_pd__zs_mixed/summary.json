@@ -1,0 +1,28 @@
+{
+ "dataset": "care_pd",
+ "condition": "zs",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 970,
+ "n_unparsed": 0,
+ "accuracy": 0.0113,
+ "macro_f1": 0.0036,
+ "labels": [
+  "0",
+  "1",
+  "2",
+  "3",
+  "NON-PD (PP-FOG)",
+  "PD-FOG",
+  "PD-NoFOG",
+  "freezer",
+  "healthy-control",
+  "nonfreezer",
+  "other-diseases",
+  "parkinson"
+ ],
+ "pred_counts": {
+  "healthy-control": 476,
+  "PD-NoFOG": 439,
+  "PD-FOG": 55
+ }
+}

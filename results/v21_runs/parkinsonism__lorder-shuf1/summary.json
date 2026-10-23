@@ -1,0 +1,17 @@
+{
+ "dataset": "parkinsonism",
+ "condition": "lorder-shuf1",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 29,
+ "n_unparsed": 0,
+ "accuracy": 0.4483,
+ "macro_f1": 0.3556,
+ "labels": [
+  "mild",
+  "severe"
+ ],
+ "pred_counts": {
+  "mild": 26,
+  "severe": 3
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "dataset": "asd_kinect",
+ "condition": "zs",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 20,
+ "n_unparsed": 0,
+ "accuracy": 0.45,
+ "macro_f1": 0.3103,
+ "labels": [
+  "ASD",
+  "typically_developing"
+ ],
+ "pred_counts": {
+  "typically_developing": 19,
+  "ASD": 1
+ }
+}

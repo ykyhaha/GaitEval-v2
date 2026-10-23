@@ -1,0 +1,84 @@
+{
+  "datasets": [
+    "asd_kinect",
+    "ataxia",
+    "care_pd",
+    "gmfcs",
+    "parkinsonism",
+    "pathogait"
+  ],
+  "rows": [
+    [
+      "ASD-Kinect",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "--",
+      "--",
+      "--",
+      "--"
+    ],
+    [
+      "ATAXIA",
+      "L only",
+      "S",
+      "--",
+      "S",
+      "S",
+      "L only",
+      "L only",
+      "L only",
+      "L pair"
+    ],
+    [
+      "CARE-PD",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "--",
+      "--",
+      "--",
+      "--"
+    ],
+    [
+      "GMFCS",
+      "L only",
+      "S",
+      "--",
+      "S",
+      "S",
+      "--",
+      "--",
+      "L norm.",
+      "--"
+    ],
+    [
+      "PARKINSONISM",
+      "L only",
+      "S",
+      "--",
+      "S",
+      "S",
+      "L only",
+      "--",
+      "L norm.",
+      "--"
+    ],
+    [
+      "PATHOGAIT",
+      "L only",
+      "S",
+      "--",
+      "S",
+      "S",
+      "L only",
+      "L only",
+      "L only",
+      "L pair"
+    ]
+  ]
+}

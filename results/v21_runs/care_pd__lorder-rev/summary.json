@@ -1,0 +1,20 @@
+{
+ "dataset": "care_pd",
+ "condition": "lorder-rev",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 665,
+ "n_unparsed": 0,
+ "accuracy": 0.3113,
+ "macro_f1": 0.2523,
+ "labels": [
+  "0",
+  "1",
+  "2",
+  "3"
+ ],
+ "pred_counts": {
+  "1": 488,
+  "2": 172,
+  "3": 5
+ }
+}

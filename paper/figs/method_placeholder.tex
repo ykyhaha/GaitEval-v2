@@ -1,0 +1,19 @@
+\fbox{\begin{minipage}{0.88\columnwidth}\centering\small
+\textbf{Method diagram --- layout draft}\\[4pt]
+Per-dataset pose + task / subject / split records\\
+$\downarrow$\\
+Native layout + canonical 19-joint layer\\
+$\downarrow$\\
+Deterministic kinematic features\\
+(exclude capture-quality variables in S)\\
+$\downarrow$\\
+Train-statistics scaling / label-free summary\\
+$\downarrow$\\
+One evidence view + candidate labels\\
+$\downarrow$\\
+Zero-shot / evidence controls / summary LoRA\\
+$\downarrow$\\
+Parse all outputs; compare with matched LR/SVM\\
+$\downarrow$\\
+Metrics + participant-cluster uncertainty
+\end{minipage}}

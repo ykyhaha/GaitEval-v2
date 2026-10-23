@@ -1,0 +1,21 @@
+{
+ "dataset": "gmfcs",
+ "condition": "lorder-shuf1",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 255,
+ "n_unparsed": 0,
+ "accuracy": 0.3529,
+ "macro_f1": 0.2742,
+ "labels": [
+  "1",
+  "2",
+  "3",
+  "4"
+ ],
+ "pred_counts": {
+  "4": 7,
+  "2": 73,
+  "1": 89,
+  "3": 86
+ }
+}

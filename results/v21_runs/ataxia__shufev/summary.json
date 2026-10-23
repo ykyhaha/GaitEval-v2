@@ -1,0 +1,17 @@
+{
+ "dataset": "ataxia",
+ "condition": "shufev",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "n": 8,
+ "n_unparsed": 0,
+ "accuracy": 0.375,
+ "macro_f1": 0.2727,
+ "labels": [
+  "mimicked_ataxia",
+  "normal"
+ ],
+ "pred_counts": {
+  "normal": 7,
+  "mimicked_ataxia": 1
+ }
+}

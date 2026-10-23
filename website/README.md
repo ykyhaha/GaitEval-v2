@@ -1,0 +1,1 @@
+Project website source is in dist/. GitHub Pages publishes the identical files from docs/. Regenerate with scripts/build_website.py after building paper PDFs, then copy dist contents to docs while retaining the Markdown documentation. No npm installer or binary package is needed.

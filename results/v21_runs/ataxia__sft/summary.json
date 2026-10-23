@@ -1,0 +1,16 @@
+{
+ "dataset": "ataxia",
+ "condition": "zs",
+ "model": "sftm",
+ "n": 8,
+ "n_unparsed": 0,
+ "accuracy": 0.5,
+ "macro_f1": 0.3333,
+ "labels": [
+  "mimicked_ataxia",
+  "normal"
+ ],
+ "pred_counts": {
+  "mimicked_ataxia": 8
+ }
+}

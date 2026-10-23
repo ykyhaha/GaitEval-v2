@@ -1,0 +1,22 @@
+{
+  "main": {
+    "pages": 9,
+    "references_start": 7,
+    "body_pages": 6,
+    "bytes": 534763,
+    "sha256": "5a4549d30b476de7a313e780ccf8cfbdac47d7f1c6c32927b78029878d1d4a6b",
+    "unresolved_refs": false
+  },
+  "supplementary_standalone": {
+    "pages": 26,
+    "references_start": null,
+    "body_pages": null,
+    "bytes": 498340,
+    "sha256": "7848c770c6fca422ba6e8eeb1cce59b48c93d36ef7f365ef3f82da07ca500b25",
+    "unresolved_refs": false
+  },
+  "main_body_at_most_8": true,
+  "author_metadata_pending": true,
+  "visual_check": "Rendered all clean pages; figures and main tables inspected at full size; final Table2 verified with Poppler. All fonts embedded; no Type3 fonts.",
+  "recovery_note": "Stored PDF provenance signatures are retained; body/reference pagination was rechecked unchanged."
+}

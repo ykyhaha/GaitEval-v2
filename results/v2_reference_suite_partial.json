@@ -1,0 +1,302 @@
+{
+ "ataxia": {
+  "n_train": 28,
+  "n_test": 8,
+  "n_features": 14,
+  "labels": [
+   "mimicked_ataxia",
+   "normal"
+  ],
+  "n_subj_test": 4,
+  "train_test_subject_overlap": [],
+  "majority": {
+   "acc": 0.5,
+   "mf1": 0.3333,
+   "kappa": 0.0
+  },
+  "chance_mf1": {
+   "mean": 0.4881,
+   "std": 0.1797
+  },
+  "lr_balanced": {
+   "acc": 0.875,
+   "mf1": 0.873,
+   "kappa": 0.75,
+   "subj_ci": [
+    0.5636,
+    1.0
+   ]
+  },
+  "svm_balanced": {
+   "acc": 0.875,
+   "mf1": 0.873,
+   "kappa": 0.75,
+   "subj_ci": [
+    0.5636,
+    1.0
+   ]
+  },
+  "lr_none": {
+   "acc": 0.875,
+   "mf1": 0.873,
+   "kappa": 0.75,
+   "subj_ci": [
+    0.5636,
+    1.0
+   ]
+  },
+  "svm_none": {
+   "acc": 0.875,
+   "mf1": 0.873,
+   "kappa": 0.75,
+   "subj_ci": [
+    0.5636,
+    1.0
+   ]
+  },
+  "rf": {
+   "acc": 0.875,
+   "mf1": 0.873,
+   "kappa": 0.75,
+   "subj_ci": [
+    0.5636,
+    1.0
+   ]
+  },
+  "lr_perm_p": 0.0645,
+  "loso_lr": {
+   "acc": 0.95,
+   "mf1": 0.95,
+   "kappa": 0.9,
+   "subj_ci": [
+    0.8743,
+    1.0
+   ],
+   "n_subjects": 20
+  }
+ },
+ "gmfcs": {
+  "n_train": 914,
+  "n_test": 255,
+  "n_features": 16,
+  "labels": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "n_subj_test": 149,
+  "train_test_subject_overlap": [],
+  "majority": {
+   "acc": 0.3843,
+   "mf1": 0.1388,
+   "kappa": 0.0
+  },
+  "chance_mf1": {
+   "mean": 0.2501,
+   "std": 0.0265
+  },
+  "lr_balanced": {
+   "acc": 0.6392,
+   "mf1": 0.5788,
+   "kappa": 0.4581,
+   "subj_ci": [
+    0.4736,
+    0.6623
+   ]
+  },
+  "svm_balanced": {
+   "acc": 0.6471,
+   "mf1": 0.571,
+   "kappa": 0.4694,
+   "subj_ci": [
+    0.4605,
+    0.6894
+   ]
+  },
+  "lr_none": {
+   "acc": 0.6588,
+   "mf1": 0.5097,
+   "kappa": 0.4802,
+   "subj_ci": [
+    0.4605,
+    0.6753
+   ]
+  },
+  "svm_none": {
+   "acc": 0.651,
+   "mf1": 0.5022,
+   "kappa": 0.4702,
+   "subj_ci": [
+    0.4527,
+    0.6665
+   ]
+  },
+  "rf": {
+   "acc": 0.6471,
+   "mf1": 0.4995,
+   "kappa": 0.4642,
+   "subj_ci": [
+    0.4513,
+    0.6579
+   ]
+  },
+  "lr_perm_p": 0.0005
+ },
+ "parkinsonism": {
+  "n_train": 83,
+  "n_test": 29,
+  "n_features": 16,
+  "labels": [
+   "mild",
+   "severe"
+  ],
+  "n_subj_test": 5,
+  "train_test_subject_overlap": [],
+  "majority": {
+   "acc": 0.4828,
+   "mf1": 0.3256,
+   "kappa": 0.0
+  },
+  "chance_mf1": {
+   "mean": 0.4941,
+   "std": 0.0913
+  },
+  "lr_balanced": {
+   "acc": 0.5862,
+   "mf1": 0.5606,
+   "kappa": 0.1869,
+   "subj_ci": [
+    0.4156,
+    0.6538
+   ]
+  },
+  "svm_balanced": {
+   "acc": 0.5862,
+   "mf1": 0.5735,
+   "kappa": 0.1831,
+   "subj_ci": [
+    0.4009,
+    0.631
+   ]
+  },
+  "lr_none": {
+   "acc": 0.5862,
+   "mf1": 0.5606,
+   "kappa": 0.1869,
+   "subj_ci": [
+    0.4156,
+    0.6538
+   ]
+  },
+  "svm_none": {
+   "acc": 0.5517,
+   "mf1": 0.5148,
+   "kappa": 0.1212,
+   "subj_ci": [
+    0.3484,
+    0.619
+   ]
+  },
+  "rf": {
+   "acc": 0.6897,
+   "mf1": 0.6758,
+   "kappa": 0.3888,
+   "subj_ci": [
+    0.4,
+    1.0
+   ]
+  },
+  "lr_perm_p": 0.2384,
+  "loso_lr": {
+   "acc": 0.5635,
+   "mf1": 0.5613,
+   "kappa": 0.1239,
+   "subj_ci": [
+    0.4484,
+    0.659
+   ],
+   "n_subjects": 23
+  }
+ },
+ "pathogait": {
+  "n_train": 5040,
+  "n_test": 1440,
+  "n_features": 24,
+  "labels": [
+   "antalgic",
+   "lurch",
+   "normal",
+   "steppage",
+   "stiff_legged",
+   "trendelenburg"
+  ],
+  "n_subj_test": 2,
+  "train_test_subject_overlap": [],
+  "majority": {
+   "acc": 0.1667,
+   "mf1": 0.0476,
+   "kappa": 0.0
+  },
+  "chance_mf1": {
+   "mean": 0.1664,
+   "std": 0.0098
+  },
+  "lr_balanced": {
+   "acc": 0.8812,
+   "mf1": 0.8809,
+   "kappa": 0.8575,
+   "subj_ci": [
+    0.8809,
+    0.8809
+   ]
+  },
+  "svm_balanced": {
+   "acc": 0.8972,
+   "mf1": 0.8975,
+   "kappa": 0.8767,
+   "subj_ci": [
+    0.8975,
+    0.8975
+   ]
+  },
+  "lr_none": {
+   "acc": 0.8812,
+   "mf1": 0.8809,
+   "kappa": 0.8575,
+   "subj_ci": [
+    0.8809,
+    0.8809
+   ]
+  },
+  "svm_none": {
+   "acc": 0.8972,
+   "mf1": 0.8975,
+   "kappa": 0.8767,
+   "subj_ci": [
+    0.8975,
+    0.8975
+   ]
+  },
+  "rf": {
+   "acc": 0.8854,
+   "mf1": 0.8864,
+   "kappa": 0.8625,
+   "subj_ci": [
+    0.8864,
+    0.8864
+   ]
+  },
+  "lr_perm_p": 0.0005,
+  "loso_lr": {
+   "acc": 0.7444,
+   "mf1": 0.743,
+   "kappa": 0.6933,
+   "subj_ci": [
+    0.6721,
+    0.8101
+   ],
+   "n_subjects": 10
+  }
+ }
+}
