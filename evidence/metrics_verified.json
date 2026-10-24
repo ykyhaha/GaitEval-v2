@@ -1,0 +1,92 @@
+{
+  "gmfcs_corrected_split": {
+    "clips": {
+      "train": 1602,
+      "val": 478,
+      "test": 866
+    },
+    "subjects": {
+      "train": 94,
+      "val": 84,
+      "test": 166
+    },
+    "overlap": {
+      "train_val": [],
+      "train_test": [],
+      "val_test": []
+    }
+  },
+  "gmfcs_corrected_sft": {
+    "n": 866,
+    "accuracy": 0.3729792147806005,
+    "macro_f1": 0.25853028769390884,
+    "kappa": 0.04311923618515834,
+    "invalid": 0,
+    "exact_test_id_match": true,
+    "unique_ids": 866,
+    "truth_matches_original_test": true
+  },
+  "pathogait_with_vff": {
+    "n": 2181,
+    "accuracy": 0.6776707932141219,
+    "macro_f1": 0.6870198910729686,
+    "kappa": 0.6107745805256679,
+    "invalid": 0
+  },
+  "pathogait_without_vff": {
+    "n": 2181,
+    "accuracy": 0.640990371389271,
+    "macro_f1": 0.631640891013,
+    "kappa": 0.5648718711811824,
+    "invalid": 0
+  },
+  "pathogait_same_test": {
+    "same_ids": true,
+    "same_true_labels": true,
+    "old_unique_ids": 2181,
+    "new_unique_ids": 2181
+  },
+  "pathogait_delta_mf1": -0.05537900005996854,
+  "pathogait_qwen72_correct_rounding": {
+    "n": 2181,
+    "accuracy": 0.15543328748280605,
+    "macro_f1": 0.05450618932103457,
+    "kappa": -0.00885934462596949,
+    "invalid": 0
+  },
+  "pathogait_decoded_label_map": {
+    "1": "antalgic gait",
+    "4": "stiff-legged gait",
+    "5": "Trendelenburg gait",
+    "3": "steppage gait",
+    "2": "lurching gait",
+    "0": "normal gait"
+  },
+  "gmfcs_raw_parser_disagreements": 0,
+  "pathogait_raw_parser_disagreements": 0,
+  "qualitative_crosschecks": {
+    "gmfcs_zs_fail_sft_fix": {
+      "zs_raw_matches_raw_prediction": true,
+      "truth_numeric": 2,
+      "sft_raw_matches_raw_prediction": true
+    },
+    "pathogait_zs_fail": {
+      "pred_raw_matches_raw_prediction": true,
+      "truth_numeric": 0
+    },
+    "ataxia_sft_success_minority": {
+      "zs_raw_matches_raw_prediction": true,
+      "truth_numeric": 0,
+      "sft_raw_matches_raw_prediction": true
+    }
+  },
+  "gmfcs_case_after_corrected_training": {
+    "record_id": "test_sd_22",
+    "truth": "GMFCS III",
+    "corrected_raw_output": "GMFCS II",
+    "prepared_output_matches": true,
+    "old_source_output": "GMFCS III",
+    "old_success_caption_not_reused": true
+  },
+  "prepared_prompts_redacted": true
+}

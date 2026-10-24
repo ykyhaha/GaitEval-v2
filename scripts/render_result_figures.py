@@ -15,7 +15,7 @@ def esc(s):return str(s).replace('_',r'\_')
 def table(label,caption,head,cols,body):
  return '\n'.join([r'\begin{table}[H]',r'\centering',r'\caption{'+caption+'}',r'\label{'+label+'}',r'\small',r'\begin{adjustbox}{max width=\textwidth}',r'\begin{tabular}{'+cols+'}',r'\toprule',head+r' \\',r'\midrule',*body,r'\bottomrule',r'\end{tabular}',r'\end{adjustbox}',r'\end{table}'])+'\n'
 def main():
- figs=ROOT/'paper/figures';figs.mkdir(parents=True,exist_ok=True);tabs=ROOT/'paper/tables';tabs.mkdir(parents=True,exist_ok=True)
+ figs=ROOT/'results/derived/figures';figs.mkdir(parents=True,exist_ok=True);tabs=ROOT/'results/derived/tables';tabs.mkdir(parents=True,exist_ok=True)
  binary=[];ordinal=[]
  plt.rcParams.update({'font.family':'DejaVu Sans','font.size':8,'pdf.fonttype':42})
  for ds in DATASETS:

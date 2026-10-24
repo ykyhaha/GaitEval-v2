@@ -31,3 +31,7 @@
 \newcommand{\red}[1]{{\color{red}#1}}
 \newcommand{\todo}[1]{{\color{red}#1}}
 \newcommand{\TODO}[1]{\textbf{\color{red}[TODO: #1]}}
+
+% v2.2: identical table contents in main and standalone supplement.
+\newenvironment{importtable}{\begin{table*}[t]}{\end{table*}}
+\newenvironment{importsmalltable}{\begin{table}[t]}{\end{table}}

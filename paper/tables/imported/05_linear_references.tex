@@ -1,0 +1,95 @@
+\begin{importtable}
+\centering
+\caption{\textbf{Same-feature linear references for the model/view experiments.} Accuracy, macro-F1, and Cohen's $\kappa$; test sizes are given in the final column. Chance mF1 is the recorded stratified-chance reference. Bold marks the stronger linear reference per metric. These references match the feature inputs and test populations of the supervision ladder; the next table gives references for the seven shared conditions.}
+\label{v2detail:tab:linear_references}
+\small
+\setlength{\tabcolsep}{3.2pt}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccccc}
+\toprule
+\textbf{Dataset}
+& \textbf{Classes}
+& \textbf{Maj. Acc.}
+& \textbf{Chance mF1}
+& \textbf{LR Acc.}
+& \textbf{LR mF1}
+& \textbf{LR $\kappa$}
+& \textbf{SVM Acc.}
+& \textbf{SVM mF1}
+& \textbf{SVM $\kappa$}
+& $\boldsymbol{n_{\mathrm{te}}}$ \\
+\midrule
+ASD-Kinect
+& 2
+& 0.500
+& 0.490
+& 0.700
+& 0.697
+& 0.400
+& 0.750
+& 0.744
+& 0.500
+& 20 \\
+
+ATAXIA
+& 2
+& 0.686
+& 0.498
+& \textbf{0.778}
+& \textbf{0.763}
+& \textbf{0.533}
+& 0.774
+& 0.759
+& 0.524
+& 1647 \\
+
+CARE-PD
+& 4
+& 0.361
+& 0.250
+& 0.621
+& 0.659
+& 0.437
+& 0.621
+& 0.650
+& 0.435
+& 665 \\
+
+GMFCS
+& 4
+& 0.356
+& 0.250
+& 0.461
+& 0.395
+& 0.241
+& \textbf{0.492}
+& \textbf{0.412}
+& \textbf{0.271}
+& 866 \\
+
+PARKINSONISM
+& 2
+& 0.583
+& 0.499
+& \textbf{0.625}
+& \textbf{0.613}
+& \textbf{0.226}
+& 0.600
+& 0.583
+& 0.168
+& 120 \\
+
+PATHOGAIT
+& 6
+& 0.226
+& 0.166
+& \textbf{0.659}
+& \textbf{0.662}
+& \textbf{0.589}
+& 0.656
+& 0.644
+& 0.585
+& 2181 \\
+\bottomrule
+\end{tabular}}
+\end{importtable}

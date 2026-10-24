@@ -1,15 +1,17 @@
-# Reproducibility scope
+# Reproducibility scope for the eight-page manuscript
 
-| Paper artifact | Evidence and command | Status |
-|---|---|---|
-| Six-dataset summary/z-feature/SFT point metrics | results/v21_runs/*/results.jsonl; scripts/audit_results.py | Recomputed, prediction-backed |
-| Six-dataset confusion matrices | scripts/render_result_figures.py | Regenerated from genuine predictions |
-| No-evidence, shuffled evidence, candidate-order controls | same prediction directory | Point metrics recomputed |
-| LR/SVM reference values | results/references_task_matched.json | Source results, feature inputs absent |
-| Cluster intervals and paired bootstrap values | results/v21_phase4_stats.json | Archived estimator, not a fresh execution |
-| GMFCS S split provenance | source manifests state 149 test participants / 255 clips, no overlap | Full input manifests required for independent verification |
-| Full source-to-features-to-LLM run | code plus original S external inputs and checkpoints | Blocked by missing input layers/adapters |
-| Matched pose–prompt–output qualitative panel | output logs available; input/pose correspondence absent | Incomplete; no fabricated examples |
-| PATHOGAIT L feature-SFT without valid-frame fraction | Original feature-SFT never rerun with only that feature removed | Not executed; no causal or kinematics-only superiority claim |
+| Evidence | Reproduction status |
+|---|---|
+| 55 released prediction files; 42 shared-condition cells | Fixed-task-label accuracy, macro-F1, kappa, counts and parser outputs recomputed on CPU |
+| Six confusion figures and per-class scores | Regenerated from committed predictions |
+| No-evidence, shuffled evidence, reversed/shuffled candidate order | Complete across six datasets for Qwen2.5-7B summary zero-shot controls; fixed permutation seeds, not a multi-seed robustness study |
+| Matched LR/SVM points | Archived source measurements; missing feature layers prevent retraining them here |
+| Participant intervals and paired tail areas | Archived historical estimator, separated from freshly checked fixed-label point estimates |
+| GMFCS corrected split | 1,602/478/866 clips, 94/84/166 participants; intersections empty; corrected SFT IDs/truths/raw parsing checked by `evidence/verify_corrections.py` |
+| GMFCS shared-condition training provenance | Test outputs cover 255 clips / 149 participants; full training input manifests are still unavailable for independent separation checks |
+| PATHOGAIT feature-SFT without valid-frame fraction | Recovered completed run; matching 2,181 test IDs; scores and raw parsing checked; macro-F1 .6316 versus .6870 with the field |
+| GMFCS Table 5 view entries | Summary is log-only (866 clips), normalized coordinates are draft-only/unverified, raw/z-features are historical 899-clip aggregates; not verified matched-test estimates |
+| Full source-to-model training/inference | Requires external authorized poses, original input layers, training manifests and checkpoints/adapters |
+| Complete matched pose–prompt–output panels | Output decisions are available; complete shared-condition pose/input correspondence remains absent |
 
-The historical bootstrap uses a dynamic label union and excludes draws with one participant or one truth class. Its intervals and paired bootstrap tail areas are identified separately from fixed-task-label point estimates. A non-significant difference is not an equivalence test. Very small participant counts are descriptive limits. No new training or inference was performed by packaging this release.
+Run `bash scripts/reproduce.sh` after installing `requirements-analysis.txt`. Historical bootstrap intervals used a dynamic label union; they are not presented as newly recomputed fixed-label confidence intervals. A non-significant comparison does not establish equivalence. PATHOGAIT's two participants and the small ATAXIA/PARKINSONISM tests constrain population-level inference. Runtime changes in the feature-removal rerun prevent causal attribution of the entire difference to the removed field. No new model execution is performed by this release update.

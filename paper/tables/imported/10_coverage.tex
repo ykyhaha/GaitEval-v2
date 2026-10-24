@@ -1,0 +1,20 @@
+\begin{importtable}
+\centering
+\caption{\textbf{Experimental coverage across six datasets.} ``Yes'' means a result exists on the stated test set; ``--'' means no result; ``Unverified'' means the corrected records needed to validate a historical result are missing. All six datasets have the seven Qwen-7B conditions and matched LR/SVM. Test counts for each experiment are stated in the result captions and supplemental evaluation-record inventory. The five-model column excludes the Qwen-7B anchor.}
+\label{supp:tab:coverage_matrix}
+\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llllllllll}
+\toprule
+Dataset & Five families & ZS summary/z & ZS raw feat. & Summary SFT & LR/SVM+controls & Few-shot & Feature SFT & Coordinates & Transfer \\
+\midrule
+ASD-Kinect & Yes & Yes & Yes & Yes & Yes & -- & -- & -- & -- \\
+ATAXIA & Yes & Yes & -- & Yes & Yes & Yes & Yes & Yes & Tested pair \\
+CARE-PD & Yes & Yes & Yes & Yes & Yes & -- & -- & -- & -- \\
+GMFCS & Yes & Yes & -- & Yes & Yes & -- & -- & Unverified & -- \\
+PARKINSONISM & Yes & Yes & -- & Yes & Yes & Yes & -- & Normalized & -- \\
+PATHOGAIT & Yes & Yes & -- & Yes & Yes & Yes & Yes & Yes & Tested pair \\
+\bottomrule
+\end{tabular}}
+\end{importtable}

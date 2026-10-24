@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\caption{\textbf{PARKINSONISM per-class S results.} Precision, recall, and F1 are recomputed from committed predictions; all task classes are retained.}
+\label{tab:per_class_parkinsonism}
+\small
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{llrrrr}
+\toprule
+Condition & Class & Support & Precision & Recall & F1 \\
+\midrule
+Zero-shot summary & mild & 14 & 0.500 & 1.000 & 0.667 \\
+Zero-shot summary & severe & 15 & 1.000 & 0.067 & 0.125 \\
+Zero-shot z-features & mild & 14 & 0.706 & 0.857 & 0.774 \\
+Zero-shot z-features & severe & 15 & 0.833 & 0.667 & 0.741 \\
+LoRA-SFT summary & mild & 14 & 0.667 & 0.286 & 0.400 \\
+LoRA-SFT summary & severe & 15 & 0.565 & 0.867 & 0.684 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

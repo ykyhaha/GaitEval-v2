@@ -1,0 +1,33 @@
+{
+ "gmfcs_zs_fail_sft_fix": {
+  "run_zs": "full_motionsum_gmfcs_qwen72b",
+  "run_sft": "sft-qwen7b_gmfcs",
+  "id": "test_22",
+  "true": "GMFCS III",
+  "zs_raw": "GMFCS II",
+  "sft_raw": "GMFCS III",
+  "summary": "Motion summary | clip valid_frames: 124/124\n\nMOTION AMPLITUDE:\n  Ankle vertical range \u2014 left: 0.3682, right: 0.2452. Reflects step height / foot clearance.\n  Ankle horizontal range \u2014 left: 0.7681, right: 1.1950. Represents stride length contribution.\n  Knee vertical range \u2014 left: 0.1682, right: 0.1073.\n  Hip vertical range \u2014 left: 0.1303, right: 0.1304.\n\nSYMMETRY / ASYMMETRY:\n  Ankle vertical asymmetry: strongly asymmetric (0.401).\n  Ankle horizontal asymmetry: strongly asymmetric (0.435).\n  Knee vertical asymmetry: strongly asymmetric (0.442).\n  Hip vertical asymmetry: symmetric (0.001).\n\nSTABILITY:\n  Hip-centre lateral variability (std): 0.1984. Elevated suggests pelvic instability.\n  Hip-centre vertical variability (std): 0.0342.\n\nTRAJECTORY VARIABILITY:\n  Mean per-joint trajectory variance: 0.028717. Low = repetitive motion; high = erratic.\n  Ankle trajectory variance \u2014 left: 0.0129, right: 0.0362.\n\nSMOOTHNESS (jerk proxy = mean |3rd derivative|):\n  Ankle jerk (mean L+R): 0.035723 (jerky). Jerk elevation indicates abrupt, poorly controlled motion.\n  Ankle jerk detail \u2014 left: 0.0412, right: 0.0303.\n\nCLIP QUALITY: 100% of 124 frames are valid (non-padded). Analysis based on 124 frames.",
+  "skeleton_png": "/scratch/xc1490/papers_2026/WACV/data/skeleton_imgs/gmfcs/test_sd/clip_22.png",
+  "png_exists": true
+ },
+ "pathogait_zs_fail": {
+  "run": "full_motionsum_pathological_qwen72b",
+  "id": "test_290",
+  "true": "normal gait",
+  "pred_raw": "antalgic gait",
+  "summary": "Motion summary | label: normal gait | sample_index: 290 | valid_frames: 77/124\n\nMOTION AMPLITUDE:\n  Ankle vertical range \u2014 left: 2.5655, right: 2.1677. Reflects step height / foot clearance.\n  Ankle horizontal range \u2014 left: 0.2683, right: 0.2083. Represents stride length contribution.\n  Knee vertical range \u2014 left: 2.3318, right: 2.1875.\n  Hip vertical range \u2014 left: 2.1911, right: 2.2813.\n\nSYMMETRY / ASYMMETRY:\n  Ankle vertical asymmetry: notably asymmetric (0.168).\n  Ankle horizontal asymmetry: notably asymmetric (0.252).\n  Knee vertical asymmetry: mildly asymmetric (0.064).\n  Hip vertical asymmetry: symmetric (0.040).\n\nSTABILITY:\n  Trunk lateral sway: 0.1820 (marked). Higher values indicate balance impairment.\n  Trunk vertical oscillation range: 2.2466.\n  Hip-centre lateral variability (std): 0.0456. Elevated suggests pelvic instability.\n  Hip-centre vertical variability (std): 0.6698.\n\nTRAJECTORY VARIABILITY:\n  Mean per-joint trajectory variance: 0.153228. Low = repetitive motion; high = erratic.\n  Ankle trajectory variance \u2014 left: 0.1804, right: 0.1524.\n\nSMOOTHNESS (jerk proxy = mean |3rd derivative|):\n  Ankle jerk (mean L+R): 0.033017 (jerky). Jerk elevation indicates abrupt, poorly controlled motion.\n  Ankle jerk detail \u2014 left: 0.0206, right: 0.0454.\n  Trunk jerk (lateral): 0.004757. Reflects upper-body compensatory movements.\n\nCLIP QUALITY: 62% of 124 frames are valid (non-padded). Analysis based on 77 frames.",
+  "skeleton_png": "/scratch/xc1490/papers_2026/WACV/data/vlm_render_body/pathological/clip_290.png",
+  "png_exists": true
+ },
+ "ataxia_sft_success_minority": {
+  "run": "sft-qwen7b_ataxia",
+  "id": "test_11",
+  "true_label_numeric": 0,
+  "sft_raw": "normal gait",
+  "zs_raw": "cerebellar ataxic gait",
+  "zs_pred": 1,
+  "summary": "Motion summary | label: normal gait | sample_index: 11 | valid_frames: 124/124\n\nMOTION AMPLITUDE:\n  Ankle vertical range \u2014 left: 0.3539, right: 0.4085. Reflects step height / foot clearance.\n  Ankle horizontal range \u2014 left: 0.3742, right: 0.3453. Represents stride length contribution.\n  Knee vertical range \u2014 left: 0.3456, right: 0.3384.\n  Hip vertical range \u2014 left: 0.3493, right: 0.3301.\n\nSYMMETRY / ASYMMETRY:\n  Ankle vertical asymmetry: mildly asymmetric (0.143).\n  Ankle horizontal asymmetry: mildly asymmetric (0.080).\n  Knee vertical asymmetry: symmetric (0.021).\n  Hip vertical asymmetry: mildly asymmetric (0.057).\n\nSTABILITY:\n  Hip-centre lateral variability (std): 0.0297. Elevated suggests pelvic instability.\n  Hip-centre vertical variability (std): 0.0436.\n\nTRAJECTORY VARIABILITY:\n  Mean per-joint trajectory variance: 0.019559. Low = repetitive motion; high = erratic.\n  Ankle trajectory variance \u2014 left: 0.0082, right: 0.0080.\n\nSMOOTHNESS (jerk proxy = mean |3rd derivative|):\n  Ankle jerk (mean L+R): 0.168522 (jerky). Jerk elevation indicates abrupt, poorly controlled motion.\n  Ankle jerk detail \u2014 left: 0.1657, right: 0.1713.\n\nCLIP QUALITY: 100% of 124 frames are valid (non-padded). Analysis based on 124 frames.",
+  "skeleton_png": "/scratch/xc1490/papers_2026/WACV/data/vlm_render_body/ataxia/clip_11.png",
+  "png_exists": true
+ }
+}

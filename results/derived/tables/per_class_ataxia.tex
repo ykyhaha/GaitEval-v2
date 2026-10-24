@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\caption{\textbf{ATAXIA per-class S results.} Precision, recall, and F1 are recomputed from committed predictions; all task classes are retained.}
+\label{tab:per_class_ataxia}
+\small
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{llrrrr}
+\toprule
+Condition & Class & Support & Precision & Recall & F1 \\
+\midrule
+Zero-shot summary & mimicked\_ataxia & 4 & 0.000 & 0.000 & 0.000 \\
+Zero-shot summary & normal & 4 & 0.429 & 0.750 & 0.545 \\
+Zero-shot z-features & mimicked\_ataxia & 4 & 0.000 & 0.000 & 0.000 \\
+Zero-shot z-features & normal & 4 & 0.500 & 1.000 & 0.667 \\
+LoRA-SFT summary & mimicked\_ataxia & 4 & 0.500 & 1.000 & 0.667 \\
+LoRA-SFT summary & normal & 4 & 0.000 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

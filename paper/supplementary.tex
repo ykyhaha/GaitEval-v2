@@ -4,27 +4,27 @@
 \setcounter{subsubsection}{0}
 \setcounter{table}{0}
 \setcounter{figure}{0}
-\renewcommand{\thesection}{S}
-\renewcommand{\thesubsection}{S.\arabic{subsection}}
-\renewcommand{\thesubsubsection}{S.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 
-\section*{Supplementary Material}
+\section{Supplementary Material}
 \label{sec:supp}
 
-This supplement provides the implementation and evaluation detail needed to reproduce GaitEval and to interpret its evidence boundary. The benchmark operationalizes gait reasoning as producing dataset-specified labels from pose-derived motion evidence. It does not evaluate diagnosis from complete clinical records. The benchmark comprises six datasets: ASD-Kinect, ATAXIA, CARE-PD, GMFCS, PARKINSONISM, and PATHOGAIT. The common evaluation uses the standardized subject-disjoint contract (S); accepted-protocol measurements (L) are retained where they exist, with missing configurations stated explicitly. All reported inputs are derived from skeleton sequences, all prompts are label-redacted, and every supervised split uses only training labels and training statistics.
+This supplement documents GaitEval's single evaluation protocol: task-eligible participant partitions, label-redacted pose-derived evidence, declared model and evidence conditions, training-only fitting of supervised transformations, and fixed-task-label scoring with participant-aware interpretation. All six datasets---ASD-Kinect, ATAXIA, CARE-PD, GMFCS, PARKINSONISM, and PATHOGAIT---have equal benchmark membership. Model comparison, representation, adaptation, and transfer are experiment configurations within this protocol. Each result specifies its actual evaluation records and settings. The corrected GMFCS 866-clip participant maps are independently verified; complete training manifests for the seven-condition evaluation remain unavailable. The benchmark does not evaluate diagnosis from complete clinical records.
 
 \subsection{Evaluation Scope, Resources, and Splits}
 \label{sec:supp_scope}
 
-\subsubsection{Retained accepted-protocol measurements (L)}
+\subsubsection{Evaluation records for model, view, and adaptation experiments}
 
-Table~\ref{tab:core_resources} records the accepted-protocol partition metadata for datasets with L measurements; this is an experiment archive, not a division of benchmark membership. This distinction is essential when interpreting external validity: ATAXIA and PATHOGAIT evaluate recognition of instructed or simulated gait patterns, not clinical diagnosis in patients with those disorders.
+Table~\ref{tab:core_resources} lists the larger-test records used for model, input-view, and adaptation experiments. Table~\ref{tab:standardized_contract} lists the seven-condition Qwen-7B records. Within each experiment, methods are compared on matching test IDs, labels, and feature columns. Tests with different eligible records are identified by their counts, not pooled as paired results. ATAXIA and PATHOGAIT concern performed patterns rather than patient-level diagnosis.
 
 \begin{table}[H]
 \centering
-\caption{\textbf{Accepted-protocol partition archive (L).} Counts are walking clips in the train/validation/test partitions used by the accepted-protocol evaluation. Splits and label definitions are dataset-specific. ``--'' means no L run is archived, not exclusion from GaitEval. The accepted files disagree on the GMFCS test count (899 main, 885 supplementary, 866 for some corrected-view cells); these values are not silently reconciled or called uniformly leakage-free.}
+\caption{\textbf{Records for model, view, and adaptation experiments.} Walking clips in training/validation/test partitions. Dataset-specific tasks and participant counts determine interpretation. ``--'' means that this record configuration is not used for that dataset. Corrected GMFCS has 866 test clips for the verified five-model, SFT, and reference results; matching 7B view results remain unverified. The inconsistent historical 885-clip description is not an evaluation count.}
 \label{tab:core_resources}
 \small
 \setlength{\tabcolsep}{3.5pt}
@@ -33,26 +33,26 @@ Table~\ref{tab:core_resources} records the accepted-protocol partition metadata 
 \toprule
 Resource & Population/source & Task & Classes & Train & Val. & Test & Test subjects \\
 \midrule
-GMFCS & cerebral-palsy cohort & ordinal severity & I--IV & 1,574 & 473 & 885 & 174 \\
+GMFCS & cerebral-palsy cohort; corrected split & ordinal severity & I--IV & 1,602 & 478 & 866 & 166 \\
 ATAXIA & healthy volunteers performing ataxic gait & binary & normal / mimicked ataxia & 7,004 & 1,627 & 1,647 & 3 \\
 PARKINSONISM & patient cohort & binary severity & mild / severe & 420 & 58 & 120 & 5 \\
 PATHOGAIT & healthy volunteers performing six patterns & six-way pattern & normal + five abnormal patterns & 7,361 & 1,327 & 2,181 & 2 \\
-ASD-Kinect & no L run & binary & ASD / typical & -- & -- & -- & -- \\
-CARE-PD & no L run & UPDRS gait & 0--3 & -- & -- & -- & -- \\
+ASD-Kinect & see next table & binary & ASD / typical & -- & -- & -- & -- \\
+CARE-PD & see next table & UPDRS gait & 0--3 & -- & -- & -- & -- \\
 \bottomrule
 \end{tabular}
 \end{adjustbox}
 \end{table}
 
-Subject identity, rather than clip identity, is the resampling unit for uncertainty estimates. The ATAXIA test participants each contribute both normal and mimicked-ataxia clips and are therefore represented by one cluster per person across both classes. PATHOGAIT contains many clips but only two test participants; no population-level superiority or general transfer claim is made from that split. The official GMFCS partition contains three identities shared across partitions (14 test clips). These identities are retained for comparability with the published split, explicitly grouped by subject in uncertainty calculations, and treated as a limitation rather than as independent evidence.
+Subject identity is the uncertainty-resampling unit. ATAXIA's three model-comparison test participants contribute both normal and imitated-ataxia clips and are clustered across classes. PATHOGAIT has only two test participants, so no population-level superiority claim is made. The original GMFCS partition shared three patients between training and test (14 clips); checking validation identifies additional overlap. The repaired partition has 866 test clips from 166 participants and no participant intersections. The seven-condition GMFCS test has 255 clips from 149 participants. Original-to-corrected index maps preserve the provenance of the split-repair experiment.
 
-\subsubsection{Standardized same-model suite}
+\subsubsection{Evaluation records for the seven shared conditions}
 
-The standardized contract applies one Qwen2.5-7B runner, prompt family, parser, and feature policy to every dataset in Table~\ref{tab:standardized_contract}. All six datasets enter the common evaluation. CARE-PD is restricted to the four-level UPDRS gait item; heterogeneous labels from other tasks are outside the primary evaluation. The full source CARE-PD corpus has 362 patients and 8476 clips, but the evaluated primary-task test subset has 665 clips from 24 patients. ASD-Kinect has 100 participants (70/10/20 subject split); the source reports that some movements were simulated by other people without identifying affected sequences, so it is not a strictly verified patient-only cohort.
+The seven-condition evaluation uses one Qwen2.5-7B runner, prompt template, parser, and capture-quality-free feature policy across all six datasets (Table~\ref{tab:standardized_contract}). CARE-PD uses only the four-level UPDRS gait item: its full corpus has 362 patients and 8,476 clips, while this test subset has 665 clips from 24 patients. ASD-Kinect has a 70/10/20 participant split; the source reports some movements simulated by other people without identifying the affected sequences, so patient-only provenance is not independently established.
 
 \begin{table}[H]
 \centering
-\caption{\textbf{Standardized evaluation contract.} Feature counts reflect supported columns after skeleton-role mapping and removal of capture-quality variables. Test counts are the evaluable records in the released prediction files.}
+\caption{\textbf{Records and features for the seven shared conditions.} Feature counts reflect supported columns after skeleton-role mapping and removal of capture-quality variables. Test counts are the evaluable records in the released prediction files.}
 \label{tab:standardized_contract}
 \small
 \setlength{\tabcolsep}{4pt}
@@ -70,12 +70,12 @@ PATHOGAIT & 5,040 & 1,440 & 2 & 24 & six gait patterns \\
 \end{tabular}
 \end{table}
 
-The standardized ATAXIA split contains eight clips from four test participants and therefore supports descriptive conclusions only. Its L and S measurements concern different data constructions and are not interchangeable. For PARKINSONISM, 29 evaluable clips from five test participants enter the released same-model results. CARE-PD score 3 has only 18 test clips, which makes its class-specific estimates particularly uncertain.
+The shared-condition ATAXIA test has eight clips from four participants and supports descriptive conclusions only; the 1,647-clip model/adaptation test is a different recorded population. PARKINSONISM has 29 clips from five participants in the shared conditions and 120 clips from five participants in the model/adaptation experiments. Scores are compared only within their matching test records. CARE-PD score 3 has only 18 test clips, limiting class-specific interpretation.
 
 \subsection{Pose Preprocessing and Model-Visible Input Views}
 \label{sec:supp_inputs}
 
-Each walking clip is converted into one model-visible view at a time. Views are never concatenated unless explicitly stated. Labels, diagnosis strings that directly reveal a candidate class, sample identifiers, subject identifiers, and split metadata are excluded from all prompts.
+Each walking clip is converted into one model-visible view at a time. Views are never concatenated unless explicitly stated. Answer-revealing labels, sample identifiers, subject identifiers, and split metadata are removed from test-query evidence. Candidate classes define the task; few-shot references deliberately include their training labels.
 
 \begin{table}[H]
 \centering
@@ -103,7 +103,7 @@ Z-scored named feature vector & named standardized values & training-mean/SD nor
 
 \subsubsection{Raw and normalized coordinate views}
 
-accepted-protocol raw-coordinate clips use a fixed tensor of $124$ frames by the dataset-specific joint count $J_d$ and three channels. Shorter clips are zero-padded; feature and summary computation uses only valid frames. At the nominal 30 frames/s, 124 frames correspond to approximately 4.1 seconds. Temporal measurements are expressed per frame or as dimensionless ratios so that no label-dependent temporal normalization is introduced.
+Raw-coordinate experiment clips use a fixed tensor of $124$ frames by the dataset-specific joint count $J_d$ and three channels. Shorter clips are zero-padded; feature and summary computation uses only valid frames. At the nominal 30 frames/s, 124 frames correspond to approximately 4.1 seconds. Temporal measurements are expressed per frame or as dimensionless ratios so that no label-dependent temporal normalization is introduced.
 
 The normalized coordinate view maps each skeleton to 12 common joints in the fixed order shoulders, elbows, wrists, hips, knees, and ankles. For every frame, the midpoint of the hips is subtracted from all joints. Coordinates are divided by the mean shoulder-center--to--hip-center distance computed over valid frames. The principal direction of the hip-center trajectory is aligned with the positive $x$ axis, and the remaining axes are defined by an orthogonal body-centered basis. Thirty-two frames are then selected at uniform temporal indices. The prompt contains a $32\times12\times3$ table rounded to two decimals. This view preserves relative motion while reducing differences in global location, scale, orientation, joint count, and clip duration.
 
@@ -156,12 +156,12 @@ Capture audit & \texttt{valid\_frame\_fraction} & fraction of valid frames in th
 \end{adjustbox}
 \end{table}
 
-The 24-column inventory above documents the L extractor (23 motion measurements plus \texttt{valid\_frame\_fraction}), not a claim that every S layout has those identical columns. The S reference metadata reports 14/16/16/24/23/24 supported features for ATAXIA/GMFCS/PARKINSONISM/PATHOGAIT/ASD-Kinect/CARE-PD, respectively; the complete source S feature CSVs are not committed in the upstream snapshot. The accepted-protocol feature view retains the supported columns available for each dataset. The standardized suite excludes \texttt{valid\_frame\_fraction}, clip length, and other capture-quality variables by construction. Features unsupported by an entire skeleton layout are removed from both the LLM view and the matched linear reference. Residual missing values in supported columns are median-imputed using the training split for the references; undefined values are omitted from text prompts rather than filled with a numerical token.
+The inventory above describes the coordinate-derived extractor, with 23 motion measurements and the capture-quality field \texttt{valid\_frame\_fraction}. Supported feature columns depend on skeleton layout. The seven shared conditions use 14/16/16/24/23/24 features for ATAXIA/GMFCS/PARKINSONISM/PATHOGAIT/ASD-Kinect/CARE-PD and exclude capture-quality variables, including clip length and valid-frame fraction. The larger-test model/view/adaptation inputs retain their recorded supported columns; the explicit PATHOGAIT field-removal experiment quantifies its effect on matching IDs. Missing joints are omitted from both LLM and reference inputs. Reference models impute supported missing values with training medians; text prompts omit undefined values. Complete feature CSVs remain external, so identical columns across different experiments are not assumed.
 
 \subsubsection{Motion-summary provenance and template}
 \label{sec:supp_summary_provenance}
 
-Motion summaries are not dataset metadata, clinical notes, manual annotations, or outputs of another language model. They are generated deterministically from the feature vector above. The generator uses a fixed section order: \textsc{Motion amplitude}, \textsc{Symmetry/asymmetry}, \textsc{Stability}, \textsc{Trajectory variability}, and \textsc{Smoothness}. The accepted-protocol version also includes a \textsc{Clip quality} line; the standardized suite omits it together with the corresponding feature.
+Motion summaries are deterministic, label-independent renderings of the selected feature vector, not annotations or outputs of another language model. Sections follow \textsc{Motion amplitude}, \textsc{Symmetry/asymmetry}, \textsc{Stability}, \textsc{Trajectory variability}, and \textsc{Smoothness}. The larger-test summary generator additionally emits a \textsc{Clip quality} line. This line and its underlying feature are excluded from all seven shared conditions; the feature-removal experiment separately evaluates the 2,181-clip PATHOGAIT record set.
 
 Raw amplitudes and ranges are printed to four decimals; variances and jerk proxies are printed to six decimals. A small set of fixed thresholds adds qualitative wording without using a label:
 \begin{itemize}
@@ -196,7 +196,7 @@ The candidate label set is inserted only by the downstream classification prompt
 
 \subsubsection{Flat zero-shot prompt}
 
-The primary prompt is instantiated verbatim as follows, where bracketed fields are filled with the selected evidence view and the dataset's complete candidate list:
+The shared-condition flat-prompt template is instantiated as follows (line wrapping is for display), where bracketed fields are filled with the selected evidence view and the dataset's complete candidate list:
 
 \begin{Verbatim}[fontsize=\small,frame=single]
 You are classifying a gait clip from a compact biomechanical
@@ -213,7 +213,7 @@ into exactly one of the following classes:
 Return only one label, written exactly as listed above.
 \end{Verbatim}
 
-For motion summaries, \texttt{EVIDENCE\_KIND} is ``motion summary.'' For raw or standardized features it is ``feature description.'' Candidate descriptions are task labels only; no prevalence, clinical definition, or example is supplied in zero-shot evaluation.
+For motion summaries, \texttt{EVIDENCE\_KIND} is ``motion summary''; for raw or z-scored features it is ``feature description.'' The larger-test view experiments use the recorded 3D-skeleton/biomechanical-dimension preamble. These template settings are documented with the experiment, and do not supply clinical definitions, prevalence, demonstrations, or answer labels in zero-shot queries.
 
 
 \subsubsection{Reasoning-anchored prompt}
@@ -307,7 +307,7 @@ contained exactly $k$ examples and was class-balanced. One fixed
 reference set was reused for every test clip within a run.
 
 Inference used Qwen2.5-72B-Instruct, temperature~0, a maximum of
-64 output tokens, and the same exact-label parser used for the accepted-protocol
+64 output tokens, and the same exact-label parser used for the corresponding
 flat-prompt experiments.
 
 The reported settings were:
@@ -325,7 +325,7 @@ The reported settings were:
 \subsubsection{Parser and invalid outputs}
 
 The reasoning condition did not use a dedicated parser for the
-\texttt{FINAL:} field. accepted-protocol reasoning and few-shot outputs were parsed
+\texttt{FINAL:} field. The reasoning and few-shot outputs were parsed
 with the same exact-label parser as the corresponding flat-prompt
 runs. Outputs were whitespace-normalized and lowercased, and candidate
 strings were matched with leading and trailing alphanumeric
@@ -336,7 +336,7 @@ candidate string. Consequently, a compliant final
 last candidate mention, rather than because the parser explicitly
 recognized the \texttt{FINAL:} prefix.
 
-If no complete candidate occurred, the accepted-protocol parser additionally
+If no complete candidate occurred, the larger-test view/few-shot implementation additionally
 accepted an output-ending substring only when it was a unique prefix
 of exactly one candidate label, providing a limited fallback for
 truncated generations. All other outputs were marked
@@ -348,15 +348,15 @@ counted as errors and contributed a false negative to the true class.
 
 \subsubsection{Zero-shot model roster}
 
-The primary accepted-protocol motion-summary evaluation uses five open-weight instruction-tuned families spanning 27B--72B parameters: Llama-3.3-70B-Instruct, Qwen2.5-72B-Instruct, Gemma-3-27B-IT, GLM-4-32B-0414, and DeepSeek-R1-Distill-Qwen-32B. Inference uses deterministic decoding (temperature 0) through vLLM. The generation cap is 64 tokens for the direct-answer models and 2,048 tokens for the reasoning-distilled model, followed by the same fixed parser.
+The five-model motion-summary experiment uses Llama-3.3-70B-Instruct, Qwen2.5-72B-Instruct, Gemma-3-27B-IT, GLM-4-32B-0414, and DeepSeek-R1-Distill-Qwen-32B. All use deterministic decoding through vLLM. Test clips are 20, 1,647, 665, 866, 120, and 2,181 for ASD-Kinect, ATAXIA, CARE-PD, GMFCS, PARKINSONISM, and PATHOGAIT. The shared-condition evaluation instead uses Qwen2.5-7B on 20/8/665/255/29/1,440 clips, as listed in the evaluation-record tables.
 
-Representation controls, prompt controls, and supervised adaptation use Qwen2.5-7B-Instruct so that changes can be attributed to the condition rather than to a model-family change. The S Qwen-7B and non-reasoning five-family runs use temperature 0 and a 48-token cap; the S DeepSeek run uses 2048 tokens. The archived L Qwen-7B view launcher sets a 16-token cap. These are recorded implementation differences, not matched-budget claims. The SFT evaluation prompt is byte-identical to the corresponding zero-shot motion-summary prompt.
+Generation limits are recorded per experiment: the shared-condition Qwen-7B runs and ASD-Kinect/CARE-PD non-reasoning model runs use 48 tokens; the larger-test view launcher uses 16; the other direct-answer model and few-shot runs use 64. Reasoning-distilled runs use 2,048 tokens. All use temperature 0. Few-shot and reasoning-anchored probes use Qwen2.5-72B. The larger-test parser has a unique truncated-prefix fallback, while the seven-condition parser requires complete candidate mentions. These settings preclude matched-budget or identical-parser claims across different experiments. Within each summary-SFT comparison, its zero-shot and SFT prompts are byte-identical.
 
 \subsubsection{LoRA supervised fine-tuning}
 
-LoRA-SFT is trained separately for each dataset on training-split motion summaries and their candidate labels. The configuration is rank $r=16$, scaling $\alpha=32$, dropout 0.05, and adapters on all linear projections. Training uses completion-only cross-entropy, three epochs, learning rate $10^{-4}$ with cosine decay, maximum sequence length 1,024, per-device batch size 8, and gradient accumulation 2 (effective batch size 16). The committed trainer reads only training examples, uses no evaluation dataset and no intermediate checkpoint selection (\texttt{save\_strategy="no"}), and saves the final three-epoch adapter. A validation-selected checkpoint is not supported by this implementation. The configured test split is not used for training or normalization.
+For the seven shared conditions, LoRA-SFT is trained separately for each dataset on training-split motion summaries and their candidate labels. The configuration is rank $r=16$, scaling $\alpha=32$, dropout 0.05, and adapters on all linear projections. Training uses completion-only cross-entropy, three epochs, learning rate $10^{-4}$ with cosine decay, maximum sequence length 1,024, per-device batch size 8, and gradient accumulation 2 (effective batch size 16). The committed trainer reads only training examples, uses no evaluation dataset and no intermediate checkpoint selection (\texttt{save\_strategy="no"}), and saves the final three-epoch adapter. A validation-selected checkpoint is not supported by this implementation. The configured test split is not used for training or normalization.
 
-The standardized training-set sizes are 28 for ATAXIA, 914 for GMFCS, 83 for PARKINSONISM, 5,040 for PATHOGAIT, 70 for ASD-Kinect, and 1,901 for CARE-PD. CARE-PD training examples are restricted to the UPDRS gait task. SFT therefore measures recovery of an in-distribution, dataset-specific mapping from supplied evidence to the dataset label space; it is not interpreted as acquisition of a general diagnostic rule.
+The shared-condition training-set sizes are 28 for ATAXIA, 914 for GMFCS, 83 for PARKINSONISM, 5,040 for PATHOGAIT, 70 for ASD-Kinect, and 1,901 for CARE-PD. CARE-PD training examples are restricted to the UPDRS gait task. SFT therefore measures recovery of an in-distribution, dataset-specific mapping from supplied evidence to the dataset label space; it is not interpreted as acquisition of a general diagnostic rule.
 
 \subsubsection{Few-shot sweep}
 
@@ -377,13 +377,13 @@ ATAXIA & $k=32$ & 0.642 / 0.633 / 0.299 \\
 PARKINSONISM & zero-shot & 0.575 / 0.472 / 0.035 \\
 PARKINSONISM & $k=16$ & \textbf{0.567 / 0.561 / 0.188} \\
 \addlinespace
-PATHOGAIT & zero-shot & 0.155 / 0.054 / $-0.009$ \\
+PATHOGAIT & zero-shot & 0.155 / 0.055 / $-0.009$ \\
 PATHOGAIT & $k=12$ & \textbf{0.268 / 0.185 / 0.081} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The ATAXIA curve is non-monotonic, so few-shot prompting is treated as an adaptation probe rather than a tuned final model. The PATHOGAIT context contains two examples per class at $k=12$.
+The ATAXIA curve is non-monotonic, so few-shot prompting is treated as an adaptation probe rather than a tuned final model. PATHOGAIT uses two references per class at $k=12$, but its 600-clip few-shot subset differs from the 2,181-clip zero-shot row; their difference is not a paired full-test gain.
 
 \subsection{Matched Linear References}
 \label{sec:supp_references}
@@ -400,34 +400,34 @@ test split. No validation-based hyperparameter search is performed. Columns miss
 
 \begin{table}[H]
 \centering
-\caption{L-only archive; ``--'' denotes no L result. \textbf{accepted-protocol feature references.} Macro-F1 on the accepted-protocol test splits. ``Balanced'' uses inverse-frequency class weights; ``none'' uses the empirical training distribution.}
+\caption{\textbf{Feature-reference weighting check on the larger-test records.} ``--'' denotes no result. Macro-F1 on the specified model/adaptation test sets. ``Balanced'' uses inverse-frequency class weights; ``none'' uses the empirical training distribution.}
 \label{tab:core_linear_refs}
 \small
 \begin{tabular}{lrrrr}
 \toprule
 Reference & ATAXIA & GMFCS & PARKINSONISM & PATHOGAIT \\
 \midrule
-Logistic regression (balanced) & 0.763 & 0.388 & 0.613 & 0.662 \\
+Logistic regression (balanced) & 0.763 & 0.395 & 0.613 & 0.662 \\
 Logistic regression (none) & 0.773 & 0.418 & 0.627 & 0.663 \\
-Linear SVM (balanced) & 0.759 & 0.410 & 0.583 & 0.644 \\
-Linear SVM (none) & 0.769 & 0.403 & 0.579 & 0.646 \\
+Linear SVM (balanced) & 0.759 & 0.412 & 0.583 & 0.644 \\
+Linear SVM (none) & 0.768 & 0.400 & 0.579 & 0.646 \\
 ASD-Kinect & -- & -- & -- & -- \\
 CARE-PD & -- & -- & -- & -- \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-For the accepted-protocol PATHOGAIT analysis, removing \texttt{valid\_frame\_fraction} reduces balanced logistic-regression macro-F1 from 0.662 to 0.564 and linear-SVM macro-F1 from 0.644 to 0.560. The corresponding change is below 0.001 on the other three accepted-protocol resources. Consequently, PATHOGAIT accepted-protocol feature results are interpreted as using the supplied pose-derived feature set rather than as purely kinematic. The standardized suite excludes capture-quality variables for all methods.
+On the 2,181-clip PATHOGAIT test, removing \texttt{valid\_frame\_fraction} reduces balanced LR macro-F1 from 0.662 to 0.564 and linear-SVM macro-F1 from 0.644 to 0.560. A pre-repair sensitivity check recorded changes below 0.001 for the other tested resources, but does not establish that bound for corrected GMFCS. The feature-SFT results are therefore interpreted using their supplied measurements, without a kinematics-only claim. The seven shared conditions exclude capture-quality variables for all methods.
 
 \subsection{Metrics and Statistical Analysis}
 \label{sec:supp_metrics}
 
 Let $C_{ab}$ denote the number of clips whose true class is $a$ and
 predicted class is $b$, for a fixed candidate set of $K$ classes.
-For class $k$, precision, recall, and F1 are
+Let $u_a$ count invalid predictions for true class $a$, so $N=\sum_{a,b=1}^{K}C_{ab}+\sum_{a=1}^{K}u_a$. For class $k$, precision, recall, and F1 are
 \begin{equation}
 P_k=\frac{C_{kk}}{\sum_{a=1}^{K}C_{ak}},\qquad
-R_k=\frac{C_{kk}}{\sum_{b=1}^{K}C_{kb}},
+R_k=\frac{C_{kk}}{\sum_{b=1}^{K}C_{kb}+u_k},
 \end{equation}
 and
 \begin{equation}
@@ -504,15 +504,13 @@ Quadratic-weighted agreement is
              {\sum_{a=1}^{K}\sum_{b=1}^{K}w_{ab}E_{ab}}.
 \end{equation}
 This metric gives larger penalties to errors spanning more ordinal
-levels. Per-class precision, recall, F1, and support, together with
-integer and row-normalized confusion matrices, are reported for every
-standardized condition.
+levels. The three plotted ordinal conditions have no invalid outputs; MAE and weighted agreement are reported only for those valid ordered-label cells. Per-class metrics and confusion matrices cover the three plotted conditions, rather than every control condition.
 
 Uncertainty is primarily quantified using a participant-cluster
 bootstrap with $B=2{,}000$ draws. For each draw, the test participants
 are sampled with replacement, and all clips from each sampled
 participant are retained together. The metric is recomputed on every
-valid draw, and the 2.5th and 97.5th percentiles form the 95\%
+valid draw (at least two distinct participants and two true classes), and the 2.5th and 97.5th percentiles form the 95\%
 confidence interval \cite{efron1993bootstrap}. For a paired comparison,
 the same sampled participants and matched clips are used for both
 conditions. If
@@ -523,10 +521,9 @@ is the observed macro-F1 difference, the paired confidence interval is
 obtained from the bootstrap distribution of $\Delta^{*}$. The reported
 two-sided paired $p$ value is estimated from the proportions of
 participant-bootstrap differences on the two sides of zero. These
-paired tests therefore evaluate changes between conditions while
-preserving within-participant dependence.
+paired tail areas summarize changes while preserving within-participant dependence. Point metrics here retain the fixed task label set. The archived bootstrap code instead uses the union of observed true/predicted labels, including an invalid-output sentinel and omitting absent classes. Thus, its intervals and tail areas are historical diagnostics, not independently regenerated fixed-label uncertainty estimates.
 
-The per-cell permutation-against-chance values in the standardized grid
+The per-cell permutation-against-chance values in the shared-condition grid
 use a separate row-level label-permutation test. The true labels are
 permuted relative to the fixed predictions while preserving their
 empirical marginal counts. With observed statistic $T_{\mathrm{obs}}$
@@ -540,12 +537,10 @@ p_{\mathrm{perm}}
 With $B=2{,}000$, the minimum attainable value is approximately
 $0.0005$. Because this permutation operates on individual records
 rather than participant clusters, it is treated as a descriptive null
-comparison and not as participant-level population inference. The
-participant-cluster intervals and paired participant-bootstrap
-contrasts provide the primary uncertainty analysis.
+comparison and not as participant-level population inference. The archived cluster intervals and paired tail areas retain their stated historical metric convention. The shared-condition permutation calculations use 2,000 draws; reference-table values from the larger-test experiments are retained at their source precision rather than assigned the same Monte Carlo budget.
 
 The limited numbers of independent participants constrain these
-analyses. The accepted-protocol ATAXIA and PARKINSONISM test sets contain three and
+analyses. The larger-test ATAXIA and PARKINSONISM test sets contain three and
 five participants, respectively. PATHOGAIT contains only two test
 participants, for which participant-cluster resampling is degenerate;
 its frozen-split results are therefore reported as descriptive point
@@ -556,14 +551,14 @@ The highest GMFCS and CARE-PD ordinal levels also have small supports
 and should be interpreted jointly with their per-class results and
 confusion matrices.
 
-\subsection{Primary accepted-protocol Zero-Shot Results}
+\subsection{Five-Model Zero-Shot Results}
 \label{sec:supp_primary_zero}
 
-Table~\ref{tab:primary_five_family} gives the complete five-family motion-summary evaluation. Across the 20 L cells, Cohen's $\kappa$ lies between $-0.069$ and 0.035; this range does not describe the S CARE-PD or ASD-Kinect results added below. The final column exposes the dominant prediction share, showing that high binary accuracy can coexist with near-single-class output.
+Table~\ref{tab:primary_five_family} gives the full five-model motion-summary results on the test sets listed in its caption. Across the 1,647/866/120/2,181-clip ATAXIA/GMFCS/PARKINSONISM/PATHOGAIT tests, $\kappa$ ranges from $-0.069$ to 0.043 after the GMFCS repair. CARE-PD and ASD-Kinect have their own reported ranges. Dominant-class shares show that high accuracy can coexist with concentrated outputs. PATHOGAIT Llama/GLM macro-F1 is .062/.069 over six task labels; earlier .053/.059 values averaged an extra invalid-output category. Invalid responses continue to count as errors.
 
 \begin{table}[H]
 \centering
-\caption{\textbf{Five-family zero-shot motion-summary results.} Cells report accuracy / macro-F1 / Cohen's $\kappa$; ``top share'' is the fraction assigned to the most frequent predicted class. Dataset superscripts identify L/S measurement contracts, not different dataset status. Standardized five-family reruns for the four L rows are missing.}
+\caption{\textbf{Five-model zero-shot motion-summary results.} Accuracy / macro-F1 / Cohen's $\kappa$; top share is the dominant predicted-class fraction. Test clips in dataset order ASD-Kinect, ATAXIA, CARE-PD, GMFCS, PARKINSONISM, and PATHOGAIT are 20/1,647/665/866/120/2,181. GMFCS uses the corrected test participants. These are model-comparison records; the seven-condition evaluation's counts are specified separately in the evaluation-record inventory.}
 \label{tab:primary_five_family}
 \scriptsize
 \begin{adjustbox}{max width=\textwidth}
@@ -571,39 +566,39 @@ Table~\ref{tab:primary_five_family} gives the complete five-family motion-summar
 \toprule
 Dataset & Model & Accuracy & Macro-F1 & $\kappa$ & Top share \\
 \midrule
-ATAXIA$^{L}$ & Llama-3.3-70B & 0.686 & 0.407 & 0.000 & 1.00 \\
+ATAXIA & Llama-3.3-70B & 0.686 & 0.407 & 0.000 & 1.00 \\
 & Qwen2.5-72B & 0.685 & 0.406 & $-0.002$ & 1.00 \\
 & Gemma-3-27B & 0.686 & 0.407 & 0.000 & 1.00 \\
 & GLM-4-32B & 0.686 & 0.407 & 0.000 & 1.00 \\
 & DeepSeek-R1-Distill-Qwen-32B & 0.684 & 0.408 & $-0.002$ & 1.00 \\
 \addlinespace
-GMFCS$^{L}$ & Llama-3.3-70B & 0.352 & 0.210 & 0.018 & 0.72 \\
-& Qwen2.5-72B & 0.369 & 0.218 & 0.033 & 0.78 \\
-& Gemma-3-27B & 0.301 & 0.158 & 0.025 & 0.87 \\
-& GLM-4-32B & 0.259 & 0.123 & 0.000 & 0.93 \\
-& DeepSeek-R1-Distill-Qwen-32B & 0.307 & 0.189 & 0.015 & 0.64 \\
+GMFCS & Llama-3.3-70B & 0.353 & 0.212 & 0.025 & 0.72 \\
+& Qwen2.5-72B & 0.372 & 0.222 & 0.043 & 0.78 \\
+& Gemma-3-27B & 0.313 & 0.163 & 0.030 & 0.86 \\
+& GLM-4-32B & 0.269 & 0.127 & $-0.000$ & 0.93 \\
+& DeepSeek-R1-Distill-Qwen-32B & 0.311 & 0.191 & 0.014 & 0.64 \\
 \addlinespace
-PARKINSONISM$^{L}$ & Llama-3.3-70B & 0.583 & 0.368 & 0.000 & 1.00 \\
+PARKINSONISM & Llama-3.3-70B & 0.583 & 0.368 & 0.000 & 1.00 \\
 & Qwen2.5-72B & 0.575 & 0.472 & 0.035 & 0.86 \\
 & Gemma-3-27B & 0.583 & 0.368 & 0.000 & 1.00 \\
 & GLM-4-32B & 0.583 & 0.368 & 0.000 & 1.00 \\
 & DeepSeek-R1-Distill-Qwen-32B & 0.583 & 0.368 & 0.000 & 1.00 \\
 \addlinespace
-PATHOGAIT$^{L}$ & Llama-3.3-70B & 0.159 & 0.053 & $-0.010$ & 0.94 \\
-& Qwen2.5-72B & 0.155 & 0.054 & $-0.009$ & 0.94 \\
+PATHOGAIT & Llama-3.3-70B & 0.159 & 0.062 & $-0.010$ & 0.94 \\
+& Qwen2.5-72B & 0.155 & 0.055 & $-0.009$ & 0.94 \\
 & Gemma-3-27B & 0.165 & 0.047 & $-0.001$ & 1.00 \\
-& GLM-4-32B & 0.141 & 0.059 & $-0.069$ & 0.51 \\
+& GLM-4-32B & 0.141 & 0.069 & $-0.069$ & 0.51 \\
 & DeepSeek-R1-Distill-Qwen-32B & 0.166 & 0.094 & $-0.007$ & 0.48 \\
-ASD-Kinect$^{S}$ & Llama-3.3-70B & 0.500 & 0.451 & 0.000 & 0.80 \\
+ASD-Kinect & Llama-3.3-70B & 0.500 & 0.451 & 0.000 & 0.80 \\
  & Qwen2.5-72B & 0.450 & 0.373 & -0.100 & 0.85 \\
  & Gemma-3-27B & 0.450 & 0.310 & -0.100 & 0.95 \\
  & GLM-4-32B & 0.450 & 0.373 & -0.100 & 0.85 \\
  & DeepSeek-R1-Distill-Qwen-32B & 0.600 & 0.583 & 0.200 & 0.70 \\
-CARE-PD$^{S}$ & Llama-3.3-70B & 0.441 & 0.262 & 0.119 & 0.71 \\
- & Qwen2.5-72B & 0.445 & 0.268 & 0.130 & 0.64 \\
+CARE-PD & Llama-3.3-70B & 0.441 & 0.262 & 0.119 & 0.71 \\
+ & Qwen2.5-72B & 0.445 & 0.268 & 0.129 & 0.64 \\
  & Gemma-3-27B & 0.439 & 0.249 & 0.113 & 0.72 \\
  & GLM-4-32B & 0.441 & 0.350 & 0.124 & 0.56 \\
- & DeepSeek-R1-Distill-Qwen-32B & 0.399 & 0.295 & 0.099 & 0.45 \\
+ & DeepSeek-R1-Distill-Qwen-32B & 0.398 & 0.295 & 0.099 & 0.45 \\
 \bottomrule
 \end{tabular}
 \end{adjustbox}
@@ -616,11 +611,7 @@ These results bound the primary claim: the evaluated off-the-shelf models do not
 
 \subsubsection{Same-model view comparison}
 
-Table~\ref{tab:core_views} reports the completed zero-shot input-view
-comparisons using Qwen2.5-7B-Instruct on the accepted-protocol subject-disjoint
-splits. Changing the input view substantially alters the prediction
-patterns, but no view consistently recovers agreement across all four
-resources. In a separate standardized analysis, the PARKINSONISM
+Table~\ref{tab:core_views} reports the Qwen2.5-7B view experiment on 20/1,647/665/866/120/2,181 test clips in dataset order. Red GMFCS entries are displayed for author review only: the summary value comes from a logged 866-clip cross-stack run, normalized coordinates from an unverified source draft, and both feature values from 899-clip aggregates. They do not establish a matched-test comparison and are excluded from scientific comparisons. No view is consistently successful across the tested populations. In the seven-condition evaluation, PARKINSONISM
 z-scored feature view reaches 0.757 macro-F1 on 29 clips from five
 participants (Table~\ref{tab:standardized_full_grid}). This result
 indicates that evidence use can depend on both the dataset and the input
@@ -629,11 +620,7 @@ population-level conclusion.
 
 \begin{table}[H]
 \centering
-\caption{\textbf{accepted-protocol same-model zero-shot input-view comparison.}
-Results are obtained with Qwen2.5-7B-Instruct on the accepted-protocol
-subject-disjoint test splits. Cells report accuracy / macro-F1 /
-Cohen's $\kappa$. A dash indicates that the corresponding comparison
-was not completed. Dataset superscripts identify L/S; all-six S summary/z-feature results are given in the shared grid.}
+\caption{\textbf{Qwen2.5-7B zero-shot input-view experiment.} Accuracy / macro-F1 / $\kappa$ on 20/1,647/665/866/120/2,181 clips in dataset order ASD-Kinect, ATAXIA, CARE-PD, GMFCS, PARKINSONISM, and PATHOGAIT. ``--'' denotes no recoverable numeric result. \textcolor{red}{Red denotes additions for author review. GMFCS summary is log-only (866 clips); normalized coordinates are draft-only/unverified; raw/z-scored features use 899 clips. These are not verified matched-test results. PATHOGAIT raw features use a recovered 2,181-clip recompute aggregate.} The record audit is below. The seven-condition test sets have their own input-view table.}
 \label{tab:core_views}
 \scriptsize
 \begin{adjustbox}{max width=\textwidth}
@@ -642,12 +629,12 @@ was not completed. Dataset superscripts identify L/S; all-six S summary/z-featur
 Dataset & Motion summary & Normalized coordinates &
 Raw feature view & Z-scored feature view \\
 \midrule
-ATAXIA$^{L}$ & 0.692 / 0.452 / 0.046 & 0.316 / 0.244 / 0.002 & 0.382 / 0.347 / 0.057 & 0.583 / 0.495 / $-0.008$ \\
-GMFCS$^{L}$ & 0.249 / 0.110 / $-0.008$ & 0.282 / 0.110 / 0.000 & 0.343 / 0.245 / 0.007 & 0.185 / 0.100 / $-0.049$ \\
-PARKINSONISM$^{L}$ & 0.550 / 0.400 / $-0.045$ & 0.442 / 0.441 / $-0.095$ & 0.417 / 0.294 / 0.000 & 0.508 / 0.493 / $-0.014$ \\
-PATHOGAIT$^{L}$ & 0.142 / 0.087 / $-0.024$ & 0.110 / 0.034 / 0.000 & -- & 0.150 / 0.130 / $-0.011$ \\
-ASD-Kinect$^{S}$ & 0.450 / 0.310 / -0.100 & -- & 0.500 / 0.333 / 0.000 & 0.550 / 0.436 / 0.100 \\
-CARE-PD$^{S}$ & 0.433 / 0.321 / 0.152 & -- & 0.332 / 0.221 / 0.039 & 0.233 / 0.133 / 0.020 \\
+ATAXIA & 0.692 / 0.452 / 0.046 & 0.316 / 0.244 / 0.002 & 0.382 / 0.347 / 0.057 & 0.583 / 0.495 / $-0.008$ \\
+GMFCS & \textcolor{red}{0.259 / 0.113 / $-0.009$} & \textcolor{red}{0.282 / 0.110 / 0.000} & \textcolor{red}{0.343 / 0.245 / 0.007} & \textcolor{red}{0.185 / 0.100 / $-0.049$} \\
+PARKINSONISM & 0.550 / 0.400 / $-0.045$ & 0.442 / 0.441 / $-0.095$ & 0.417 / 0.294 / 0.000 & 0.508 / 0.493 / $-0.014$ \\
+PATHOGAIT & 0.142 / 0.087 / $-0.024$ & 0.110 / 0.034 / 0.000 & \textcolor{red}{0.110 / 0.033 / 0.000} & 0.150 / 0.130 / $-0.011$ \\
+ASD-Kinect & 0.450 / 0.310 / -0.100 & -- & 0.500 / 0.333 / 0.000 & 0.550 / 0.436 / 0.100 \\
+CARE-PD & 0.433 / 0.321 / 0.152 & -- & 0.332 / 0.221 / 0.039 & 0.233 / 0.133 / 0.020 \\
 \bottomrule
 \end{tabular}
 \end{adjustbox}
@@ -661,10 +648,8 @@ Qwen2.5-72B is also tested with the explicit compare-then-answer prompt. On fixe
 
 \begin{table}[H]
 \centering
-\caption{\textbf{Complete standardized subject-disjoint grid.}
-All cells use Qwen2.5-7B-Instruct. Values are macro-F1 with 95\%
-participant-cluster bootstrap intervals and permutation-against-chance
-$p$ values where participant-level inference is supported.
+\caption{\textbf{Complete shared-condition grid (source-reported splits).}
+All cells use Qwen2.5-7B-Instruct. Point macro-F1 is recomputed with the fixed task labels. Intervals and row-level permutation $p$ values are archived diagnostics under the historical label-union convention described in Sec.~\ref{sec:supp_metrics}; permutation values are not participant-level tests.
 $^{\ddagger}$PATHOGAIT contains only two test participants; its cells
 are descriptive point estimates, and the degenerate bootstrap
 intervals and row-level permutation $p$ values are therefore omitted.
@@ -679,7 +664,7 @@ and is retained only as a diagnostic, not as a benchmark result.}
 Resource & Condition & $n$ & Macro-F1 & 95\% participant CI & Permutation $p$ \\
 \midrule
 CARE-PD & Summary & 665 & 0.321 & [0.262, 0.404] & 0.0005 \\
-& Z-features & 665 & 0.134 & [0.086, 0.184] & 0.68 \\
+& Z-features & 665 & 0.133 & [0.086, 0.184] & 0.68 \\
 & Labels reversed & 665 & 0.252 & [0.133, 0.293] & 0.0005 \\
 & Labels shuffled & 665 & 0.285 & [0.217, 0.353] & 0.0005 \\
 & Shuffled evidence & 665 & 0.256 & [0.217, 0.313] & 0.23 \\
@@ -698,7 +683,7 @@ PARKINSONISM & Summary & 29 & 0.396 & [0.222, 0.530] & 0.52 \\
 & Z-features & 29 & 0.757 & [0.543, 0.906] & 0.0075 \\
 & Labels reversed & 29 & 0.356 & [0.136, 0.617] & 0.90 \\
 & Labels shuffled & 29 & 0.356 & [0.136, 0.617] & 0.90 \\
-& Shuffled evidence & 29 & 0.309 & [0.104, 0.439] & 1.0 \\
+& Shuffled evidence & 29 & 0.310 & [0.104, 0.439] & 1.0 \\
 & No evidence & 29 & 0.326 & [0.133, 0.462] & 1.0 \\
 & LoRA-SFT summary & 29 & 0.542 & [0.255, 0.720] & 0.29 \\
 \midrule
@@ -732,17 +717,15 @@ CARE-PD & 12-class mixed diagnostic & 970 & 0.004 & [0.001, 0.009] & 1.0 \\
 \end{adjustbox}
 \end{table}
 
-The standardized table has two important qualifications. First, PARKINSONISM z-features reach 0.757 macro-F1 on only 29 clips from five subjects; the subject-cluster interval is 0.543--0.906 and overlaps the matched logistic-reference interval of 0.416--0.654. This is evidence that explicit standardized features can be usable by the model in a particular condition, not a population-level superiority result. Second, the ATAXIA standardized split contains eight clips and has insufficient power for model ranking.
+The seven-condition table has two important qualifications. First, PARKINSONISM z-features reach 0.757 macro-F1 on only 29 clips from five subjects; the subject-cluster interval is 0.543--0.906 and overlaps the matched logistic-reference interval of 0.416--0.654. This is evidence that explicit standardized features can be usable by the model in a particular condition, not a population-level superiority result. Second, the ATAXIA shared-condition split contains eight clips and has insufficient power for model ranking.
 
 \subsubsection{Evidence and label-order controls}
 
 \begin{table}[H]
 \centering
-\caption{\textbf{Complete standardized paired contrasts.}
+\caption{\textbf{Complete shared-condition paired contrasts.}
 Each contrast is the macro-F1 of the first named condition minus that
-of the second. Parenthesized values are two-sided paired
-participant-cluster bootstrap $p$ values computed from valid cluster
-draws as defined in Sec.~S.6. Thus, a positive value favors the first
+of the second, computed from unrounded fixed-label scores. Parenthesized values are archived two-sided participant-bootstrap tail areas under the historical label-union convention in Sec.~\ref{sec:supp_metrics}; they are not newly recomputed fixed-label tests. Thus, a positive value favors the first
 condition and a negative value favors the second; for example,
 negative Summary$-$ZFeat favors Z-features, whereas positive
 SFT$-$Summary favors LoRA-SFT. A signed point difference alone is not
@@ -758,10 +741,10 @@ participants do not support reliable participant-level inference.}
 Resource & Summary$-$NoEv & Summary$-$ShufEv & Summary$-$ZFeat & Summary$-$Rev. & Summary$-$Shuf. & SFT$-$Summary \\
 \midrule
 CARE-PD & $+0.188$ (0.001) & $+0.065$ (0.029) & $+0.187$ (0.002) & $+0.068$ (0.028) & $+0.036$ (0.045) & $+0.124$ (0.43) \\
-GMFCS & $+0.265$ (0.001) & $+0.052$ (0.089) & $+0.115$ (0.004) & $-0.057$ (0.030) & $-0.009$ (0.52) & $+0.202$ (0.001) \\
+GMFCS & $+0.265$ (0.001) & $+0.052$ (0.089) & $+0.115$ (0.004) & $-0.057$ (0.030) & $-0.010$ (0.52) & $+0.202$ (0.001) \\
 PARKINSONISM & $+0.070$ (0.62) & $+0.086$ (0.14) & $-0.362$ (0.001) & $+0.040$ (0.62) & $+0.040$ (0.62) & $+0.146$ (0.47) \\
 ATAXIA & $-0.061$ (0.60) & $0.000$ (1.0) & $-0.061$ (0.60) & $0.000$ (1.0) & $0.000$ (1.0) & $+0.061$ (0.60) \\
-PATHOGAIT$^{\ddagger}$ & $+0.021$ & $-0.002$ & $-0.050$ & $-0.052$ & $-0.024$ & $+0.382$ \\
+PATHOGAIT$^{\ddagger}$ & $+0.021$ & $-0.002$ & $-0.070$ & $-0.052$ & $-0.024$ & $+0.382$ \\
 ASD-Kinect & $-0.023$ (0.70) & $-0.125$ (0.25) & $-0.125$ (0.24) & $-0.030$ (0.89) & $-0.030$ (0.89) & $0.000$ (1.0) \\
 \bottomrule
 \end{tabular}
@@ -775,7 +758,7 @@ CARE-PD provides the clearest evidence that the summary contains clip-specific s
 
 \begin{table}[H]
 \centering
-\caption{\textbf{accepted-protocol supervision ladder.} Macro-F1 / Cohen's $\kappa$. Few-shot uses Qwen2.5-72B; zero-shot and LoRA-SFT cells use Qwen2.5-7B. The feature references are supervised signal probes on the matched deterministic measurements.}
+\caption{\textbf{Supervision ladder on the larger-test records.} Macro-F1 / $\kappa$. Few-shot uses Qwen2.5-72B; zero-shot and LoRA-SFT use Qwen2.5-7B. ATAXIA/GMFCS/PARKINSONISM/PATHOGAIT test clips are 1,647/866/120/2,181; PATHOGAIT few-shot uses 600. GMFCS SFT and references use corrected participants; its matching 7B zero-shot anchor is unavailable.}
 \label{tab:adaptation_ladder}
 \small
 \begin{adjustbox}{max width=\textwidth}
@@ -783,27 +766,27 @@ CARE-PD provides the clearest evidence that the summary contains clip-specific s
 \toprule
 Condition & ATAXIA & GMFCS & PARKINSONISM & PATHOGAIT \\
 \midrule
-Zero-shot summary, 7B & 0.452 / 0.046 & 0.110 / $-0.008$ & 0.400 / $-0.045$ & 0.087 / $-0.024$ \\
+Zero-shot summary, 7B & 0.452 / 0.046 & -- & 0.400 / $-0.045$ & 0.087 / $-0.024$ \\
 Best few-shot summary & 0.697 / 0.395 & -- & 0.561 / 0.188 & 0.185 / 0.081 \\
-LoRA-SFT summary, 7B & 0.751 / 0.507 & 0.255 / 0.030 & 0.454 / 0.070 & 0.609 / 0.510 \\
+LoRA-SFT summary, 7B & 0.751 / 0.507 & 0.259 / 0.043 & 0.454 / 0.065 & 0.609 / 0.511 \\
 LoRA-SFT feature view, 7B & 0.762 / 0.528 & -- & -- & 0.687 / 0.611 \\
-Logistic reference & 0.763 / 0.533 & 0.388 / 0.229 & 0.613 / 0.226 & 0.662 / 0.589 \\
-Linear-SVM reference & 0.759 / 0.524 & 0.410 / 0.271 & 0.583 / 0.168 & 0.644 / 0.585 \\
+Logistic reference & 0.763 / 0.533 & 0.395 / 0.241 & 0.613 / 0.226 & 0.662 / 0.589 \\
+Linear-SVM reference & 0.759 / 0.524 & 0.412 / 0.271 & 0.583 / 0.168 & 0.644 / 0.585 \\
 \bottomrule
 \end{tabular}
 \end{adjustbox}
 \end{table}
 
-Supervision recovers substantial in-distribution signal on ATAXIA and PATHOGAIT. On ATAXIA, feature-view SFT and logistic regression differ by $-0.001$ macro-F1 under a paired subject-cluster bootstrap, with 95\% CI $[-0.044,0.033]$ and $p=0.97$ across the three test participants. This supports comparability on the tested split, not clinical equivalence. On GMFCS, summary SFT remains below logistic regression by $-0.132$ macro-F1, 95\% CI $[-0.181,-0.082]$, $p=0.001$ over 174 participants. PARKINSONISM's SFT interval is wide (0.298--0.659) because only five participants are tested.
+Supervision recovers substantial in-distribution signal on ATAXIA and PATHOGAIT. On ATAXIA, feature-view SFT and logistic regression differ by $-0.001$ macro-F1 under a paired subject-cluster bootstrap, with 95\% CI $[-0.044,0.033]$ and $p=0.97$ across the three test participants. This supports comparability on the tested split, not clinical equivalence. On the corrected 866-clip GMFCS test, the archived paired summary-SFT minus LR difference is $-0.137$ macro-F1, with 95\% participant-cluster interval $[-0.186,-0.085]$ and paired bootstrap tail area 0.001 over 166 participants. This archived comparison is not independently regenerated without the reference-model per-record predictions and source features. PARKINSONISM's SFT interval is wide (0.298--0.659) because only five participants are tested.
 
 PATHOGAIT cannot support a subject-level difference interval. The two participant-specific macro-F1 values for feature-view SFT versus logistic regression are 0.720 versus 0.608 for one participant and 0.661 versus 0.673 for the other. The direction therefore reverses across participants. The aggregate feature-SFT score of 0.687 is described as comparable in point estimate to the linear references, not as evidence of population-level superiority.
 
-\subsubsection{Standardized-Suite Participant-Level Reference Checks}
+\subsubsection{Participant-Level Reference Checks for the Shared Conditions}
 \label{sec:supp_standardized_loso}
 
 \begin{table}[H]
 \centering
-\caption{\textbf{Standardized leave-one-subject-out reference checks.} leave-one-subject-out (LOSO) trains the logistic reference on all but one subject and evaluates the held-out subject, repeating over the available cohort. These checks concern recoverable feature signal, not LLM performance.}
+\caption{\textbf{Shared-condition leave-one-subject-out reference checks.} leave-one-subject-out (LOSO) trains the logistic reference on all but one subject and evaluates the held-out subject, repeating over the available cohort. These checks concern recoverable feature signal, not LLM performance.}
 \label{tab:standardized_loso}
 \small
 \begin{tabular}{lrrr}
@@ -821,23 +804,14 @@ ASD-Kinect & 100 & 0.780 & [0.690, 0.859] \\
 The LOSO checks show that the deterministic feature representation carries subject-level signal beyond one frozen split on ATAXIA, PATHOGAIT, and ASD-Kinect. PARKINSONISM remains a boundary condition: its point estimate is modest and the interval is broad.
 
 
-\subsubsection{accepted-protocol Participant-Level Reference Checks}
+\subsubsection{Participant-Level Reference Checks for the Model/Adaptation Records}
 \label{sec:supp_core_loso}
 
-Table~\ref{tab:core_loso} reports the linear reference under two
-accepted-protocol evaluations. The frozen-test column uses the designated
-subject-disjoint test split and participant-cluster confidence
-intervals. The permutation test is applied to the frozen-test
-predictions. The LOSO column pools the available accepted-protocol cohort and holds
-out every participant once. These results use the accepted-protocol feature contract
-and must not be combined with the standardized-suite LOSO results below.
+Table~\ref{tab:core_loso} reports LR on the fixed model/adaptation test sets and on the corresponding pooled participant cohorts using leave-one-subject-out (LOSO). Test-set and pooled-cohort results have different evaluated participants and are not paired estimates. Their feature layouts and participant inventories also differ from the shared-condition LOSO check above. The corrected GMFCS fixed-test score and interval use the repaired split; the older permutation and pooled-cohort LOSO records are preserved only as historical diagnostics.
 
 \begin{table}[H]
 \centering
-\caption{L-only archive; ``--'' denotes no L result. \textbf{accepted-protocol linear-reference checks under frozen-test and
-leave-one-subject-out protocols.} Values are logistic-regression
-macro-F1 with 95\% participant-level intervals. Permutation $p$ values
-refer to the frozen-test analysis.}
+\caption{\textbf{Fixed-test and pooled-cohort LR checks for the model/adaptation experiments.} Macro-F1 with participant-level intervals. Permutation values refer to the fixed-test analysis; ``--'' is unavailable.}
 \label{tab:core_loso}
 \small
 \begin{adjustbox}{max width=\textwidth}
@@ -851,8 +825,8 @@ Resource
 \midrule
 GMFCS
 & 0.395 [0.350, 0.438]
-& 0.0002
-& 0.406 [0.374, 0.436]
+& --$^{\ddagger}$
+& 0.406 [0.374, 0.436]$^{\ddagger}$
 & 166 / 344 \\
 
 ATAXIA
@@ -883,7 +857,7 @@ CARE-PD & -- & -- & -- & -- \\
 $^{\dagger}$PATHOGAIT has only two frozen-test participants. Its
 participant-cluster interval is degenerate and is reported for
 transparency rather than interpreted as population-level uncertainty.
-No frozen-test permutation claim is made for this condition.
+No frozen-test permutation claim is made for this condition. $^{\ddagger}$A corrected GMFCS permutation result is not recovered. Its LOSO value concerns the pooled 344-participant cohort and does not use the repaired frozen split.
 \end{table}
 
 
@@ -918,11 +892,11 @@ ATAXIA-to-PATHOGAIT is 23.4 percentage points below the target majority baseline
 \subsection{Per-Class Performance and Confusion Matrices}
 \label{sec:supp_perclass}
 
-All tables and figures in this section are recomputed from the released standardized prediction files for Qwen2.5-7B-Instruct. They compare zero-shot motion summaries, zero-shot z-scored feature descriptions, and motion-summary LoRA-SFT. Rows of every confusion matrix are true classes; columns are predicted classes. Each cell shows the integer count and the percentage within its true class. The complete candidate set is used when computing macro-F1, even if a class is never predicted.
+All tables and figures in this section are recomputed from the released shared-condition prediction files for Qwen2.5-7B-Instruct. They compare zero-shot motion summaries, zero-shot z-scored feature descriptions, and motion-summary LoRA-SFT. Rows of every confusion matrix are true classes; columns are predicted classes. Each cell shows the integer count and the percentage within its true class. The complete candidate set is used when computing macro-F1, even if a class is never predicted.
 
 \input{tables/binary_metrics.tex}
 
-The binary tables expose clinically relevant asymmetries hidden by accuracy. PARKINSONISM zero-shot summary sensitivity to severe clips is only 0.067 despite 0.517 accuracy; the z-feature view increases severe sensitivity to 0.667 while retaining 0.857 specificity. ATAXIA and ASD-Kinect each show a condition-dependent single-class collapse on their small standardized splits, making a single accuracy value unsuitable for interpretation.
+The binary tables expose clinically relevant asymmetries hidden by accuracy. PARKINSONISM zero-shot summary sensitivity to severe clips is only 0.067 despite 0.517 accuracy; the z-feature view increases severe sensitivity to 0.667 while retaining 0.857 specificity. ATAXIA and ASD-Kinect each show a condition-dependent single-class collapse on their small shared-condition splits, making a single accuracy value unsuitable for interpretation.
 
 \input{tables/ordinal_metrics.tex}
 
@@ -937,7 +911,7 @@ class-specific inference.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/confusion_ataxia.pdf}
-\caption{\textbf{ATAXIA standardized confusion matrices.} Eight clips from four participants make these descriptive rather than rank-defining.}
+\caption{\textbf{ATAXIA confusion matrices.} Eight clips from four participants make these descriptive rather than rank-defining.}
 \label{fig:cm_ataxia}
 \end{figure}
 
@@ -945,7 +919,7 @@ class-specific inference.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/confusion_gmfcs.pdf}
-\caption{\textbf{GMFCS standardized confusion matrices.} SFT improves levels 1--3 but the three level-4 clips are all predicted as level 3.}
+\caption{\textbf{GMFCS confusion matrices.} SFT improves levels 1--3 but the three level-4 clips are all predicted as level 3.}
 \label{fig:cm_gmfcs}
 \end{figure}
 
@@ -953,7 +927,7 @@ class-specific inference.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/confusion_parkinsonism.pdf}
-\caption{\textbf{PARKINSONISM standardized confusion matrices.} The z-feature view provides the most balanced class recovery in this five-subject test.}
+\caption{\textbf{PARKINSONISM confusion matrices.} The z-feature view provides the most balanced class recovery in this five-subject test.}
 \label{fig:cm_parkinsonism}
 \end{figure}
 
@@ -961,7 +935,7 @@ class-specific inference.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/confusion_pathogait.pdf}
-\caption{\textbf{PATHOGAIT standardized confusion matrices.} Zero-shot summary predictions concentrate on normal; SFT distributes predictions across all six patterns but remains uneven, particularly for Trendelenburg gait. The z-feature condition contains one unparsed lurch output, shown as an error.}
+\caption{\textbf{PATHOGAIT confusion matrices.} Zero-shot summary predictions concentrate on normal; SFT distributes predictions across all six patterns but remains uneven, particularly for Trendelenburg gait. The z-feature condition contains one unparsed lurch output, shown as an error.}
 \label{fig:cm_pathogait}
 \end{figure}
 
@@ -969,7 +943,7 @@ class-specific inference.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/confusion_asd_kinect.pdf}
-\caption{\textbf{ASD-Kinect standardized confusion matrices.} One clip per participant yields 20 independent observations, but the small class supports make all estimates coarse.}
+\caption{\textbf{ASD-Kinect confusion matrices.} One clip per participant yields 20 independent observations, but the small class supports make all estimates coarse.}
 \label{fig:cm_asd}
 \end{figure}
 
@@ -986,7 +960,7 @@ The six confusion analyses refine the aggregate conclusion. Zero-shot failure is
 \subsection{Reproducibility Contract and Evidence Limits}
 \label{sec:supp_repro}
 
-The S data model expects records and subject-level split manifests, native/canonical poses, raw and train-scaled features, label-free summaries, prompts, and per-clip predictions. The reorganized repository actually contains 55 prediction files with raw outputs, their summaries, scoring/control/training code, reference and statistical JSONs, the accepted manuscript snapshot, and this revision. Complete source poses, S records/feature/summary input tables, split-generation inputs, LoRA weights, and complete training logs are not present in the upstream commit and are not claimed to be bundled. Their absence limits end-to-end reproduction; the shipped audit regenerates prediction metrics and validates within-dataset record alignment without those assets.
+The release data model records participant manifests, native/canonical poses, raw/train-scaled features, label-free summaries, prompts, and per-clip predictions. The 55-file shared-condition collection contains raw outputs, summaries, scoring, control, and training code and reference/statistical records. The separate split-repair evidence contains GMFCS participant maps and retrained-model predictions and is not part of that count. Complete source poses, feature/summary input layers, split-generation inputs, adapters, and training logs remain external. The supplied audit checks available predictions and test-record alignment without claiming that full retraining has been reproduced.
 
 The following boundaries apply to all reported conclusions:
 \begin{enumerate}
@@ -999,34 +973,15 @@ The following boundaries apply to all reported conclusions:
 \end{enumerate}
 
 
-\subsection{Six-Dataset Coverage and Contract Reconciliation}
+\subsection{Six-Dataset Experimental Coverage}
 \label{sec:supp_six_coverage}
 
-All six datasets are benchmark members. S/L identify measurement provenance. A complete same-contract seven-condition Qwen-7B grid exists across the six datasets (42 cells). Two S raw-feature runs and ten S five-family runs exist for ASD-Kinect and CARE-PD; their corresponding S runs for the other datasets are missing. The 12-class CARE-PD union contributes one separate diagnostic. Thus the archive has 55 prediction files, not a fully evaluated Cartesian product.
+All six datasets are benchmark members under one evaluation protocol. Seven shared Qwen-7B conditions give 42 prediction-backed cells. Two additional raw-feature cells and ten ASD-Kinect/CARE-PD model-comparison cells, plus a separate 12-class CARE-PD diagnostic, give 55 files in this collection. Other model/view/adaptation results are recorded on the test populations stated in their captions. Coordinate prompting, few-shot, feature-SFT, and transfer have the coverage in Table~\ref{supp:tab:coverage_matrix}; benchmark membership does not imply a complete Cartesian product of configurations.
 
+\input{tables/imported/10_coverage}
 \begin{table}[H]
 \centering
-\caption{\textbf{Completed and missing experiments across six datasets.} S = standardized prediction-backed result; L only = retained accepted-protocol result with no S counterpart; ``--'' = not executed in either applicable result lineage. All datasets have S summary/z-feature zero-shot, summary SFT, LR/SVM, and four evidence/order controls. The five-family column excludes the separate Qwen-7B anchor. Coordinate coverage is model/view-specific; see Table~\ref{tab:core_views}.}
-\label{supp:tab:coverage_matrix}
-\small
-\setlength{\tabcolsep}{4pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{llllllllll}
-\toprule
-Dataset & Five families & ZS summary/z & ZS raw feat. & Summary SFT & LR/SVM+controls & Few-shot & Feature SFT & Coordinates & Transfer \\
-\midrule
-ASD-Kinect & S & S & S & S & S & -- & -- & -- & -- \\
-ATAXIA & L only & S & -- & S & S & L only & L only & L only & L pair \\
-CARE-PD & S & S & S & S & S & -- & -- & -- & -- \\
-GMFCS & L only & S & -- & S & S & -- & -- & L norm. & -- \\
-PARKINSONISM & L only & S & -- & S & S & L only & -- & L norm. & -- \\
-PATHOGAIT & L only & S & -- & S & S & L only & L only & L only & L pair \\
-\bottomrule
-\end{tabular}}
-\end{table}
-\begin{table}[H]
-\centering
-\caption{\textbf{Task-matched standardized references for all six datasets (S).} Unlike retained L cells, every row uses the same S feature/split contract. CARE-PD is four-class UPDRS gait with 665 clips, not the 970-clip mixed-task diagnostic. LR/SVM use the same features as the S named-feature LLM views.}
+\caption{\textbf{Same-feature references for the seven shared conditions.} All six datasets use the features and evaluation records specified for the shared-condition comparisons. CARE-PD is the four-class UPDRS gait task with 665 test clips. The LR/SVM inputs match the corresponding named-feature LLM inputs; $n$ and Subjects identify the evaluated records.}
 \label{supp:tab:shared_references}
 \small
 \setlength{\tabcolsep}{4pt}
@@ -1046,7 +1001,7 @@ PATHOGAIT & 1440 & 2 & 0.166 & 0.881 & 0.881 & 0.858 & 0.897 & 0.897 & 0.877 \\
 \end{table}
 \begin{table}[H]
 \centering
-\caption{\textbf{Shared-contract six-dataset input views (S, Qwen2.5-7B).} Cells report accuracy / macro-F1 / $\kappa$ on identical test records within each dataset. Raw-feature runs exist only where shown; ``--'' is an unexecuted configuration, not zero performance. Coordinates have no S LLM runs.}
+\caption{\textbf{Six-dataset input-view comparison with Qwen2.5-7B.} Accuracy / macro-F1 / $\kappa$ on identical within-dataset test records: 20/8/665/255/29/1,440 clips in dataset order. Raw-feature runs exist only where shown; ``--'' is an unexecuted configuration. Coordinate prompting was not run on these test sets.}
 \label{supp:tab:standardized_views_six}
 \small
 \setlength{\tabcolsep}{4pt}
@@ -1066,401 +1021,95 @@ PATHOGAIT & 0.178 / 0.069 / 0.014 & -- & 0.203 / 0.139 / 0.043 \\
 \end{table}
 
 \paragraph{Known accepted-version discrepancies.}
-The archived L GMFCS split descriptions are internally inconsistent: the main tables use 899 clips, a supplementary resource table lists 885, and corrected-view cells refer to 866. These L values are preserved as historical measurements and are not relabeled leakage-free or substituted for the fully subject-disjoint S GMFCS evaluation (255 clips, 149 participants). CARE-PD task-matched references use 665 clips and four labels; the archived 970-clip, 12-label reference is a different task and is excluded from the primary comparisons. The master result Markdown in the upstream archive contains this old reference and stale participant counts; normalized JSONs and generated audits take precedence.
+The GMFCS source described 899 original test clips, 885 in a resource summary, and 866 after correction. Released maps resolve the original counts as 1,574/473/899 and the repaired counts as 1,602/478/866. Verified corrected values are used for model comparison, SFT, and references. Newly recovered 7B view numbers are shown in red for author review, with their distinct provenance disclosed; matching per-record outputs remain unavailable and no provisional cell is used in scientific comparisons. The seven-condition experiment has 255 test clips from 149 participants and an incomplete released training manifest. CARE-PD primary references use 665 clips/four labels; the 970-clip/12-label reference is a different task and excluded. Normalized result records and generated checks take precedence over stale source Markdown.
 
-\paragraph{Prompt and parser differences.}
-The L flat prompt in \texttt{view\_run.py} includes a 3D-skeleton and biomechanical-dimension preamble. The S prompt in \texttt{v21\_llm\_runner.py} uses a shorter skeleton-sequence preamble and separately renders named features. The L parser has a unique truncated-label-prefix fallback; S accepts complete boundary-anchored candidate labels only. These are implementation differences even where model identifiers and deterministic decoding match. Missing S experiments cannot be reconstructed by merely copying L scores.
+\paragraph{Prompt and parser settings.}
+The recorded \texttt{view\_run.py} template contains a 3D-skeleton/biomechanical-dimension preamble; \texttt{v21\_llm\_runner.py} renders the seven-condition evidence with a shorter skeleton-sequence preamble. The former parser has a unique truncated-label-prefix fallback; the latter requires complete boundary-anchored candidates. These implementation settings remain attached to their actual outputs. Scores are not substituted across different prompts, test records, or parsers, and missing experiments remain unreported.
 
 \paragraph{Evidence assets still unavailable.}
-The collection contains committed results and code, not a new execution of the experiments. Recovering the original S records, pose/feature/summary layers and training artifacts is necessary to independently rerun the end-to-end pipeline. The canonical 19-joint data layer is not itself evidence that the 12-joint L coordinate-input experiment was run under S. No extra experiments were executed for this manuscript revision.
+The collection includes committed results and corrective reruns. This revision executes no new training or inference. Complete records, pose/feature/summary layers, and training artifacts are required for end-to-end reproduction. A canonical 19-joint data layer does not establish that the 12-joint coordinate-input configuration was run on every evaluated record set.
 
 \paragraph{Recomputed binary-label identity.}
-ASD-Kinect uses the positive label \texttt{ASD}. Recomputing from the committed S predictions gives summary sensitivity/specificity 0.000/0.900, z-feature 0.100/1.000, and summary-SFT 0.900/0.000. These numerical values agree with the accepted binary-metric table; the regenerated table preserves them and standardizes the displayed label identity. This is a consistency check, not a correction to the accepted binary scores or an extra experiment.
+ASD-Kinect uses the positive label \texttt{ASD}. Recomputing from the committed shared-condition predictions gives summary sensitivity/specificity 0.000/0.900, z-feature 0.100/1.000, and summary-SFT 0.900/0.000. These numerical values agree with the accepted binary-metric table; the regenerated table preserves them and standardizes the displayed label identity. This is a consistency check, not a correction to the accepted binary scores or an extra experiment.
 
 \clearpage
-\section{Detailed protocol-scoped tables retained from the expanded draft}
-\begin{table}[H]
-\centering
-\caption{
-\textbf{Primary zero-shot motion-summary benchmark.}
-Cells report accuracy / macro-F1 / Cohen's $\kappa$. Superscripts identify the measurement contract (L or S), not dataset status. L/S rows have different preprocessing and splits and are not a single homogeneous six-dataset rerun. Parentheses retain the accepted L majority convention; S uses the training-majority predictor evaluated on test. The S majority convention is not assumed identical to the archived L definition.
-Gray sub-rows report the proportion of predictions assigned to the
-model's most frequently predicted class. Bold marks the highest
-macro-F1 within each dataset. Unparsable outputs are counted as errors.
-}
-\label{v2detail:tab:zero_shot_full}
-\small
-\setlength{\tabcolsep}{4pt}
-\resizebox{\textwidth}{!}{
-\begin{tabular}{lccccc}
-\toprule
-\textbf{Dataset (Maj. Acc.)}
-& \textbf{Llama-3.3-70B}
-& \textbf{Qwen2.5-72B}
-& \textbf{Gemma-3-27B}
-& \textbf{GLM-4-32B}
-& \textbf{DeepSeek-R1-32B} \\
-\midrule
-ASD-Kinect$^{S}$ (0.500)
-& 0.500 / 0.451 / 0.000
-& 0.450 / 0.373 / $-0.100$
-& 0.450 / 0.310 / $-0.100$
-& 0.450 / 0.373 / $-0.100$
-& 0.600 / \textbf{0.583} / 0.200 \\
-\multicolumn{1}{r}{\textcolor{gray}{\scriptsize top-class share}}
-& \textcolor{gray}{\scriptsize 0.80}
-& \textcolor{gray}{\scriptsize 0.85}
-& \textcolor{gray}{\scriptsize 0.95}
-& \textcolor{gray}{\scriptsize 0.85}
-& \textcolor{gray}{\scriptsize 0.70} \\
-
-ATAXIA$^{L}$ (0.686)
-& 0.686 / 0.407 / 0.000
-& 0.685 / 0.406 / $-0.002$
-& 0.686 / 0.407 / 0.000
-& 0.686 / 0.407 / 0.000
-& 0.684 / \textbf{0.408} / $-0.002$ \\
-\multicolumn{1}{r}{\textcolor{gray}{\scriptsize top-class share}}
-& \textcolor{gray}{\scriptsize 1.00}
-& \textcolor{gray}{\scriptsize 1.00}
-& \textcolor{gray}{\scriptsize 1.00}
-& \textcolor{gray}{\scriptsize 1.00}
-& \textcolor{gray}{\scriptsize 0.997} \\
-
-CARE-PD$^{S}$ (0.361)
-& 0.441 / 0.262 / 0.119
-& 0.445 / 0.268 / 0.129
-& 0.439 / 0.249 / 0.113
-& 0.441 / \textbf{0.350} / 0.124
-& 0.398 / 0.295 / 0.099 \\
-\multicolumn{1}{r}{\textcolor{gray}{\scriptsize top-class share}}
-& \textcolor{gray}{\scriptsize 0.71}
-& \textcolor{gray}{\scriptsize 0.64}
-& \textcolor{gray}{\scriptsize 0.72}
-& \textcolor{gray}{\scriptsize 0.56}
-& \textcolor{gray}{\scriptsize 0.45} \\
-
-GMFCS$^{L}$ (0.364)
-& 0.352 / 0.210 / 0.018
-& 0.369 / \textbf{0.218} / 0.033
-& 0.301 / 0.158 / 0.025
-& 0.259 / 0.123 / 0.000
-& 0.307 / 0.189 / 0.015 \\
-\multicolumn{1}{r}{\textcolor{gray}{\scriptsize top-class share}}
-& \textcolor{gray}{\scriptsize 0.72}
-& \textcolor{gray}{\scriptsize 0.78}
-& \textcolor{gray}{\scriptsize 0.87}
-& \textcolor{gray}{\scriptsize 0.93}
-& \textcolor{gray}{\scriptsize 0.64} \\
-
-PARKINSONISM$^{L}$ (0.583)
-& 0.583 / 0.368 / 0.000
-& 0.575 / \textbf{0.472} / 0.035
-& 0.583 / 0.368 / 0.000
-& 0.583 / 0.368 / 0.000
-& 0.583 / 0.368 / 0.000 \\
-\multicolumn{1}{r}{\textcolor{gray}{\scriptsize top-class share}}
-& \textcolor{gray}{\scriptsize 1.00}
-& \textcolor{gray}{\scriptsize 0.86}
-& \textcolor{gray}{\scriptsize 1.00}
-& \textcolor{gray}{\scriptsize 1.00}
-& \textcolor{gray}{\scriptsize 1.00} \\
-
-PATHOGAIT$^{L}$ (0.226)
-& 0.159 / 0.053 / $-0.010$
-& 0.155 / 0.054 / $-0.009$
-& 0.165 / 0.047 / $-0.001$
-& 0.141 / 0.059 / $-0.069$
-& 0.166 / \textbf{0.094} / $-0.007$ \\
-\multicolumn{1}{r}{\textcolor{gray}{\scriptsize top-class share}}
-& \textcolor{gray}{\scriptsize 0.94}
-& \textcolor{gray}{\scriptsize 0.94}
-& \textcolor{gray}{\scriptsize 1.00}
-& \textcolor{gray}{\scriptsize 0.51}
-& \textcolor{gray}{\scriptsize 0.48} \\
-\bottomrule
-\end{tabular}}
-\end{table}
-\begin{table}[H]
-\centering
-\caption{\textbf{Comparison of four core input-view families.}
-Raw coordinates, normalized coordinates, motion summaries, and named
-feature vectors constitute the four core views. The named-feature view
-is evaluated in both its original scale and a training-statistics
-z-scored form; the latter is a derived scaling control rather than a
-fifth modality. All cells report accuracy / macro-F1 / $\kappa$. Dataset superscripts identify L/S contracts. $^{\dagger}$Raw-coordinate cells use Llama-3.3-70B on 150-clip subsets, not Qwen-7B. $^{s}$Retained corrected-split L GMFCS cells. ``--'' means not evaluated, including both coordinate views for ASD-Kinect and CARE-PD.}
-\label{v2detail:tab:modality_ablation}
-\small
-\setlength{\tabcolsep}{2.8pt}
-\resizebox{\textwidth}{!}{
-\begin{tabular}{lcccccc}\toprule
-\textbf{Input view} & \textbf{ASD-Kinect$^{S}$} & \textbf{ATAXIA$^{L}$} & \textbf{CARE-PD$^{S}$} & \textbf{GMFCS$^{L}$} & \textbf{PARKINSONISM$^{L}$} & \textbf{PATHOGAIT$^{L}$}\\\midrule
-Raw coordinates$^{\dagger}$ & -- & 0.573 / 0.323 / 0.009 & -- & -- & -- & 0.093 / 0.083 / 0.038\\Normalized coordinates & -- & 0.316 / 0.244 / 0.002 & -- & 0.282 / 0.110 / 0.000$^{s}$ & 0.442 / 0.441 / $-0.095$ & 0.110 / 0.034 / 0.000\\Motion summary & 0.450 / 0.310 / $-0.100$ & 0.692 / 0.452 / 0.046 & 0.433 / 0.321 / 0.152 & 0.249 / 0.110 / $-0.008$$^{s}$ & 0.550 / 0.400 / $-0.045$ & 0.142 / 0.087 / $-0.024$\\Named feature vector & 0.500 / 0.333 / 0.000 & 0.382 / 0.347 / 0.057 & 0.332 / 0.221 / 0.039 & 0.343 / \textbf{0.245} / 0.007$^{s}$ & 0.417 / 0.294 / 0.000 & --\\Z-scored named feature vector & 0.550 / 0.436 / 0.100 & 0.583 / \textbf{0.495} / $-0.008$ & 0.233 / 0.133 / 0.020 & 0.185 / 0.100 / $-0.049$$^{s}$ & 0.508 / \textbf{0.493} / $-0.014$ & 0.150 / \textbf{0.130} / $-0.011$\\
-\bottomrule
-\end{tabular}}
-\end{table}
-\begin{table}[H]
-\centering
-\caption{\textbf{Shared-contract six-dataset input views (S, Qwen2.5-7B).} Cells report accuracy / macro-F1 / $\kappa$ on identical test records within each dataset. Raw-feature runs exist only where shown; ``--'' is an unexecuted configuration, not zero performance. Coordinates have no S LLM runs.}
-\label{v2detail:tab:standardized_views_six}
-\small
-\setlength{\tabcolsep}{4pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lccc}
-\toprule
-Dataset & Motion summary & Raw named features & Z-scored named features \\
-\midrule
-ASD-Kinect & 0.450 / 0.310 / $-0.100$ & 0.500 / 0.333 / 0.000 & 0.550 / 0.436 / 0.100 \\
-ATAXIA & 0.375 / 0.273 / $-0.250$ & -- & 0.500 / 0.333 / 0.000 \\
-CARE-PD & 0.433 / 0.321 / 0.152 & 0.332 / 0.221 / 0.039 & 0.233 / 0.133 / 0.020 \\
-GMFCS & 0.357 / 0.265 / 0.099 & -- & 0.224 / 0.150 / $-0.003$ \\
-PARKINSONISM & 0.517 / 0.396 / 0.065 & -- & 0.759 / 0.757 / 0.520 \\
-PATHOGAIT & 0.178 / 0.069 / 0.014 & -- & 0.203 / 0.139 / 0.043 \\
-\bottomrule
-\end{tabular}}
-\end{table}
-\begin{table}[H]
-\centering
-\caption{
-\textbf{Same-feature linear references.}
-Chance mF1 is the simulated stratified-chance macro-F1.
-The reference cells report accuracy, macro-F1, and Cohen's $\kappa$.
-Bold marks the stronger linear reference for each metric. Superscripts identify L/S measurement contracts; matched S references for every dataset also appear in Table~\ref{v2detail:tab:shared_references}.
-}
-\label{v2detail:tab:linear_references}
-\small
-\setlength{\tabcolsep}{3.2pt}
-\resizebox{\textwidth}{!}{
-\begin{tabular}{lcccccccccc}
-\toprule
-\textbf{Dataset}
-& \textbf{Classes}
-& \textbf{Maj. Acc.}
-& \textbf{Chance mF1}
-& \textbf{LR Acc.}
-& \textbf{LR mF1}
-& \textbf{LR $\kappa$}
-& \textbf{SVM Acc.}
-& \textbf{SVM mF1}
-& \textbf{SVM $\kappa$}
-& $\boldsymbol{n_{\mathrm{te}}}$ \\
-\midrule
-ASD-Kinect$^{S}$
-& 2
-& 0.500
-& 0.490
-& 0.700
-& 0.697
-& 0.400
-& 0.750
-& 0.744
-& 0.500
-& 20 \\
-
-ATAXIA$^{L}$
-& 2
-& 0.686
-& 0.498
-& \textbf{0.778}
-& \textbf{0.763}
-& \textbf{0.533}
-& 0.774
-& 0.759
-& 0.524
-& 1647 \\
-
-CARE-PD$^{S}$
-& 4
-& 0.361
-& 0.250
-& 0.621
-& 0.659
-& 0.437
-& 0.621
-& 0.650
-& 0.435
-& 665 \\
-
-GMFCS$^{L}$
-& 4
-& 0.364
-& 0.249
-& 0.452
-& 0.387
-& 0.229
-& \textbf{0.492}
-& \textbf{0.410}
-& \textbf{0.271}
-& 899 \\
-
-PARKINSONISM$^{L}$
-& 2
-& 0.583
-& 0.499
-& \textbf{0.625}
-& \textbf{0.613}
-& \textbf{0.226}
-& 0.600
-& 0.583
-& 0.168
-& 120 \\
-
-PATHOGAIT$^{L}$
-& 6
-& 0.226
-& 0.166
-& \textbf{0.659}
-& \textbf{0.662}
-& \textbf{0.589}
-& 0.656
-& 0.644
-& 0.585
-& 2181 \\
-\bottomrule
-\end{tabular}}
-\end{table}
-\begin{table}[H]
-\centering
-\caption{\textbf{Task-matched standardized references for all six datasets (S).} Unlike retained L cells, every row uses the same S feature/split contract. CARE-PD is four-class UPDRS gait with 665 clips, not the 970-clip mixed-task diagnostic. LR/SVM use the same features as the S named-feature LLM views.}
-\label{v2detail:tab:shared_references}
-\small
-\setlength{\tabcolsep}{4pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lrrrrrrrrr}
-\toprule
-Dataset & $n$ & Subjects & Chance mF1 & LR Acc. & LR mF1 & LR $\kappa$ & SVM Acc. & SVM mF1 & SVM $\kappa$ \\
-\midrule
-ASD-Kinect & 20 & 20 & 0.490 & 0.700 & 0.697 & 0.400 & 0.750 & 0.744 & 0.500 \\
-ATAXIA & 8 & 4 & 0.488 & 0.875 & 0.873 & 0.750 & 0.875 & 0.873 & 0.750 \\
-CARE-PD & 665 & 24 & 0.250 & 0.621 & 0.659 & 0.437 & 0.621 & 0.650 & 0.435 \\
-GMFCS & 255 & 149 & 0.250 & 0.639 & 0.579 & 0.458 & 0.647 & 0.571 & 0.469 \\
-PARKINSONISM & 29 & 5 & 0.494 & 0.586 & 0.561 & 0.187 & 0.586 & 0.574 & 0.183 \\
-PATHOGAIT & 1440 & 2 & 0.166 & 0.881 & 0.881 & 0.858 & 0.897 & 0.897 & 0.877 \\
-\bottomrule
-\end{tabular}}
-\end{table}
-\begin{table}[H]
-\centering
-\caption{
-\textbf{Task-specific adaptation ladder.}
-LLM cells report macro-F1 / Cohen's $\kappa$; reference columns report
-macro-F1. Zero-shot and few-shot use Qwen2.5-72B. The scale-matched
-zero-shot anchor and SFT columns use Qwen2.5-7B-Instruct.
-Bold SFT values match or exceed the stronger linear-reference point
-estimate. ``--'' denotes configurations not evaluated. Superscripts identify L/S measurements; S few-shot and feature-view SFT are unavailable for all six datasets. No missing S rerun is filled using an L result. The L PATHOGAIT few-shot cell uses a 600-clip subset; the zero-shot and SFT cells use their stated full test partitions, so its gain is not a paired full-test estimate.
-}
-\label{v2detail:tab:adaptation_ladder}
-\small
-\setlength{\tabcolsep}{4.2pt}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccccc@{}}
-\toprule
-\textbf{Dataset}
-& \textbf{Zero-shot}
-& \textbf{Zero-shot (7B)}
-& \textbf{Few-shot}
-& \textbf{SFT: summary}
-& \textbf{SFT: features}
-& \textbf{SVM}
-& \textbf{LogReg} \\
-\midrule
-ASD-Kinect$^{S}$
-& 0.373 / $-0.100$
-& 0.310 / $-0.100$
-& --
-& 0.310 / $-0.100$
-& --
-& 0.744
-& 0.697 \\
-
-ATAXIA$^{L}$
-& 0.406 / $-0.002$
-& 0.452 / 0.046
-& 0.697 / 0.395
-& 0.751 / 0.507
-& \textbf{0.762 / 0.528}
-& 0.759
-& 0.763 \\
-
-CARE-PD$^{S}$
-& 0.268 / 0.129
-& 0.321 / 0.152
-& --
-& 0.445 / 0.168
-& --
-& 0.650
-& 0.659 \\
-
-GMFCS$^{L}$
-& 0.218 / 0.033
-& 0.110 / $-0.008$
-& --
-& 0.255 / 0.030
-& --
-& 0.410
-& 0.387 \\
-PARKINSONISM$^{L}$
-& 0.472 / 0.035
-& 0.400 / $-0.045$
-& 0.561 / 0.188
-& 0.454 / 0.070
-& --
-& 0.583
-& 0.613 \\
-
-PATHOGAIT$^{L}$
-& 0.054 / $-0.009$
-& 0.087 / $-0.024$
-& 0.185 / 0.081
-& 0.609 / 0.510
-& \textbf{0.687 / 0.611}
-& 0.644
-& 0.662 \\
-
-\bottomrule
-\end{tabular*}
-\end{table}
-\begin{table}[H]
-\centering
-\caption{
-\textbf{Bidirectional ATAXIA--PATHOGAIT transfer.}
-Models use z-scored feature descriptions. The target-majority column
-reports accuracy / macro-F1. PATHOGAIT in-distribution $\kappa$ is
-computed on the binarized task and is not comparable with its
-six-class result in Table~\ref{v2detail:tab:adaptation_ladder}. OOD denotes out-of-distribution evaluation. This is an L two-dataset probe; S transfer is not executed for any pair.
-}
-\label{v2detail:tab:cross_condition_transfer}
-\small
-\setlength{\tabcolsep}{3.6pt}
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{lccc}
-\toprule
-\textbf{Train $\rightarrow$ Test}
-& \textbf{In-dist. $\kappa$}
-& \textbf{OOD Acc. / mF1 / $\kappa$}
-& \textbf{Target majority} \\
-\midrule
-ATAXIA $\rightarrow$ PATHOGAIT
-& 0.549
-& 0.656 / 0.496 / 0.057
-& 0.890 / 0.471 \\
-
-PATHOGAIT $\rightarrow$ ATAXIA
-& 0.917
-& 0.686 / 0.407 / 0.000
-& 0.686 / 0.407 \\
-\bottomrule
-\end{tabular}}
-\end{table}
+\section{Complete Results by Experimental Setting}
+\input{tables/imported/02_five_family}
+\input{tables/imported/09_evidence_use}
+\input{tables/imported/03_input_views}
+\input{tables/imported/04_standardized_views}
+\input{tables/imported/05_linear_references}
+\input{tables/imported/06_standardized_references}
+\input{tables/imported/07_adaptation}
+\input{tables/imported/08_transfer}
 
 \clearpage
 \section{Source examples and release boundary}
 Figure 1 illustrates source resources rather than the evaluated test clips. No RGB images are supplied to the text-only models. The source publications and their original references in the main paper remain the attribution basis. Derived plots and vector diagrams are newly drawn; source-example crops retain their separate attribution and license notes in the project repository.
 
-The six-dataset S scoring package reproduces point estimates from committed predictions. Reported reference scores and archived cluster-bootstrap outputs are preserved as source measurements, not claimed to be retrained or independently regenerated without their inputs. Full source pose, feature, summary, and split files and adapters are required for end-to-end inference/training reproduction. The code validates participant separation when those split files are supplied and fails on missing, empty, or overlapping inputs.
+The six-dataset scoring package reproduces point estimates from committed predictions. Reported reference scores and archived cluster-bootstrap outputs are preserved as source measurements, not claimed to be retrained or independently regenerated without their inputs. Full source pose, feature, summary, and split files and adapters are required for end-to-end inference/training reproduction. The code validates participant separation when those split files are supplied and fails on missing, empty, or overlapping inputs.
 
 \paragraph{Resource-example credits.}
 ASD-Kinect uses a cropped frame at 0.5\,s from the original \texttt{Svideo.avi}, child-ASD/1/video, in the official \href{https://zenodo.org/records/4025120}{Zenodo archive}. ATAXIA uses captured-video illustrations from Khalil et al., \emph{Diagnosis of Cerebellar Ataxia Based on Gait Analysis Using Human Pose Estimation}, IEEE IECBES2022 (DOI:10.1109/IECBES54088.2022.10079396). CARE-PD uses a crop of the official \href{https://neurips2025.care-pd.ca/static/images/benchmark.png}{benchmark input-mesh example}. GMFCS uses a newly rendered skeleton from \href{https://github.com/stanfordnmbl/mobile-gaitlab}{mobile-gaitlab}'s public demo keypoints (frame60), not confirmed as an evaluated participant. PARKINSONISM uses a cropped recording illustration from Deng et al., \emph{npj Parkinson's Disease}10,122(2024), DOI:10.1038/s41531-024-00742-x (CC BY4.0). PATHOGAIT renders recorded joints from the \href{https://github.com/kooksung/pathological_gait_datasets}{official source repository}. Crops and skeleton renderings were made for this overview. These are resource illustrations, not clip-matched model evidence. Source-paper image reuse terms and any unlicensed derived display must be confirmed before final distribution; dataset availability alone does not establish image permission.
 
 \section{Reviewer-requested qualitative examples}
 \input{tables/qualitative_cases.tex}
-For each dataset, the examples are deterministic selections from the committed predictions, showing one correct and one incorrect summary or z-feature decision where available. Raw model outputs are shown verbatim; true labels are evaluation annotations, not model-visible metadata. These diagnostics are not representative sampling and do not establish reasoning faithfulness. The original S input prompts and matching pose records are absent, so no numerical evidence is reconstructed or invented for these cases. This part of the qualitative request remains incomplete pending those records.
+For each dataset, the examples are deterministic selections from the committed predictions, showing one correct and one incorrect summary or z-feature decision where available. Raw model outputs are shown verbatim; true labels are evaluation annotations, not model-visible metadata. These diagnostics are not representative sampling and do not establish reasoning faithfulness. The original shared-condition input prompts and matching pose records are absent, so no numerical evidence is reconstructed or invented for these cases. Those outputs are therefore not complete matched-input panels.
+
+\clearpage
+\section{Recovered Corrective Experiments}
+\label{sec:supp_recovered_corrections}
+
+This section incorporates corrective experiments that were already executed and released by the authors. It does not report new training performed for this revision. The correction package records source commits \texttt{2348b11} of the private working archive and \texttt{60f3503} of the public GaitEval repository. The verification script recomputes split intersections, exact test-ID alignment, raw-output parsing, SFT point metrics, and the corrected evaluation-record joins. Archived reference-model and bootstrap values are identified as such rather than represented as independently retrained here.
+
+\subsection{GMFCS: Original and Corrected Participant Partitions}
+The original partition contains 1,574/473/899 train/validation/test clips. Its original-to-corrected index maps assign a participant to the first split in training--validation--test order in which that participant appears, and then move all that participant's clips to that split. The rule preserves source clips and yields 1,602/478/866 clips from 94/84/166 participants. Direct intersections of every pair of released participant sets are empty. In particular, the 866 corrected test records correspond to participants absent from both training and validation. The released SFT output IDs are exactly this test set and their true labels match the original indexed records.
+
+The linear references and summary-SFT were rerun on corrected training data. Cached zero-shot summary generations were instead restricted to the corrected test IDs and re-parsed; this is appropriate for those deterministic, non-fitted summary prompts. The archived corrected SFT-minus-LR participant-bootstrap difference is $-0.1367$, interval $[-0.1862,-0.0853]$, paired tail area 0.0010. Source features and per-record reference predictions are needed to independently regenerate that bootstrap. This archived result is distinct from the independently rescored SFT point estimate.
+
+\begin{table}[H]
+\centering\small
+\caption{\textbf{GMFCS original versus corrected split evidence.} Values are accuracy / macro-F1 / $\kappa$. Reference rows and original rows are archived source measurements; the corrected SFT row is independently recomputed from the supplied generations. The original and corrected SFT rows have different test sets. These use 866 test clips; the seven-condition comparison uses 255.}
+\label{tab:supp_repair_details}
+\begin{tabular}{lll}\toprule
+Experiment & Original: 899 clips & Corrected: 866 clips\\\midrule
+72B zero-shot summary & .3693 / .2182 / .0325 & .3718 / .2216 / .0426\\
+7B summary-SFT & .3626 / .2553 / .0298 & .3730 / .2585 / .0431\\
+Balanced LR & .4516 / .3875 / .2290 & .4607 / .3952 / .2409\\
+Balanced SVM & .4917 / .4101 / .2706 & .4919 / .4121 / .2708\\\bottomrule
+\end{tabular}
+\end{table}
+
+The corrected five-model rows consistently use 866 GMFCS test IDs. Recovered summary/raw-feature/z-feature aggregates refer to 899 clips; normalized-coordinate outputs also lack independently verified corrected IDs. The newly displayed red summary instead uses a logged 866-clip cross-stack run. All four red GMFCS view cells are provisional and excluded from matched-test comparisons. Corrected participant maps apply to the 866-clip experiment. The 255-clip/149-participant, 16-feature shared-condition experiment still requires its full training input manifest for independent separation checks. These two recorded test populations are never treated as interchangeable estimates.
+
+\paragraph{7B view lineage audit.}
+\textcolor{red}{For this author-review draft, the source experiment log dated 2026-10-19 reports a separate 866-clip Qwen2.5-7B zero-shot summary run on the bigpurple serving stack: 0.2587 / 0.1129 / $-0.0089$. Its per-record outputs have not been recovered, so it is shown provisionally rather than substituted into the verified supervision ladder. The red raw/z-feature entries below use the historical 899-clip aggregates; the normalized-coordinate entry retains its unverified source-draft status. PATHOGAIT's red named-feature entry is recovered from \texttt{zeroshot-feat-qwen7b\_pathological} in \texttt{r2\_recompute\_part1.json}: all 2,181 outputs are valid, all predict normal gait, and the aggregate is 0.110041 / 0.033044 / 0.000000. Its launcher specifies the base Qwen2.5-7B-Instruct model, test split, unscaled feature-vector input, flat prompt, and 16 output tokens. The previous table generator searched only the alternative \texttt{zs7b\_feature\_vector} name and omitted this run.}
+The recovered \texttt{r2\_recompute\_part1.json} associates the following values with the original 899-clip split. Raw per-record generations for these view runs were not recovered, so a corrected 866-clip score cannot be reconstructed from aggregate statistics. In particular, the historical 0.110 summary macro-F1 must not serve as a same-test zero-shot anchor for corrected SFT at 0.2585. The normalized-coordinate cell (0.282 / 0.110 / 0.000) has only a source-draft corrected-split claim and is likewise unverified.
+\begin{table}[H]\centering\small
+\caption{\textbf{Historical GMFCS 7B views, not corrected-split results.} All three rows have $N=899$ in the source recompute. They are excluded from corrected comparisons.}
+\label{tab:gmfcs_view_lineage}
+\begin{tabular}{lrrr}\toprule
+View & Accuracy & Macro-F1 & $\kappa$\\\midrule
+Summary & .2492 & .1097 & $-.0077$\\
+Raw named features & .3426 & .2453 & .0066\\
+Z-scored features & .1846 & .0999 & $-.0488$\\\bottomrule
+\end{tabular}\end{table}
+
+\subsection{PATHOGAIT: Feature-SFT without Valid-Frame Fraction}
+The recovered generator removes the line named \texttt{valid\_frame\_fraction} from each feature-view record and asserts removal in every row. Remaining text, IDs, labels, and ordering are preserved. Its SFT data builder accepts \texttt{feature\_vector\_novff}. The source experiment log records the rerun and its training recipe, as well as a change of runtime environment. Full source input layers and training artifacts are external; the public predictions permit an independent check of the paired evaluation records and reported point estimates.
+
+\begin{table}[H]
+\centering\small
+\caption{\textbf{PATHOGAIT feature-removal evaluation.} Independently rescored generations on identical 2,181 test IDs and true labels; both have zero invalid outputs. The two test participants and single training realization limit inference.}
+\label{tab:supp_novff}
+\begin{tabular}{lrrr}\toprule
+Feature-SFT input & Accuracy & Macro-F1 & $\kappa$\\\midrule
+With valid-frame fraction & .6777 & .6870 & .6108\\
+Without valid-frame fraction & .6410 & .6316 & .5649\\\bottomrule
+\end{tabular}
+\end{table}
+
+The macro-F1 change is $-0.0554$ on matching test IDs. The ablated point estimate exceeds quality-free LR/SVM .564/.560, but two participants and one training realization preclude a population-level superiority claim. Runtime changes also prevent causal attribution of the whole difference to the field. The seven shared conditions exclude capture-quality features and use 1,440 PATHOGAIT clips; they contain no feature-SFT result.
+
+\subsection{Release Scope and Source Rights}
+The correction bundle supplies split maps, checked generations, code snapshots, and verification code alongside the six-dataset scoring release. Full recordings, adapters, and complete shared-condition inputs remain external. Code/output licensing does not establish dataset or image rights; source credits list outstanding checks.

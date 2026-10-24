@@ -1,0 +1,258 @@
+{
+  "source_repository": "james20141606/gaiteval-wacv",
+  "source_commit": "2348b11f69a248ec57234c92747dda79f368d798",
+  "companion_repository": "gaiteval/GaitEval",
+  "companion_commit": "60f3503902f5bcd06b77198aaa0cb18aadfcaad9",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "d6d3afb253fd2b6a07a91a5844e22fabc37732e32c523a9082effd89691e4842",
+      "source": "gaiteval/GaitEval:LICENSE",
+      "source_git_blob_sha": "ea89f20b9aaf3cee272c1f363a3ea6d03a125983"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f1528fe03e7e0fcdf31f5af99fbda2d1898c275db9eb5a2a5df65d0e37a34f0f",
+      "source": "created for this verification"
+    },
+    {
+      "path": "docs/DATASETS.md",
+      "sha256": "9ee4759c1f71ac63622267eb08fcc7912ae8e6bffae8a176b6faa1cdc82ba09e",
+      "source": "gaiteval/GaitEval:docs/DATASETS.md",
+      "source_git_blob_sha": "975c7e7585fd70895763a534212bb6ef73832616"
+    },
+    {
+      "path": "docs/REPRODUCE.md",
+      "sha256": "84a0b1690d85a95fa020cffa3bf29501cdc8a5767535b430c7567e51a3f8c264",
+      "source": "gaiteval/GaitEval:docs/REPRODUCE.md",
+      "source_git_blob_sha": "8712039ba6b4323b6509d34e2dafed133fb524c7"
+    },
+    {
+      "path": "gaiteval/cr_render_clip.py",
+      "sha256": "832a2445506b93f2b3332c8e58336e67ffcaa9ded745bffb3c2ea076a7a99d8a",
+      "source": "gaiteval/GaitEval:gaiteval/cr_render_clip.py",
+      "source_git_blob_sha": "882476f74afc2fa9246717688cb0468b1b034ae2"
+    },
+    {
+      "path": "gaiteval/make_novff_view.py",
+      "sha256": "409870b78c955a0d7ed9bf82d9f7e220e07c1216b1825d5321b89ecb13213e45",
+      "source": "gaiteval/GaitEval:gaiteval/make_novff_view.py",
+      "source_git_blob_sha": "164fb85f6b8ed512226f04c2353fd5bc53e99ea5"
+    },
+    {
+      "path": "gaiteval/make_sft_data.py",
+      "sha256": "767f5b6dffc4a6ecec9de46e1e10067e5b149fb47cd060370f84e2a048a82872",
+      "source": "gaiteval/GaitEval:gaiteval/make_sft_data.py",
+      "source_git_blob_sha": "ba29831d47416fbfe7c08c9fd0c3ac0074db5f7b"
+    },
+    {
+      "path": "gaiteval/sft_train.py",
+      "sha256": "139b7233fc8ba100067c36b4f8f2f29f58de7c8c77b2f09a3d99c55fe65bc8bb",
+      "source": "gaiteval/GaitEval:gaiteval/sft_train.py",
+      "source_git_blob_sha": "c1cb9209e0fa48a790a76493e824449ecfebdcaf"
+    },
+    {
+      "path": "gaiteval/view_run.py",
+      "sha256": "bee51c339665551ef25f4bddba5aafcf2eb294a7748b08c7e9b487050272814f",
+      "source": "gaiteval/GaitEval:gaiteval/view_run.py",
+      "source_git_blob_sha": "21b28b1d2bbda64b0033c45f0b0af1d16f00b422"
+    },
+    {
+      "path": "metrics_verified.json",
+      "sha256": "8ca90890b255d9ef941da6478a2c166314d99f571d7bf57607969a95f8212b4f",
+      "source": "created for this verification"
+    },
+    {
+      "path": "predictions/v1/cr_gmfcs_sd_paired.json",
+      "sha256": "b872f8b88e0a88d1b3fe8345867feaca2b5f61f41337694bbca2e6a1358402b2",
+      "source": "gaiteval/GaitEval:predictions/v1/cr_gmfcs_sd_paired.json",
+      "source_git_blob_sha": "9ae785c17d68204f0dee82ea83c7bf61b6096d9c"
+    },
+    {
+      "path": "predictions/v1/cr_gmfcs_sd_references.json",
+      "sha256": "979729f470dd088fbd6c021694ef6d6e7444d1c6f2d72d4371d1e34a88380887",
+      "source": "gaiteval/GaitEval:predictions/v1/cr_gmfcs_sd_references.json",
+      "source_git_blob_sha": "1f572eee831432289a09353fc65b260de22c6b11"
+    },
+    {
+      "path": "predictions/v1/cr_gmfcs_sd_rescore.json",
+      "sha256": "a5450df2aa43f3dccf9aa90096a5af60e46770d4d1a3cce1d08d92db599d95a5",
+      "source": "gaiteval/GaitEval:predictions/v1/cr_gmfcs_sd_rescore.json",
+      "source_git_blob_sha": "53155fc85c074a5dc77a0baa40ec932df0731b0d"
+    },
+    {
+      "path": "predictions/v1/cr_sft_gmfcs_sd_results.jsonl",
+      "sha256": "ee420e82abf91e74dfabfc770d023bcf8f97c5338abaf9e02ef245b85403080e",
+      "source": "gaiteval/GaitEval:predictions/v1/cr_sft_gmfcs_sd_results.jsonl",
+      "source_git_blob_sha": "10dc0e30aceae61f925d467c1dcb02655cf97352"
+    },
+    {
+      "path": "predictions/v1/cr_sft_pathogait_novff_results.jsonl",
+      "sha256": "b5df0f384b8619b6ed6a1c1d2ab76f61047531ec0f2ecc3be1fce519e8893cba",
+      "source": "gaiteval/GaitEval:predictions/v1/cr_sft_pathogait_novff_results.jsonl",
+      "source_git_blob_sha": "9b9a884101c2b4e1cb6f346b247a7a8e1ad02a4f"
+    },
+    {
+      "path": "predictions/v1/full_motionsum_ataxia_qwen72b/results.jsonl",
+      "sha256": "b7fa9b58a3eade47c162a9a3cfb23e95b237f60684015ca6403fa30ef73b11f8",
+      "source": "gaiteval/GaitEval:predictions/v1/full_motionsum_ataxia_qwen72b/results.jsonl",
+      "source_git_blob_sha": "77cf233ab0f3551e25c826e3ad735b1ca31c4c4e"
+    },
+    {
+      "path": "predictions/v1/full_motionsum_gmfcs_qwen72b/results.jsonl",
+      "sha256": "060743945c3ec83e022e9e7235b5d3f9d387d6720646922efc8ad8615f0186ed",
+      "source": "gaiteval/GaitEval:predictions/v1/full_motionsum_gmfcs_qwen72b/results.jsonl",
+      "source_git_blob_sha": "f26a7d90ba92debf80a8e7326b822282c46aca01"
+    },
+    {
+      "path": "predictions/v1/full_motionsum_pathological_glm4-32b/results.jsonl",
+      "sha256": "8e98eb73679122b23c50b178fc50ef5e7a844ce89f195c09afaf726eebd61ef3",
+      "source": "gaiteval/GaitEval:predictions/v1/full_motionsum_pathological_glm4-32b/results.jsonl",
+      "source_git_blob_sha": "50b999f6058822f0b60f7f2fcaaaafb91dbddaa5"
+    },
+    {
+      "path": "predictions/v1/full_motionsum_pathological_llama70b/results.jsonl",
+      "sha256": "06a4361dbe800ddf08fcd9d56b8fd56930fdaca2b65cbcfb201b36219a219d9d",
+      "source": "gaiteval/GaitEval:predictions/v1/full_motionsum_pathological_llama70b/results.jsonl",
+      "source_git_blob_sha": "fcbcb3bf59444424a54faf30619ab0735ca2ed0b"
+    },
+    {
+      "path": "predictions/v1/full_motionsum_pathological_qwen72b/results.jsonl",
+      "sha256": "c1ff6dceffaaa80e68424e059de1dd021c19f68e62ca791944e84379a676c74b",
+      "source": "gaiteval/GaitEval:predictions/v1/full_motionsum_pathological_qwen72b/results.jsonl",
+      "source_git_blob_sha": "6459b7bd93f0a18caa707117f740f7c59f10785f"
+    },
+    {
+      "path": "predictions/v1/sft-feat-qwen7b_pathological/results.jsonl",
+      "sha256": "8a1c72e40182631b277d82d5643791269f8fa9bab610f1eac98f3e4916d23e13",
+      "source": "gaiteval/GaitEval:predictions/v1/sft-feat-qwen7b_pathological/results.jsonl",
+      "source_git_blob_sha": "1804bd7bf01fcfc8681d635e51bfda2ca224db7f"
+    },
+    {
+      "path": "predictions/v1/sft-feat-qwen7b_pathological/run_meta.json",
+      "sha256": "34556ed1933d113be3358c7f29e7f75c2dd595ec026f6ec7af13b4916de3926e",
+      "source": "gaiteval/GaitEval:predictions/v1/sft-feat-qwen7b_pathological/run_meta.json",
+      "source_git_blob_sha": "e813446bd2dd9e054ccdcb202f9cc1ae461f8f08"
+    },
+    {
+      "path": "predictions/v1/sft-qwen7b_ataxia/results.jsonl",
+      "sha256": "0fa74b0df086d715edba95089751c83270a19b2d395103762b2334439afdc9f8",
+      "source": "gaiteval/GaitEval:predictions/v1/sft-qwen7b_ataxia/results.jsonl",
+      "source_git_blob_sha": "b682925b3fc8691bcae701760a404e7b238937f1"
+    },
+    {
+      "path": "predictions/v1/sft-qwen7b_gmfcs/results.jsonl",
+      "sha256": "0dc2b3ac4f272137a8b6bf68acce8c94d44e6a92a102e804375b48225bac26dc",
+      "source": "gaiteval/GaitEval:predictions/v1/sft-qwen7b_gmfcs/results.jsonl",
+      "source_git_blob_sha": "6d207afdf3630b6441f758b785b5aa6a86adc3a9"
+    },
+    {
+      "path": "predictions/v1/sft-qwen7b_parkinsonism/results.jsonl",
+      "sha256": "13d917ec3375367eca38707df0cc80a64056b3cbbc26d39307d2e817373bcadf",
+      "source": "gaiteval/GaitEval:predictions/v1/sft-qwen7b_parkinsonism/results.jsonl",
+      "source_git_blob_sha": "1afc801d199f0e50cf20a3637739352baf4ecfc2"
+    },
+    {
+      "path": "predictions/v1/sft-qwen7b_pathological/results.jsonl",
+      "sha256": "7bc5933791ec942b3c9d20e2d20c36b6b4474ec6a6517937c7341c03f3bf8e34",
+      "source": "gaiteval/GaitEval:predictions/v1/sft-qwen7b_pathological/results.jsonl",
+      "source_git_blob_sha": "bdff501b052bc8e020e9d0e86281d87942f03ed9"
+    },
+    {
+      "path": "qualitative/ataxia_sft_success_minority.png",
+      "sha256": "065bb918a4588a56da4455a57b3866ef93a280644caa9aa7a2bea1b937860f1b",
+      "source": "james20141606/gaiteval-wacv:camera_ready/qualitative/ataxia_sft_success_minority.png",
+      "source_git_blob_sha": "67fd893291340cb4334a2e91dd82d8b522938f1a"
+    },
+    {
+      "path": "qualitative/gmfcs_zs_fail_sft_fix.png",
+      "sha256": "cf8c93650df9d24e03e96043c6b33aff0b12f61fb456b047231c4734b0f38910",
+      "source": "james20141606/gaiteval-wacv:camera_ready/qualitative/gmfcs_zs_fail_sft_fix.png",
+      "source_git_blob_sha": "321a56d149ff9c139e3ac5bb1effeb84f2b6b3f5"
+    },
+    {
+      "path": "qualitative/matched_cases_prepared.json",
+      "sha256": "61123464d2d08a857464c94e9f42c1c969553ef45b6bafb04bfbd4b338b580de",
+      "source": "created for this verification"
+    },
+    {
+      "path": "qualitative/pathogait_zs_fail.png",
+      "sha256": "1aa0332d64416407cfe2dd1f9cf8db64aca0a5ccf38ed7d974effa457b18d41c",
+      "source": "james20141606/gaiteval-wacv:camera_ready/qualitative/pathogait_zs_fail.png",
+      "source_git_blob_sha": "4e09f2f34a4b9756016943b3ac6203cc4b735267"
+    },
+    {
+      "path": "qualitative/qualitative_examples_source.json",
+      "sha256": "aaf346f0ce1bc0243170b60b7a74a3e7a54f248f9dc1fae704ef4f0a15caee3d",
+      "source": "james20141606/gaiteval-wacv:camera_ready/qualitative/qualitative_examples.json",
+      "source_git_blob_sha": "0de72b36f284a357248589b45b814deeb8c5dfa0"
+    },
+    {
+      "path": "source_snapshot/L_point_metrics_verified.json",
+      "sha256": "303fd4c40f42b533989c9fee8ca54fed444554f750bfbcecd3528b5cdda79f00",
+      "source": "created for this verification"
+    },
+    {
+      "path": "source_snapshot/S_point_metrics.csv",
+      "sha256": "120cedfb78f57f301d00c5a2bbd46ee4f40a40c6e4ae36b4899eddaaa06cb7c9",
+      "source": "created for this verification"
+    },
+    {
+      "path": "source_snapshot/S_reference_suite.json",
+      "sha256": "aa8984621fbed46c6a1caaadba25c4afe80ec43087d36ac525e5623f03921707",
+      "source": "james20141606/gaiteval-wacv:new_data/v2_reference_suite.json",
+      "source_git_blob_sha": "43b9cd2f8d156210857e9a8f5980226b9d006190"
+    },
+    {
+      "path": "source_snapshot/experiments_detail_excerpt.md",
+      "sha256": "733148a0bdb86ade1b2f1515f14c12ec57909efd765f4c1f466e8e10db7c8414",
+      "source": "james20141606/gaiteval-wacv:experiments_detail.md (excerpt from 2026-10-19 camera-ready entries)"
+    },
+    {
+      "path": "source_snapshot/gmfcs_view_lineage_excerpt.json",
+      "sha256": "7896cdcde5b45cd9df86c4fe56c219e15a3ced1c5e5a237134c2f89cf8837f69",
+      "source": "created for this verification"
+    },
+    {
+      "path": "splits/gmfcs_test_sd.tsv",
+      "sha256": "5b5f24c6fb7f9cfd3b78ea88bd2437842bc72efa5c0e770d200b74ba19fd9db8",
+      "source": "gaiteval/GaitEval:splits/gmfcs_test_sd.tsv",
+      "source_git_blob_sha": "7c20672bd1eef7273d2867a02b9ba8915c932462"
+    },
+    {
+      "path": "splits/gmfcs_test_sd_ids.txt",
+      "sha256": "27cbb46100b0d576c20e8e6fa69173245eb5997d183f8fce218815d9200dd48a",
+      "source": "gaiteval/GaitEval:splits/gmfcs_test_sd_ids.txt",
+      "source_git_blob_sha": "f704176a971df9e98484d32a443fe2c9c955ee03"
+    },
+    {
+      "path": "splits/gmfcs_train_sd.tsv",
+      "sha256": "fce8734e51279d880fbb1308e93306de0eb91cf373dcae5f76076f51ae581852",
+      "source": "gaiteval/GaitEval:splits/gmfcs_train_sd.tsv",
+      "source_git_blob_sha": "08494f91399ebb4d3565afbdf4e2483c023ae87e"
+    },
+    {
+      "path": "splits/gmfcs_val_sd.tsv",
+      "sha256": "792e1708871b7c4965c968c50d9a1ce8966f5c103551c87c71abffee29c3af26",
+      "source": "gaiteval/GaitEval:splits/gmfcs_val_sd.tsv",
+      "source_git_blob_sha": "2a7e31e7c1e9c203dbbd658744035182bedce7f6"
+    },
+    {
+      "path": "splits/subject_map_gmfcs.json",
+      "sha256": "948a0444e5d30315af793bcf2d9f01801a069694449369b958fd11dbdb88d71b",
+      "source": "gaiteval/GaitEval:splits/subject_map_gmfcs.json",
+      "source_git_blob_sha": "f40518cab10d397db36679118ad1895330583a2b"
+    },
+    {
+      "path": "splits/subject_map_pathological.json",
+      "sha256": "0cdc773d4409c1dde960d262377c893feb3cea9be3ed5f450488c99249505019",
+      "source": "gaiteval/GaitEval:splits/subject_map_pathological.json",
+      "source_git_blob_sha": "67f3cc2791c9589c916f1601b7b0658d2deb3904"
+    },
+    {
+      "path": "verify_corrections.py",
+      "sha256": "2ba0e246aefbed3a31e30c249200d3c7a6f7ea81923cf4dc76d727631441752a",
+      "source": "created for this verification"
+    }
+  ]
+}

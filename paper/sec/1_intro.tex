@@ -8,7 +8,7 @@ Pose evidence can be presented as raw coordinates, deterministic motion summarie
 
 We introduce \textbf{GaitEval}, a multi-condition benchmark in which \emph{gait reasoning} means grounding dataset-specified label predictions in pose-derived evidence, rather than open-ended diagnosis or clinical interpretation. The benchmark comprises six datasets: ASD-Kinect, ATAXIA, CARE-PD, GMFCS, PARKINSONISM, and PATHOGAIT. Each retains its population provenance and native label space. GaitEval introduces no new clinical recordings; it provides controlled representations, evidence-use tests, and same-feature diagnostic references (Fig.~\ref{fig:method_pipeline}).
 
-The evaluation follows the original evidence ladder: zero-shot prompting, few-shot examples, and LoRA adaptation, with transfer limited to the tested ATAXIA--PATHOGAIT pair~\cite{brown2020fewshot,hu2022lora}. The common six-dataset analysis uses Qwen2.5-7B-Instruct, subject-disjoint partitions, and capture-quality-free features. Additional model, view, and adaptation measurements retain their original protocol labels and are never substituted for missing common-protocol experiments.
+The evaluation follows an evidence ladder: zero-shot prompting, few-shot examples, and LoRA adaptation, with transfer limited to the tested ATAXIA--PATHOGAIT pair~\cite{brown2020fewshot,hu2022lora}. The common six-dataset analysis uses Qwen2.5-7B-Instruct, source-reported subject-disjoint partitions, and capture-quality-free features. Model, view, and adaptation experiments follow this evaluation protocol, with their actual input settings and eligible test records specified for each comparison.
 
 Our main contributions are:
 \begin{itemize}[leftmargin=*,nosep]

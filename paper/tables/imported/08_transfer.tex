@@ -1,0 +1,26 @@
+\begin{importsmalltable}
+\centering
+\caption{\textbf{Bidirectional ATAXIA--PATHOGAIT transfer.} Models use z-scored feature descriptions; target-majority values are accuracy / macro-F1. Target tests have 2,181 PATHOGAIT clips or 1,647 ATAXIA clips. PATHOGAIT is binarized, so its in-distribution $\kappa$ is not comparable with the six-class adaptation result. OOD denotes target-dataset evaluation. Only this task-compatible pair was tested.}
+\label{v2detail:tab:cross_condition_transfer}
+\small
+\setlength{\tabcolsep}{3.6pt}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lccc}
+\toprule
+\textbf{Train $\rightarrow$ Test}
+& \textbf{In-dist. $\kappa$}
+& \textbf{OOD Acc. / mF1 / $\kappa$}
+& \textbf{Target majority} \\
+\midrule
+ATAXIA $\rightarrow$ PATHOGAIT
+& 0.549
+& 0.656 / 0.496 / 0.057
+& 0.890 / 0.471 \\
+
+PATHOGAIT $\rightarrow$ ATAXIA
+& 0.917
+& 0.686 / 0.407 / 0.000
+& 0.686 / 0.407 \\
+\bottomrule
+\end{tabular}}
+\end{importsmalltable}

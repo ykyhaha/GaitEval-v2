@@ -1,0 +1,5 @@
+GaitEval v2.2 LaTeX source snapshot
+Repository: https://github.com/ykyhaha/WACV_Gait_eval_camera_ready
+Commit: 15586dcef026a06a53035228d313564807447b32
+Scope: v2.2/paper, figure_source, required figure-rendering asset, and change notes.
+Base provenance is the GitHub commit above; this package follows the user-edited upload with a body-only expansion in paper/sec/4_evaluation_conditions.tex. Figures, tables, captions, and bibliography are unchanged from the upload.

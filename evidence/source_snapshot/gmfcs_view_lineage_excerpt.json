@@ -1,0 +1,37 @@
+{
+  "source_repository": "james20141606/gaiteval-wacv",
+  "source_commit": "2348b11f69a248ec57234c92747dda79f368d798",
+  "source_path": "camera_ready/cr_tree/r2_recompute_part1.json",
+  "source_git_blob_sha": "7682aa074c1b43b448fcec3cf0939548b8a38efe",
+  "extraction": "Only n, dataset and metrics_all are copied from the named runs. This excerpt is derived, not the original file.",
+  "runs": {
+    "zeroshot-qwen7b_gmfcs": {
+      "dataset": "gmfcs",
+      "n": 899,
+      "metrics_all": {
+        "acc": 0.24916573971078976,
+        "macro_f1": 0.1097094214029698,
+        "kappa": -0.007705273296412241
+      }
+    },
+    "zs7b_feature_vector_gmfcs": {
+      "dataset": "gmfcs",
+      "n": 899,
+      "metrics_all": {
+        "acc": 0.3426028921023359,
+        "macro_f1": 0.24528654217245682,
+        "kappa": 0.0065722555457495835
+      }
+    },
+    "zs7b_feature_vector_z_gmfcs": {
+      "dataset": "gmfcs",
+      "n": 899,
+      "metrics_all": {
+        "acc": 0.1846496106785317,
+        "macro_f1": 0.09985149141275274,
+        "kappa": -0.04880447809416788
+      }
+    }
+  },
+  "decision": "Withhold these cells from corrected-866 comparisons; no per-record corrected view result was independently recovered."
+}

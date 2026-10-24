@@ -1,0 +1,17 @@
+\begin{importtable}
+\centering\small
+\caption{\textbf{Shared six-dataset evidence-use and adaptation evaluation.} Macro-F1 point estimates use the fixed task label set. Bracketed participant-cluster intervals and paired bootstrap tail areas $p$ are archived statistics with the historical resampling convention described in Methods; they are not newly recomputed fixed-label intervals. $\Delta_{\rm ShufEv}$ is summary zero-shot minus shuffled evidence; $\Delta_{\rm SFT}$ is summary-SFT minus summary zero-shot within Qwen2.5-7B. PATHOGAIT has only two test participants, so its values are descriptive and intervals/$p$ are withheld.}
+\label{v22:tab:evidence_use}
+\setlength{\tabcolsep}{3pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{llrlllll}\toprule
+Dataset & Task & Clips (subjects) & Chance & LR [95\% CI] & 7B ZS [95\% CI] & $\Delta_{\rm ShufEv}$ ($p$) & 7B SFT ($\Delta_{\rm SFT}$, $p$)\\\midrule
+ASD-Kinect & binary & 20 (20) & .490 & .697 [.479, .890] & .310 [.200, .394] & $-.125$ (.25) & .310 (.000, 1.0)\\
+ATAXIA & binary, imitated & 8 (4) & .488 & .873 [.564, 1.000] & .273 [.111, .333] & .000 (1.0) & .333 (+.061, .60)\\
+CARE-PD & UPDRS gait 0--3 & 665 (24) & .250 & .659 [.407, .742] & .321 [.262, .404] & +.065 (.029) & .445 (+.124, .43)\\
+GMFCS & four-level ordinal & 255 (149) & .250 & .579 [.474, .662] & .265 [.217, .308] & +.052 (.089) & .467 (+.202, .001)\\
+PARKINSONISM & binary severity & 29 (5) & .494 & .561 [.416, .654] & .396 [.222, .530] & +.086 (.14) & .542 (+.146, .47)\\
+PATHOGAIT & six-class, simulated & 1440 (2) & .166 & .881 & .069 & $-.002$ & .451 (+.382)\\\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{importtable}

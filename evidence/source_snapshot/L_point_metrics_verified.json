@@ -1,0 +1,119 @@
+{
+  "fixed_task_label_scoring": true,
+  "source_commit": "60f3503902f5bcd06b77198aaa0cb18aadfcaad9",
+  "rescored_L": {
+    "sft-qwen7b_parkinsonism": {
+      "n": 120,
+      "accuracy": 0.48333333333333334,
+      "macro_f1": 0.4535840188014101,
+      "kappa": 0.0653266331658291,
+      "invalid": 0,
+      "archived_union_macro_f1": 0.4535840188014101,
+      "source_path": "predictions/v1/sft-qwen7b_parkinsonism/results.jsonl",
+      "source_git_blob_sha": "1afc801d199f0e50cf20a3637739352baf4ecfc2"
+    },
+    "sft-qwen7b_pathological": {
+      "n": 2181,
+      "accuracy": 0.5928473177441541,
+      "macro_f1": 0.6093335192191475,
+      "kappa": 0.5110002522350832,
+      "invalid": 0,
+      "archived_union_macro_f1": 0.6093335192191475,
+      "source_path": "predictions/v1/sft-qwen7b_pathological/results.jsonl",
+      "source_git_blob_sha": "bdff501b052bc8e020e9d0e86281d87942f03ed9"
+    },
+    "full_motionsum_pathological_llama70b": {
+      "n": 2181,
+      "accuracy": 0.1586428243924805,
+      "macro_f1": 0.06204553354732173,
+      "kappa": -0.009513880725998236,
+      "invalid": 3,
+      "archived_union_macro_f1": 0.05318188589770434,
+      "source_path": "predictions/v1/full_motionsum_pathological_llama70b/results.jsonl",
+      "source_git_blob_sha": "fcbcb3bf59444424a54faf30619ab0735ca2ed0b"
+    },
+    "full_motionsum_pathological_glm4-32b": {
+      "n": 2181,
+      "accuracy": 0.14076111875286565,
+      "macro_f1": 0.06867310272635167,
+      "kappa": -0.06906563338151361,
+      "invalid": 2,
+      "archived_union_macro_f1": 0.05886265947973,
+      "source_path": "predictions/v1/full_motionsum_pathological_glm4-32b/results.jsonl",
+      "source_git_blob_sha": "50b999f6058822f0b60f7f2fcaaaafb91dbddaa5"
+    }
+  },
+  "corrected_gmfcs_five_family": {
+    "llama70b": {
+      "n": 866,
+      "accuracy": 0.3533487297921478,
+      "macro_f1": 0.21218505430955398,
+      "kappa": 0.024861056373712054,
+      "invalid": 0,
+      "source_git_blob_sha": "49d330eaa363bd3ef838a86b57354fc5b25b441a"
+    },
+    "qwen72b": {
+      "n": 866,
+      "accuracy": 0.371824480369515,
+      "macro_f1": 0.2215539457162175,
+      "kappa": 0.042603867758114866,
+      "invalid": 0,
+      "source_git_blob_sha": "1005219ce670a6c984c1042b17cadbbe5b87e8fc"
+    },
+    "gemma3-27b": {
+      "n": 866,
+      "accuracy": 0.312933025404157,
+      "macro_f1": 0.16337302292518216,
+      "kappa": 0.029922961646496993,
+      "invalid": 0,
+      "source_git_blob_sha": "086cdbd3bf3a0ff4db1a0144eb81b99819bac50b"
+    },
+    "glm4-32b": {
+      "n": 866,
+      "accuracy": 0.2690531177829099,
+      "macro_f1": 0.12655242083608845,
+      "kappa": -6.202749642425509e-05,
+      "invalid": 0,
+      "source_git_blob_sha": "5d1c4dd165be6c6883a21f16d8af3f0571c38a2f"
+    },
+    "dsr1-qwen32b": {
+      "n": 866,
+      "accuracy": 0.31062355658198615,
+      "macro_f1": 0.19053870028530728,
+      "kappa": 0.01448717313315616,
+      "invalid": 0,
+      "confusion": [
+        [
+          0,
+          109,
+          183,
+          8,
+          0
+        ],
+        [
+          0,
+          106,
+          194,
+          8,
+          0
+        ],
+        [
+          0,
+          76,
+          163,
+          5,
+          0
+        ],
+        [
+          0,
+          4,
+          10,
+          0,
+          0
+        ]
+      ],
+      "source_git_blob_sha": "8a8d2e742e5e3334a9d3cd61aabd58a03f1e4a33"
+    }
+  },
+  "unweighted_ataxia_svm_mf1": 0.7684637417131432
+}

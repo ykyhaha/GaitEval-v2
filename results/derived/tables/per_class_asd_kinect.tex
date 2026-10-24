@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\caption{\textbf{ASD-Kinect per-class S results.} Precision, recall, and F1 are recomputed from committed predictions; all task classes are retained.}
+\label{tab:per_class_asd_kinect}
+\small
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{llrrrr}
+\toprule
+Condition & Class & Support & Precision & Recall & F1 \\
+\midrule
+Zero-shot summary & ASD & 10 & 0.000 & 0.000 & 0.000 \\
+Zero-shot summary & typically\_developing & 10 & 0.474 & 0.900 & 0.621 \\
+Zero-shot z-features & ASD & 10 & 1.000 & 0.100 & 0.182 \\
+Zero-shot z-features & typically\_developing & 10 & 0.526 & 1.000 & 0.690 \\
+LoRA-SFT summary & ASD & 10 & 0.474 & 0.900 & 0.621 \\
+LoRA-SFT summary & typically\_developing & 10 & 0.000 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

@@ -1,6 +1,6 @@
 # Six-dataset standardized results
 
-All six datasets enter the same S contract. L measurements are kept in the manuscript with explicit tags. CARE-PD uses the four-label UPDRS gait task.
+All six datasets enter the same benchmark evaluation workflow. Each experiment retains its actual test records, inputs, and model settings; no protocol-letter tags are used in the manuscript. CARE-PD uses the four-label UPDRS gait task.
 
 | Dataset | Test clips | Test subjects | ZS summary | ZS z-features | SFT summary | LR | SVM |
 |---|---:|---:|---:|---:|---:|---:|---:|

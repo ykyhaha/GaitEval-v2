@@ -1,0 +1,26 @@
+\begin{table}[H]
+\centering
+\caption{\textbf{GMFCS per-class S results.} Precision, recall, and F1 are recomputed from committed predictions; all task classes are retained.}
+\label{tab:per_class_gmfcs}
+\small
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{llrrrr}
+\toprule
+Condition & Class & Support & Precision & Recall & F1 \\
+\midrule
+Zero-shot summary & 1 & 98 & 0.420 & 0.347 & 0.380 \\
+Zero-shot summary & 2 & 97 & 0.361 & 0.134 & 0.195 \\
+Zero-shot summary & 3 & 57 & 0.352 & 0.772 & 0.484 \\
+Zero-shot summary & 4 & 3 & 0.000 & 0.000 & 0.000 \\
+Zero-shot z-features & 1 & 98 & 0.000 & 0.000 & 0.000 \\
+Zero-shot z-features & 2 & 97 & 0.293 & 0.124 & 0.174 \\
+Zero-shot z-features & 3 & 57 & 0.237 & 0.772 & 0.362 \\
+Zero-shot z-features & 4 & 3 & 0.036 & 0.333 & 0.065 \\
+LoRA-SFT summary & 1 & 98 & 0.611 & 0.592 & 0.601 \\
+LoRA-SFT summary & 2 & 97 & 0.514 & 0.557 & 0.535 \\
+LoRA-SFT summary & 3 & 57 & 0.745 & 0.719 & 0.732 \\
+LoRA-SFT summary & 4 & 3 & 0.000 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

@@ -26,7 +26,10 @@
 \renewcommand{\arraystretch}{1.08}
 
 \pagestyle{empty}
+\newenvironment{importtable}{\begin{table}[H]}{\end{table}}
+\newenvironment{importsmalltable}{\begin{table}[H]}{\end{table}}
 \begin{document}
 \input{supplementary.tex}
+\clearpage
 \input{references_frozen.bbl}
 \end{document}

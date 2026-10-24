@@ -1,0 +1,13 @@
+{
+  "dataset": "pathological",
+  "split": "test",
+  "backend": "vllm",
+  "model": "sft-feat-qwen7b",
+  "view": "feature_vector",
+  "n_attempted": 2181,
+  "n_errors": 0,
+  "n_unparsed": 0,
+  "wall_time_seconds": 28.08,
+  "prompt_tokens": 1160292,
+  "completion_tokens": 12979
+}

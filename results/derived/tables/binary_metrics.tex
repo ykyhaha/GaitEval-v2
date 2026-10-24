@@ -1,0 +1,23 @@
+\begin{table}[H]
+\centering
+\caption{\textbf{Binary S metrics.} Sensitivity is recall of the explicitly named positive class, and specificity is recall of its complement. Case-sensitive source label identities are preserved.}
+\label{tab:binary_metrics}
+\small
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lllrrr}
+\toprule
+Dataset & Condition & Positive class & Sensitivity & Specificity & Balanced acc. \\
+\midrule
+ASD-Kinect & Zero-shot summary & ASD & 0.000 & 0.900 & 0.450 \\
+ASD-Kinect & Zero-shot z-features & ASD & 0.100 & 1.000 & 0.550 \\
+ASD-Kinect & LoRA-SFT summary & ASD & 0.900 & 0.000 & 0.450 \\
+ATAXIA & Zero-shot summary & mimicked\_ataxia & 0.000 & 0.750 & 0.375 \\
+ATAXIA & Zero-shot z-features & mimicked\_ataxia & 0.000 & 1.000 & 0.500 \\
+ATAXIA & LoRA-SFT summary & mimicked\_ataxia & 1.000 & 0.000 & 0.500 \\
+PARKINSONISM & Zero-shot summary & severe & 0.067 & 1.000 & 0.533 \\
+PARKINSONISM & Zero-shot z-features & severe & 0.667 & 0.857 & 0.762 \\
+PARKINSONISM & LoRA-SFT summary & severe & 0.867 & 0.286 & 0.576 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

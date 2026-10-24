@@ -1,0 +1,76 @@
+{
+  "purpose": "Red author-review additions; provisional GMFCS cells are excluded from matched-test comparisons.",
+  "source_repository": "james20141606/gaiteval-wacv",
+  "source_commit": "2348b11f69a248ec57234c92747dda79f368d798",
+  "cells": {
+    "summary": "0.259 / 0.113 / $-0.009$",
+    "normalized": "0.282 / 0.110 / 0.000",
+    "raw_features": "0.343 / 0.245 / 0.007",
+    "z_features": "0.185 / 0.100 / $-0.049$",
+    "path_raw_features": "0.110 / 0.033 / 0.000"
+  },
+  "pathogait_recompute": {
+    "dataset": "pathological",
+    "n": 2181,
+    "n_valid": 2181,
+    "invalid_rate": 0.0,
+    "n_changed_vs_stored": 0,
+    "metrics_all": {
+      "acc": 0.11004126547455295,
+      "macro_f1": 0.033044196612969846,
+      "kappa": 0.0
+    },
+    "metrics_valid": {
+      "acc": 0.11004126547455295,
+      "macro_f1": 0.033044196612969846,
+      "kappa": 0.0
+    },
+    "pred_dist": {
+      "normal gait": 2181
+    },
+    "top_class_share_valid": 1.0,
+    "summary_macro_f1": 0.033044196612969846,
+    "reparse_matches_summary": true
+  },
+  "gmfcs_899_recompute": {
+    "zs7b_feature_vector_gmfcs": {
+      "dataset": "gmfcs",
+      "n": 899,
+      "n_valid": 899,
+      "metrics_all": {
+        "acc": 0.3426028921023359,
+        "macro_f1": 0.24528654217245682,
+        "kappa": 0.0065722555457495835
+      },
+      "reparse_matches_summary": true
+    },
+    "zs7b_feature_vector_z_gmfcs": {
+      "dataset": "gmfcs",
+      "n": 899,
+      "n_valid": 899,
+      "metrics_all": {
+        "acc": 0.1846496106785317,
+        "macro_f1": 0.09985149141275274,
+        "kappa": -0.04880447809416788
+      },
+      "reparse_matches_summary": true
+    }
+  },
+  "gmfcs_summary_log": {
+    "file": "experiments_detail.md",
+    "entry": "2026-10-19T23:30:00-04:00",
+    "n": 866,
+    "accuracy": 0.2587,
+    "macro_f1": 0.1129,
+    "kappa": -0.0089,
+    "status": "log-only; cross-stack bigpurple run; no matching raw generations recovered"
+  },
+  "gmfcs_normalized": {
+    "n_claimed": 866,
+    "accuracy": 0.282,
+    "macro_f1": 0.11,
+    "kappa": 0,
+    "status": "source-draft-only; unverified corrected-split claim"
+  },
+  "new_inference_performed": false
+}

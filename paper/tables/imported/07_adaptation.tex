@@ -1,0 +1,75 @@
+\begin{importtable}
+\centering
+\caption{\textbf{Task-specific adaptation ladder.} LLM cells are macro-F1 / Cohen's $\kappa$; references are macro-F1. Zero-shot/few-shot use Qwen2.5-72B, while the 7B anchor and SFT use Qwen2.5-7B. Test clips in dataset order are 20/1,647/665/866/120/2,181. PATHOGAIT few-shot instead uses 600 clips, so that change is not a paired full-test gain. GMFCS uses corrected training/test partitions; its matching 7B zero-shot anchor is unverified and withheld. ``--'' denotes unavailable configurations. Bold feature-SFT matches or exceeds the stronger reference point estimate.}
+\label{v2detail:tab:adaptation_ladder}
+\small
+\setlength{\tabcolsep}{4.2pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccccc@{}}
+\toprule
+\textbf{Dataset}
+& \textbf{Zero-shot}
+& \textbf{Zero-shot (7B)}
+& \textbf{Few-shot}
+& \textbf{SFT: summary}
+& \textbf{SFT: features}
+& \textbf{SVM}
+& \textbf{LogReg} \\
+\midrule
+ASD-Kinect
+& 0.373 / $-0.100$
+& 0.310 / $-0.100$
+& --
+& 0.310 / $-0.100$
+& --
+& 0.744
+& 0.697 \\
+
+ATAXIA
+& 0.406 / $-0.002$
+& 0.452 / 0.046
+& 0.697 / 0.395
+& 0.751 / 0.507
+& 0.762 / 0.528
+& 0.759
+& 0.763 \\
+
+CARE-PD
+& 0.268 / 0.129
+& 0.321 / 0.152
+& --
+& 0.445 / 0.168
+& --
+& 0.650
+& 0.659 \\
+
+GMFCS
+& 0.222 / 0.043
+& --
+& --
+& 0.259 / 0.043
+& --
+& 0.412
+& 0.395 \\
+PARKINSONISM
+& 0.472 / 0.035
+& 0.400 / $-0.045$
+& 0.561 / 0.188
+& 0.454 / 0.065
+& --
+& 0.583
+& 0.613 \\
+
+PATHOGAIT
+& 0.055 / $-0.009$
+& 0.087 / $-0.024$
+& 0.185 / 0.081
+& 0.609 / 0.511
+& \textbf{0.687 / 0.611}
+& 0.644
+& 0.662 \\
+
+\bottomrule
+\end{tabular*}
+\end{adjustbox}
+\end{importtable}

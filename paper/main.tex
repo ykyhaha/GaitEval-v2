@@ -9,28 +9,23 @@
 
 \definecolor{wacvblue}{rgb}{0.21,0.49,0.74}
 \usepackage{xr} % [Fan R2 A2] resolve \ref{...supp...} against the separate supplement build
-% Cross-document labels are not needed by this self-contained main draft.
+\externaldocument[supp-]{supplementary_standalone} % resolve tables moved to the supplement
 \usepackage[pagebackref,breaklinks,colorlinks,allcolors=wacvblue]{hyperref}
-
 \def\wacvPaperID{*****}
 \def\confName{WACV}
 \def\confYear{2027}
 
 \title{GaitEval: A Multi-Condition Benchmark for Evaluating Whether Large Language Models Use Pose-Derived Gait Evidence}
 
-\author{Author names, order, affiliations, and emails pending verification\\
-Submission 01586 --- author metadata to be completed before upload}
+\author{Kaiyuan Yang$^{1}$ \quad Xupeng Chen$^{2}$ \quad Fan Huang$^{1}$ \quad Jiangpeng He$^{1,\ast}$\\
+$^{1}$Indiana University \quad $^{2}$New York University\\
+{\tt\small ky20@iu.edu \quad xc1490@nyu.edu \quad fanhuan@iu.edu \quad jhe2@iu.edu}\\
+{\small $^{\ast}$Corresponding author}}
 
 \begin{document}
-\maketitle
+\input{figs/front_teaser}
 
 \input{sec/0_abstract}
-
-\begin{figure*}[t]
-\centering\includegraphics[width=\textwidth]{figures/overview.pdf}
-\caption{\textbf{GaitEval overview.} Six datasets enter one evidence-grounded benchmark. Source-publication examples and recorded-skeleton renderings illustrate the resources; they are not matched test cases or inputs to an image model. One pose-derived evidence view is supplied per run. Same-feature references test recoverable signal; evidence/order controls, adaptation, and scoped transfer test the limits of LLM use. Source attribution and experiment coverage are documented in the supplement.}
-\label{fig:method_pipeline}
-\end{figure*}
 
 \input{sec/1_intro}
 \input{sec/2_related_work}

@@ -4,3 +4,5 @@ cd "$(dirname "$0")/.."
 python3 scripts/audit_results.py
 python3 scripts/check_release.py
 python3 scripts/render_result_figures.py
+python3 evidence/verify_corrections.py
+python3 scripts/verify_publication.py
