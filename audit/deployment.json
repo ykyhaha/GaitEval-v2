@@ -6,6 +6,12 @@
     "path": "/docs"
   },
   "manuscript_version": "v2.2 eight-page text expansion",
-  "deployment_status": "prepared; commit and Pages build verified after push",
-  "updated": "2026-10-24"
+  "deployment_status": "GitHub Pages publishes main:/docs on each push; inspect the workflow linked below for live status.",
+  "updated": "2026-10-24",
+  "verified_deployment_before_cache_refresh": {
+    "commit": "b4749c2bbf003e9007c6120342ec0b32dd1a4367",
+    "workflow_run_id": 40073681762,
+    "status": "success"
+  },
+  "workflow_history": "https://github.com/ykyhaha/GaitEval-v2/actions"
 }

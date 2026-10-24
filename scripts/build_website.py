@@ -1,7 +1,9 @@
 from pathlib import Path
-import json,shutil
+import json,shutil,hashlib
 V=Path(__file__).resolve().parents[1];W=V/'website/dist';W.mkdir(parents=True,exist_ok=True)
-for name in ['index.template.html','style.css','app.js','sources.html']:shutil.copyfile(V/'website'/name,W/('index.html' if name=='index.template.html' else name))
+version=hashlib.sha256(b''.join((V/'website'/n).read_bytes() for n in ['index.template.html','style.css','app.js','sources.html'])+(V/'paper/main.pdf').read_bytes()).hexdigest()[:12]
+for name in ['index.template.html','style.css','app.js','sources.html']:
+ (W/('index.html' if name=='index.template.html' else name)).write_text((V/'website'/name).read_text().replace('__ASSET_VERSION__',version))
 (W/'assets').mkdir(exist_ok=True);(W/'files').mkdir(exist_ok=True)
 for name in ['overview','methods']:
  for ext in ['svg','png']:shutil.copyfile(V/f'paper/figures/{name}.{ext}',W/f'assets/{name}.{ext}')
